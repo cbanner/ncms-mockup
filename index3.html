@@ -128,6 +128,19 @@
         .comparison-section {
             padding: 60px 40px;
             background: #222;
+            position: relative;
+        }
+
+        .comparison-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.02)"/></svg>');
+            background-size: 24px 24px;
+            pointer-events: none;
         }
 
         .comparison-container {
@@ -281,8 +294,22 @@
             background: linear-gradient(135deg, rgba(26, 122, 76, 0.1) 0%, rgba(26, 122, 76, 0.05) 100%);
             border-left: 4px solid var(--ncms-green);
             border-radius: 0 16px 16px 0;
-            padding: 30px 40px;
+            padding: 30px 40px 30px 60px;
             margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-block::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 12px;
+            font-family: 'Fraunces', serif;
+            font-size: 8rem;
+            color: rgba(26, 122, 76, 0.15);
+            line-height: 1;
+            pointer-events: none;
         }
 
         .quote-block p {
@@ -292,12 +319,16 @@
             color: #ddd;
             line-height: 1.5;
             margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
         }
 
         .quote-block cite {
             color: #888;
             font-size: 0.9rem;
             font-style: normal;
+            position: relative;
+            z-index: 1;
         }
 
         /* Scenario Section */
@@ -316,6 +347,13 @@
             border-radius: 16px;
             overflow: hidden;
             margin-bottom: 30px;
+            border: 1px solid #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .scenario-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
         }
 
         .scenario-header {
@@ -329,12 +367,19 @@
         .scenario-avatar {
             width: 48px;
             height: 48px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--ncms-green) 0%, var(--ncms-green-dark) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+            letter-spacing: 0.02em;
+        }
+
+        .scenario-avatar.negative {
+            background: linear-gradient(135deg, #666 0%, #444 100%);
         }
 
         .scenario-meta h4 {
@@ -433,6 +478,12 @@
             border-radius: 16px;
             padding: 32px;
             border: 1px solid #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .definition-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
         }
 
         .definition-card .term {
@@ -498,6 +549,12 @@
             border-radius: 16px;
             overflow: hidden;
             border: 1px solid #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .action-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
         }
 
         .action-card-header {
@@ -588,8 +645,15 @@
         .benefit-item {
             display: flex;
             gap: 24px;
-            padding: 28px 0;
+            padding: 28px 16px;
+            margin: 0 -16px;
             border-bottom: 1px solid #333;
+            border-radius: 12px;
+            transition: background 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            background: rgba(26, 122, 76, 0.05);
         }
 
         .benefit-item:last-child {
@@ -627,6 +691,20 @@
             padding: 80px 40px;
             text-align: center;
             background: linear-gradient(180deg, var(--presentation-bg) 0%, #222 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(26, 122, 76, 0.08) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .cta-section h2 {
@@ -634,27 +712,40 @@
             font-size: 2.2rem;
             font-weight: 400;
             margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
         }
 
-        .cta-section p {
+        .cta-section > p {
             color: #888;
             font-size: 1.1rem;
             max-width: 600px;
             margin: 0 auto 30px;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-box {
             display: inline-block;
-            background: var(--annotation-bg);
+            background: linear-gradient(135deg, rgba(26, 122, 76, 0.15) 0%, var(--annotation-bg) 100%);
             border-radius: 16px;
             padding: 32px 48px;
-            border: 1px solid #333;
+            border: 1px solid rgba(26, 122, 76, 0.3);
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(26, 122, 76, 0.15);
         }
 
         .cta-box p {
             color: #ccc;
-            font-size: 1rem;
+            font-size: 1.05rem;
             margin-bottom: 0;
+            line-height: 1.6;
         }
 
         .cta-box strong {
@@ -678,30 +769,39 @@
         }
 
         .stat-card {
-            background: var(--annotation-bg);
-            border-radius: 12px;
-            padding: 28px;
+            background: linear-gradient(180deg, #2d2d2d 0%, var(--annotation-bg) 100%);
+            border-radius: 16px;
+            padding: 32px 28px;
             text-align: center;
-            border: 1px solid #333;
+            border: 1px solid #3a3a3a;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
         }
 
         .stat-card .stat-number {
             font-family: 'Fraunces', serif;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 500;
             color: var(--ncms-green);
             margin-bottom: 8px;
+            letter-spacing: -0.02em;
         }
 
         .stat-card .stat-label {
-            color: #888;
-            font-size: 0.9rem;
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.4;
         }
 
         .stat-card .stat-source {
-            color: #555;
+            color: #666;
             font-size: 0.75rem;
-            margin-top: 8px;
+            margin-top: 12px;
+            font-style: italic;
         }
 
         /* Skeptic Section */
@@ -743,6 +843,12 @@
             border-radius: 12px;
             padding: 24px 28px;
             border: 1px solid #333;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .concern-item:hover {
+            border-color: rgba(201, 162, 39, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
 
         .concern-item .concern-header {
@@ -782,6 +888,62 @@
             font-size: 0.95rem;
             line-height: 1.6;
             padding-left: 52px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .comparison-card,
+        .scenario-box,
+        .definition-card,
+        .action-card,
+        .stat-card,
+        .concern-item,
+        .benefit-item {
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .comparison-card:nth-child(2),
+        .definition-card:nth-child(2),
+        .action-card:nth-child(2),
+        .stat-card:nth-child(2),
+        .concern-item:nth-child(2),
+        .benefit-item:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .action-card:nth-child(3),
+        .stat-card:nth-child(3),
+        .concern-item:nth-child(3),
+        .benefit-item:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .concern-item:nth-child(4),
+        .benefit-item:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .scenario-box:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        .section-header .section-number {
+            animation: pulse 3s ease-in-out infinite;
         }
 
         /* Responsive */
@@ -923,7 +1085,7 @@
 
             <div class="scenario-box">
                 <div class="scenario-header">
-                    <div class="scenario-avatar">👩</div>
+                    <div class="scenario-avatar">S</div>
                     <div class="scenario-meta">
                         <h4>Sarah, working parent in Merrimack</h4>
                         <span>Has an 8-year-old who wants to learn piano</span>
@@ -947,7 +1109,7 @@
 
             <div class="scenario-box">
                 <div class="scenario-header">
-                    <div class="scenario-avatar">👨</div>
+                    <div class="scenario-avatar negative">S</div>
                     <div class="scenario-meta">
                         <h4>Same Sarah, different response</h4>
                         <span>If NCMS hasn't optimized for AI discovery</span>
@@ -1056,7 +1218,7 @@
                             <span class="concern-q">Do we need to hire AI experts?</span>
                         </div>
                     </div>
-                    <p class="response">The foundational work is surprisingly accessible. Schema markup (the code that makes your site AI-readable) can be added to Squarespace through their existing Code Injection feature—we've prepared ready-to-use code that just needs to be pasted in. The content work is mostly about organization and clarity, not AI expertise. The companion document (Schema Markup Implementation Guide) provides step-by-step instructions designed for non-technical implementation.</p>
+                    <p class="response">The foundational work is surprisingly accessible. Schema markup (the code that makes your site AI-readable) can be added to Squarespace through their existing Code Injection feature. The content work is mostly about organization and clarity, not AI expertise. This is well within reach for existing staff.</p>
                 </div>
             </div>
         </div>
@@ -1179,7 +1341,7 @@
         <h2>The Opportunity</h2>
         <p>NCMS has a 40-year story, real impact numbers, and programs that serve families who might not otherwise access music education. The question is whether that story gets told when someone asks for recommendations.</p>
         <div class="cta-box">
-            <p>A <strong>Schema Markup Implementation Guide</strong> has been prepared with ready-to-use code for Squarespace. Implementation can begin immediately with existing staff and no additional budget.</p>
+            <p>The organizations that act now will be the ones AI recommends tomorrow. <strong>This is achievable with existing staff and no additional budget.</strong></p>
         </div>
     </section>
 
