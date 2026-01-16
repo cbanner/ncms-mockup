@@ -1679,9 +1679,61 @@
             color: var(--warm-gray);
             line-height: 1.5;
         }
+
+        /* Presentation Navigation */
+        .pres-nav {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            display: flex;
+            gap: 4px;
+            background: rgba(30, 30, 30, 0.95);
+            padding: 6px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .pres-nav a {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            color: #888;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .pres-nav a:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .pres-nav a.active {
+            color: white;
+            background: var(--ncms-green);
+        }
+
+        .pres-nav a .nav-num {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
     </style>
 </head>
 <body>
+
+    <!-- Presentation Navigation -->
+    <nav class="pres-nav">
+        <a href="index.html"><span class="nav-num">1</span> Homepage</a>
+        <a href="index2.html" class="active"><span class="nav-num">2</span> Sub-Pages</a>
+        <a href="index3.html"><span class="nav-num">3</span> AEO/GEO</a>
+    </nav>
 
     <!-- Presentation Header -->
     <header class="presentation-header">
