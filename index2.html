@@ -1,0 +1,2671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCMS Sub-Page Templates - Board Presentation Mockups</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ncms-green: #1a7a4c;
+            --ncms-green-dark: #145f3b;
+            --ncms-green-light: #e8f5ee;
+            --warm-cream: #faf8f5;
+            --warm-gray: #6b6560;
+            --charcoal: #2d2a26;
+            --gold-accent: #c9a227;
+            --soft-blue: #4a90a4;
+            --soft-coral: #d4826a;
+            --presentation-bg: #1a1a1a;
+            --card-bg: #ffffff;
+            --annotation-bg: #2a2a2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: var(--presentation-bg);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Presentation Header */
+        .presentation-header {
+            padding: 60px 40px 40px;
+            text-align: center;
+            background: linear-gradient(180deg, #222 0%, var(--presentation-bg) 100%);
+            border-bottom: 1px solid #333;
+        }
+
+        .presentation-header h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.8rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .presentation-header .subtitle {
+            font-size: 1.1rem;
+            color: #999;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .template-nav {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .template-nav a {
+            padding: 12px 24px;
+            background: rgba(26, 122, 76, 0.15);
+            border: 1px solid rgba(26, 122, 76, 0.3);
+            border-radius: 8px;
+            color: var(--ncms-green);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .template-nav a:hover {
+            background: rgba(26, 122, 76, 0.25);
+            border-color: var(--ncms-green);
+        }
+
+        /* Section Headers */
+        .section-header {
+            padding: 80px 40px 30px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-header .template-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--ncms-green);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+
+        /* Mockup Container */
+        .mockup-section {
+            padding: 20px 40px 80px;
+        }
+
+        .mockup-container {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 40px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        /* Device Frame */
+        .device-frame {
+            background: #333;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.5);
+        }
+
+        .device-frame.desktop {
+            max-width: 1000px;
+        }
+
+        .browser-chrome {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: #444;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .browser-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .browser-dots span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .browser-dots span:nth-child(1) { background: #ff5f57; }
+        .browser-dots span:nth-child(2) { background: #ffbd2e; }
+        .browser-dots span:nth-child(3) { background: #28ca41; }
+
+        .browser-url {
+            flex: 1;
+            background: #555;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-left: 20px;
+        }
+
+        .device-screen {
+            background: var(--card-bg);
+            border-radius: 0 0 12px 12px;
+            overflow: hidden;
+        }
+
+        /* Annotations Panel */
+        .annotations-panel {
+            background: var(--annotation-bg);
+            border-radius: 16px;
+            padding: 30px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .annotations-panel h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--ncms-green);
+        }
+
+        .annotation-item {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #444;
+        }
+
+        .annotation-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .annotation-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--ncms-green);
+            color: white;
+            border-radius: 50%;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .annotation-title {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .annotation-description {
+            font-size: 0.9rem;
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        .annotation-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(26, 122, 76, 0.2);
+            color: var(--ncms-green);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+        .annotation-tag.infrastructure {
+            background: rgba(74, 144, 164, 0.2);
+            color: var(--soft-blue);
+        }
+
+        .annotation-tag.communities {
+            background: rgba(212, 130, 106, 0.2);
+            color: var(--soft-coral);
+        }
+
+        /* ==================== */
+        /* MOCKUP WEBSITE STYLES */
+        /* ==================== */
+
+        .mockup-site {
+            font-family: 'Source Sans 3', sans-serif;
+            background: var(--warm-cream);
+            color: var(--charcoal);
+        }
+
+        /* Navigation */
+        .mock-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 40px;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mock-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mock-logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--ncms-green);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mock-logo-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        .mock-logo-text {
+            font-family: 'Fraunces', serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--charcoal);
+            line-height: 1.2;
+        }
+
+        .mock-nav-links {
+            display: flex;
+            gap: 28px;
+            font-size: 0.9rem;
+            color: var(--warm-gray);
+        }
+
+        .mock-nav-cta {
+            display: flex;
+            gap: 12px;
+        }
+
+        .mock-btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .mock-btn-outline {
+            background: transparent;
+            border: 2px solid var(--ncms-green);
+            color: var(--ncms-green);
+        }
+
+        .mock-btn-primary {
+            background: var(--ncms-green);
+            border: 2px solid var(--ncms-green);
+            color: white;
+        }
+
+        .mock-btn-secondary {
+            background: var(--charcoal);
+            border: 2px solid var(--charcoal);
+            color: white;
+        }
+
+        .mock-btn-lg {
+            padding: 14px 28px;
+            font-size: 1rem;
+        }
+
+        /* Breadcrumb */
+        .mock-breadcrumb {
+            padding: 16px 40px;
+            font-size: 0.85rem;
+            color: var(--warm-gray);
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mock-breadcrumb span {
+            color: var(--ncms-green);
+        }
+
+        /* ==================== */
+        /* NEW STUDENT PAGE */
+        /* ==================== */
+
+        .new-student-hero {
+            background: linear-gradient(135deg, var(--ncms-green-light) 0%, #fff 100%);
+            padding: 60px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .new-student-hero h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .new-student-hero p {
+            font-size: 1.1rem;
+            color: var(--warm-gray);
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 1rem;
+            color: var(--charcoal);
+        }
+
+        .checklist-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--ncms-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .checklist-icon svg {
+            width: 14px;
+            height: 14px;
+            fill: white;
+        }
+
+        .new-student-video {
+            background: #ddd;
+            border-radius: 16px;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--warm-gray);
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .new-student-video::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(26,122,76,0.2) 0%, rgba(26,122,76,0.05) 100%);
+        }
+
+        .play-button {
+            width: 70px;
+            height: 70px;
+            background: var(--ncms-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .play-button svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+            margin-left: 4px;
+        }
+
+        /* Steps Section */
+        .steps-section {
+            padding: 70px 40px;
+            background: white;
+        }
+
+        .steps-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .steps-header h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--warm-cream);
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--ncms-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 0 auto 20px;
+        }
+
+        .step-card h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: var(--charcoal);
+        }
+
+        .step-card p {
+            font-size: 0.9rem;
+            color: var(--warm-gray);
+            line-height: 1.5;
+        }
+
+        .step-connector {
+            position: absolute;
+            top: 55px;
+            right: -15px;
+            width: 30px;
+            height: 2px;
+            background: var(--ncms-green);
+            opacity: 0.3;
+        }
+
+        .step-card:last-child .step-connector {
+            display: none;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 70px 40px;
+            background: var(--warm-cream);
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .faq-header h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 4px solid var(--ncms-green);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--charcoal);
+        }
+
+        .faq-answer {
+            font-size: 0.9rem;
+            color: var(--warm-gray);
+            line-height: 1.6;
+        }
+
+        /* Contact Banner */
+        .contact-banner {
+            background: var(--ncms-green);
+            padding: 50px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-banner-content h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .contact-banner-content p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .contact-banner-actions {
+            display: flex;
+            gap: 16px;
+        }
+
+        .contact-banner .mock-btn {
+            background: white;
+            color: var(--ncms-green);
+            border: none;
+        }
+
+        .contact-banner .mock-btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        /* ==================== */
+        /* PROGRAM DETAIL PAGE */
+        /* ==================== */
+
+        .program-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 400px;
+        }
+
+        .program-hero-image {
+            background: linear-gradient(135deg, var(--ncms-green-light) 0%, #d4e8dc 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ncms-green);
+            font-size: 0.9rem;
+        }
+
+        .program-hero-content {
+            padding: 60px 50px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .program-category {
+            display: inline-block;
+            padding: 6px 14px;
+            background: var(--ncms-green-light);
+            color: var(--ncms-green);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+            width: fit-content;
+        }
+
+        .program-hero-content h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.4rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .program-hero-content .lead {
+            font-size: 1.15rem;
+            color: var(--warm-gray);
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .program-quick-facts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .quick-fact {
+            text-align: center;
+            padding: 16px;
+            background: var(--warm-cream);
+            border-radius: 10px;
+        }
+
+        .quick-fact-value {
+            font-family: 'Fraunces', serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--ncms-green);
+        }
+
+        .quick-fact-label {
+            font-size: 0.8rem;
+            color: var(--warm-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Program Details Grid */
+        .program-details {
+            padding: 60px 40px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .program-main h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: var(--charcoal);
+        }
+
+        .program-main p {
+            color: var(--warm-gray);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .instruments-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .instrument-tag {
+            padding: 12px 16px;
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--charcoal);
+            transition: all 0.2s;
+        }
+
+        .instrument-tag:hover {
+            border-color: var(--ncms-green);
+            background: var(--ncms-green-light);
+        }
+
+        /* Program Sidebar */
+        .program-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .sidebar-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .sidebar-card h4 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: var(--charcoal);
+        }
+
+        .price-range {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .price-range .label {
+            color: var(--warm-gray);
+            font-size: 0.9rem;
+        }
+
+        .price-range .value {
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        .sidebar-card .scholarship-note {
+            padding: 12px;
+            background: var(--ncms-green-light);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--ncms-green);
+            margin-top: 16px;
+        }
+
+        .sidebar-card .mock-btn {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* Teacher Preview */
+        .teacher-preview {
+            display: flex;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .teacher-preview:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .teacher-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--ncms-green-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ncms-green);
+            font-size: 0.7rem;
+            flex-shrink: 0;
+        }
+
+        .teacher-info h5 {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--charcoal);
+            margin-bottom: 4px;
+        }
+
+        .teacher-info p {
+            font-size: 0.8rem;
+            color: var(--warm-gray);
+            line-height: 1.4;
+        }
+
+        /* ==================== */
+        /* SCHOLARSHIP PAGE */
+        /* ==================== */
+
+        .scholarship-hero {
+            background: linear-gradient(135deg, #1a3a2a 0%, #0d1f16 100%);
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scholarship-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.03)"/></svg>');
+            background-size: 20px 20px;
+        }
+
+        .scholarship-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .scholarship-hero h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.8rem;
+            font-weight: 400;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .scholarship-hero .lead {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .scholarship-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .scholarship-stat {
+            text-align: center;
+        }
+
+        .scholarship-stat-value {
+            font-family: 'Fraunces', serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: var(--gold-accent);
+        }
+
+        .scholarship-stat-label {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Mission Banner */
+        .mission-banner {
+            background: white;
+            padding: 50px 40px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mission-banner blockquote {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--charcoal);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Eligibility Section */
+        .eligibility-section {
+            padding: 70px 40px;
+            background: var(--warm-cream);
+        }
+
+        .eligibility-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .eligibility-header h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+
+        .eligibility-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .eligibility-card {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+        }
+
+        .eligibility-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--ncms-green-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+        }
+
+        .eligibility-card h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--charcoal);
+        }
+
+        .eligibility-card p {
+            font-size: 0.95rem;
+            color: var(--warm-gray);
+            line-height: 1.6;
+        }
+
+        /* Testimonial Quote */
+        .scholarship-testimonial {
+            background: var(--ncms-green);
+            padding: 70px 40px;
+        }
+
+        .scholarship-testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .scholarship-testimonial blockquote {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: white;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .scholarship-testimonial cite {
+            color: rgba(255,255,255,0.8);
+            font-style: normal;
+        }
+
+        .scholarship-testimonial cite strong {
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Apply Section */
+        .apply-section {
+            padding: 70px 40px;
+            background: white;
+        }
+
+        .apply-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .apply-content h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .apply-content p {
+            color: var(--warm-gray);
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .apply-timeline {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item {
+            text-align: center;
+        }
+
+        .timeline-date {
+            font-family: 'Fraunces', serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--ncms-green);
+        }
+
+        .timeline-label {
+            font-size: 0.85rem;
+            color: var(--warm-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Donor CTA */
+        .donor-cta {
+            padding: 50px 40px;
+            background: linear-gradient(135deg, var(--warm-cream) 0%, #fff 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .donor-cta-content {
+            max-width: 400px;
+        }
+
+        .donor-cta h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+            color: var(--charcoal);
+        }
+
+        .donor-cta p {
+            color: var(--warm-gray);
+            margin-bottom: 20px;
+        }
+
+        .impact-preview {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .impact-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .impact-amount {
+            font-family: 'Fraunces', serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--ncms-green);
+        }
+
+        .impact-desc {
+            font-size: 0.8rem;
+            color: var(--warm-gray);
+        }
+
+        /* Footer */
+        .mock-footer-simple {
+            background: var(--charcoal);
+            color: rgba(255,255,255,0.6);
+            padding: 30px 40px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .mockup-container {
+                grid-template-columns: 1fr;
+            }
+
+            .annotations-panel {
+                position: static;
+            }
+        }
+
+        /* Divider */
+        .section-divider {
+            height: 1px;
+            background: #333;
+            margin: 40px 0;
+        }
+
+        /* ==================== */
+        /* DONATION PAGE STYLES */
+        /* ==================== */
+
+        .donate-hero {
+            background: linear-gradient(135deg, #1a3a2a 0%, #0d1f16 100%);
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .donate-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.03)"/></svg>');
+            background-size: 20px 20px;
+        }
+
+        .donate-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .donate-hero h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.8rem;
+            font-weight: 400;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .donate-hero .lead {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        /* Giving Options Tabs */
+        .giving-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 40px;
+            background: rgba(255,255,255,0.1);
+            padding: 6px;
+            border-radius: 12px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .giving-tab {
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            background: transparent;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .giving-tab.active {
+            background: white;
+            color: var(--ncms-green);
+        }
+
+        /* Giving Section */
+        .giving-section {
+            padding: 70px 40px;
+            background: white;
+        }
+
+        .giving-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .giving-header h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+            color: var(--charcoal);
+        }
+
+        .giving-header p {
+            color: var(--warm-gray);
+            font-size: 1.1rem;
+        }
+
+        /* One-Time / Recurring Giving Grid */
+        .giving-amounts {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .giving-amount {
+            padding: 24px 16px;
+            background: var(--warm-cream);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .giving-amount:hover {
+            border-color: var(--ncms-green);
+        }
+
+        .giving-amount.selected {
+            background: var(--ncms-green-light);
+            border-color: var(--ncms-green);
+        }
+
+        .giving-amount .amount {
+            font-family: 'Fraunces', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--ncms-green);
+            margin-bottom: 6px;
+        }
+
+        .giving-amount .impact {
+            font-size: 0.8rem;
+            color: var(--warm-gray);
+            line-height: 1.4;
+        }
+
+        .custom-amount {
+            padding: 20px;
+            background: var(--warm-cream);
+            border: 2px dashed #ccc;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .custom-amount span {
+            color: var(--warm-gray);
+            font-size: 0.95rem;
+        }
+
+        .donate-form-cta {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* Band of Donors Section */
+        .band-of-donors {
+            padding: 70px 40px;
+            background: linear-gradient(135deg, var(--ncms-green) 0%, var(--ncms-green-dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .band-of-donors::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+        }
+
+        .band-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .band-text h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .band-text p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .band-benefits {
+            list-style: none;
+        }
+
+        .band-benefits li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 14px;
+            color: rgba(255,255,255,0.9);
+            font-size: 1rem;
+        }
+
+        .band-benefits-icon {
+            width: 22px;
+            height: 22px;
+            background: var(--gold-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .band-benefits-icon svg {
+            width: 12px;
+            height: 12px;
+            fill: white;
+        }
+
+        .band-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .band-card-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--gold-accent);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        .band-card h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--charcoal);
+            margin-bottom: 10px;
+        }
+
+        .band-card .price {
+            font-size: 1rem;
+            color: var(--warm-gray);
+            margin-bottom: 24px;
+        }
+
+        .band-card .price strong {
+            font-family: 'Fraunces', serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: var(--ncms-green);
+        }
+
+        .band-levels {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .band-level {
+            padding: 10px 20px;
+            background: var(--warm-cream);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .band-level:hover,
+        .band-level.selected {
+            border-color: var(--ncms-green);
+            background: var(--ncms-green-light);
+        }
+
+        .band-level .level-amount {
+            font-weight: 600;
+            color: var(--ncms-green);
+        }
+
+        .band-level .level-freq {
+            font-size: 0.8rem;
+            color: var(--warm-gray);
+        }
+
+        /* Sponsorship Section */
+        .sponsorship-section {
+            padding: 70px 40px;
+            background: var(--warm-cream);
+        }
+
+        .sponsorship-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .sponsorship-header h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+            color: var(--charcoal);
+        }
+
+        .sponsorship-header p {
+            color: var(--warm-gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .sponsorship-tiers {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .sponsor-tier {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .sponsor-tier:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+        .sponsor-tier.featured {
+            transform: scale(1.02);
+            box-shadow: 0 12px 40px rgba(26,122,76,0.15);
+            border: 2px solid var(--ncms-green);
+        }
+
+        .sponsor-tier.featured:hover {
+            transform: scale(1.02) translateY(-4px);
+        }
+
+        .sponsor-tier-header {
+            padding: 30px 24px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--warm-cream) 0%, #fff 100%);
+        }
+
+        .sponsor-tier.featured .sponsor-tier-header {
+            background: linear-gradient(135deg, var(--ncms-green-light) 0%, #fff 100%);
+        }
+
+        .sponsor-tier-name {
+            font-family: 'Fraunces', serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+        }
+
+        .sponsor-tier-price {
+            font-family: 'Fraunces', serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: var(--ncms-green);
+        }
+
+        .sponsor-tier-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--warm-gray);
+        }
+
+        .sponsor-tier-body {
+            padding: 24px;
+        }
+
+        .sponsor-benefits {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .sponsor-benefits li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            color: var(--charcoal);
+            line-height: 1.5;
+        }
+
+        .sponsor-benefits-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--ncms-green-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .sponsor-benefits-icon svg {
+            width: 10px;
+            height: 10px;
+            fill: var(--ncms-green);
+        }
+
+        .sponsor-tier .mock-btn {
+            width: 100%;
+        }
+
+        /* Events Supported */
+        .events-supported {
+            padding: 50px 40px;
+            background: white;
+            border-top: 1px solid #eee;
+        }
+
+        .events-supported h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--charcoal);
+        }
+
+        .events-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .event-item {
+            text-align: center;
+        }
+
+        .event-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--ncms-green-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 1.5rem;
+        }
+
+        .event-item h4 {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--charcoal);
+            margin-bottom: 4px;
+        }
+
+        .event-item p {
+            font-size: 0.8rem;
+            color: var(--warm-gray);
+        }
+
+        /* Why Give Section */
+        .why-give {
+            padding: 60px 40px;
+            background: var(--warm-cream);
+        }
+
+        .why-give-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .why-give-item {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .why-give-stat {
+            font-family: 'Fraunces', serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: var(--ncms-green);
+            margin-bottom: 8px;
+        }
+
+        .why-give-label {
+            font-size: 0.95rem;
+            color: var(--warm-gray);
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Presentation Header -->
+    <header class="presentation-header">
+        <h1>NCMS Sub-Page Templates</h1>
+        <p class="subtitle">Template designs for key interior pages, extending the homepage refresh approach across the site</p>
+        <nav class="template-nav">
+            <a href="#new-student">New Student Page</a>
+            <a href="#program-detail">Program Detail</a>
+            <a href="#scholarship">Scholarship Page</a>
+            <a href="#donation">Donation Page</a>
+        </nav>
+    </header>
+
+    <!-- ==================== -->
+    <!-- TEMPLATE 1: NEW STUDENT PAGE -->
+    <!-- ==================== -->
+
+    <section class="section-header" id="new-student">
+        <span class="template-badge">Template 1</span>
+        <h2>"New Student" / Get Started Page</h2>
+        <p>A dedicated pathway for prospective families, reducing friction in the enrollment process</p>
+    </section>
+
+    <section class="mockup-section">
+        <div class="mockup-container">
+            <div class="device-frame desktop">
+                <div class="browser-chrome">
+                    <div class="browser-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="browser-url">nashuacms.org/get-started</div>
+                </div>
+                <div class="device-screen">
+                    <div class="mockup-site">
+                        <!-- Navigation -->
+                        <nav class="mock-nav">
+                            <div class="mock-logo">
+                                <div class="mock-logo-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                                </div>
+                                <span class="mock-logo-text">Nashua Community<br>Music School</span>
+                            </div>
+                            <div class="mock-nav-links">
+                                <span>Our Story</span>
+                                <span>Programs</span>
+                                <span>Our Team</span>
+                                <span>Events</span>
+                                <span>Resources</span>
+                            </div>
+                            <div class="mock-nav-cta">
+                                <button class="mock-btn mock-btn-outline">Enroll Now</button>
+                                <button class="mock-btn mock-btn-primary">Donate</button>
+                            </div>
+                        </nav>
+
+                        <!-- Breadcrumb -->
+                        <div class="mock-breadcrumb">
+                            Home / <span>Get Started</span>
+                        </div>
+
+                        <!-- Hero Section -->
+                        <section class="new-student-hero">
+                            <div>
+                                <h1>Your Musical Journey Starts Here</h1>
+                                <p>Whether you're a curious beginner or returning to music after years away, we'll help you find the perfect program. Here's what to expect:</p>
+                                <ul class="checklist">
+                                    <li>
+                                        <span class="checklist-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+                                        <span>Free initial consultation to discuss your goals</span>
+                                    </li>
+                                    <li>
+                                        <span class="checklist-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+                                        <span>Flexible scheduling for lessons and programs</span>
+                                    </li>
+                                    <li>
+                                        <span class="checklist-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+                                        <span>Scholarships available for qualifying families</span>
+                                    </li>
+                                    <li>
+                                        <span class="checklist-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+                                        <span>No instrument? We can help you get started</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="new-student-video">
+                                <div class="play-button">
+                                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Steps Section -->
+                        <section class="steps-section">
+                            <div class="steps-header">
+                                <h2>Getting Started is Easy</h2>
+                                <p style="color: var(--warm-gray);">Four simple steps to begin your musical journey</p>
+                            </div>
+                            <div class="steps-grid">
+                                <div class="step-card">
+                                    <div class="step-number">1</div>
+                                    <h3>Explore Programs</h3>
+                                    <p>Browse our offerings from private lessons to group classes and summer camps.</p>
+                                    <span class="step-connector"></span>
+                                </div>
+                                <div class="step-card">
+                                    <div class="step-number">2</div>
+                                    <h3>Request Info</h3>
+                                    <p>Fill out a quick form and we'll reach out within 24 hours.</p>
+                                    <span class="step-connector"></span>
+                                </div>
+                                <div class="step-card">
+                                    <div class="step-number">3</div>
+                                    <h3>Meet Your Teacher</h3>
+                                    <p>Schedule a trial lesson to find the perfect instructor match.</p>
+                                    <span class="step-connector"></span>
+                                </div>
+                                <div class="step-card">
+                                    <div class="step-number">4</div>
+                                    <h3>Begin Learning</h3>
+                                    <p>Enroll in your chosen program and start making music!</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- FAQ Section -->
+                        <section class="faq-section">
+                            <div class="faq-header">
+                                <h2>Common Questions</h2>
+                            </div>
+                            <div class="faq-grid">
+                                <div class="faq-item">
+                                    <div class="faq-question">What age can students start?</div>
+                                    <div class="faq-answer">We offer programs for all ages, from early childhood music classes (ages 0-5) through adult learners. Private lessons typically begin around age 5-6 depending on the instrument.</div>
+                                </div>
+                                <div class="faq-item">
+                                    <div class="faq-question">Do I need to own an instrument?</div>
+                                    <div class="faq-answer">Not at first! We can recommend rental programs and help you choose the right instrument. Some instruments are available to borrow during lessons.</div>
+                                </div>
+                                <div class="faq-item">
+                                    <div class="faq-question">How much do lessons cost?</div>
+                                    <div class="faq-answer">Rates vary by lesson length (30, 45, or 60 minutes). We offer scholarships for families who qualify, ensuring music education is accessible to all.</div>
+                                </div>
+                                <div class="faq-item">
+                                    <div class="faq-question">What if I need to reschedule?</div>
+                                    <div class="faq-answer">We understand life happens. With 24-hour notice, lessons can be rescheduled. See our full policies in the Resources section.</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Contact Banner -->
+                        <section class="contact-banner">
+                            <div class="contact-banner-content">
+                                <h3>Ready to Get Started?</h3>
+                                <p>Our team is here to answer your questions and help you find the right program.</p>
+                            </div>
+                            <div class="contact-banner-actions">
+                                <button class="mock-btn">Request Information</button>
+                                <button class="mock-btn mock-btn-outline">Call 603-881-7030</button>
+                            </div>
+                        </section>
+
+                        <footer class="mock-footer-simple">
+                            Nashua Community Music School | 2 Lock Street, Nashua, NH 03060 | 603-881-7030
+                        </footer>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Annotations Panel -->
+            <div class="annotations-panel">
+                <h3>Design Rationale</h3>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">1</div>
+                    <div class="annotation-title">Dedicated Landing Page</div>
+                    <div class="annotation-description">Currently, enrollment info is scattered across Programs and Resources. This single page answers "How do I get started?" without hunting.</div>
+                    <span class="annotation-tag infrastructure">Build Infrastructure</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">2</div>
+                    <div class="annotation-title">Expectation-Setting Checklist</div>
+                    <div class="annotation-description">Addresses common anxieties upfront: consultations are free, scheduling is flexible, scholarships exist, and you don't need an instrument yet.</div>
+                    <span class="annotation-tag infrastructure">Build Infrastructure</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">3</div>
+                    <div class="annotation-title">Virtual Tour / Video</div>
+                    <div class="annotation-description">A welcoming video showing the facility, students, and teachers builds trust for families who can't visit in person first.</div>
+                    <span class="annotation-tag">Boost Storytelling</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">4</div>
+                    <div class="annotation-title">Clear 4-Step Process</div>
+                    <div class="annotation-description">Visual roadmap reduces perceived complexity. Families see exactly what happens next, lowering abandonment.</div>
+                    <span class="annotation-tag infrastructure">Build Infrastructure</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">5</div>
+                    <div class="annotation-title">Pre-emptive FAQ</div>
+                    <div class="annotation-description">Answers the questions that cause hesitation: cost, age requirements, instruments, flexibility. Reduces support burden too.</div>
+                    <span class="annotation-tag infrastructure">Build Infrastructure</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">6</div>
+                    <div class="annotation-title">Multiple Contact Options</div>
+                    <div class="annotation-description">Form for async, phone for immediate. Both CTAs visible without scrolling. Meets families where they are.</div>
+                    <span class="annotation-tag communities">Bridge Communities</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ==================== -->
+    <!-- TEMPLATE 2: PROGRAM DETAIL PAGE -->
+    <!-- ==================== -->
+
+    <section class="section-header" id="program-detail">
+        <span class="template-badge">Template 2</span>
+        <h2>Program Detail Page</h2>
+        <p>Template for individual programs like Private Lessons, Music Therapy, Summer Camps</p>
+    </section>
+
+    <section class="mockup-section">
+        <div class="mockup-container">
+            <div class="device-frame desktop">
+                <div class="browser-chrome">
+                    <div class="browser-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="browser-url">nashuacms.org/programs/private-lessons</div>
+                </div>
+                <div class="device-screen">
+                    <div class="mockup-site">
+                        <!-- Navigation -->
+                        <nav class="mock-nav">
+                            <div class="mock-logo">
+                                <div class="mock-logo-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                                </div>
+                                <span class="mock-logo-text">Nashua Community<br>Music School</span>
+                            </div>
+                            <div class="mock-nav-links">
+                                <span>Our Story</span>
+                                <span style="color: var(--ncms-green); font-weight: 600;">Programs</span>
+                                <span>Our Team</span>
+                                <span>Events</span>
+                                <span>Resources</span>
+                            </div>
+                            <div class="mock-nav-cta">
+                                <button class="mock-btn mock-btn-outline">Enroll Now</button>
+                                <button class="mock-btn mock-btn-primary">Donate</button>
+                            </div>
+                        </nav>
+
+                        <!-- Breadcrumb -->
+                        <div class="mock-breadcrumb">
+                            Home / Programs / <span>Private Lessons</span>
+                        </div>
+
+                        <!-- Program Hero -->
+                        <section class="program-hero">
+                            <div class="program-hero-image">[Student at Piano with Teacher]</div>
+                            <div class="program-hero-content">
+                                <span class="program-category">Core Program</span>
+                                <h1>Private Lessons</h1>
+                                <p class="lead">One-on-one instruction tailored to your goals, pace, and musical interests. Our expert faculty teach students of all ages and skill levels.</p>
+                                <div class="program-quick-facts">
+                                    <div class="quick-fact">
+                                        <div class="quick-fact-value">15+</div>
+                                        <div class="quick-fact-label">Instruments</div>
+                                    </div>
+                                    <div class="quick-fact">
+                                        <div class="quick-fact-value">All Ages</div>
+                                        <div class="quick-fact-label">5 to Adult</div>
+                                    </div>
+                                    <div class="quick-fact">
+                                        <div class="quick-fact-value">Fall '26</div>
+                                        <div class="quick-fact-label">Enrolling Now</div>
+                                    </div>
+                                </div>
+                                <button class="mock-btn mock-btn-primary mock-btn-lg">Request a Lesson Time</button>
+                            </div>
+                        </section>
+
+                        <!-- Program Details -->
+                        <section class="program-details">
+                            <div class="program-main">
+                                <h2>About Private Lessons</h2>
+                                <p>Private lessons are the cornerstone of music education at NCMS. In a one-on-one setting, your teacher designs each lesson around your unique goals, whether you're preparing for auditions, learning to play your favorite songs, or exploring music for the first time.</p>
+                                <p>Lessons are available in 30, 45, or 60-minute formats. Most beginners start with 30-minute lessons, while advancing students often move to longer sessions as their stamina and repertoire grow.</p>
+
+                                <h2 style="margin-top: 40px;">Choose Your Instrument</h2>
+                                <div class="instruments-grid">
+                                    <div class="instrument-tag">Piano</div>
+                                    <div class="instrument-tag">Guitar</div>
+                                    <div class="instrument-tag">Violin</div>
+                                    <div class="instrument-tag">Voice</div>
+                                    <div class="instrument-tag">Drums</div>
+                                    <div class="instrument-tag">Flute</div>
+                                    <div class="instrument-tag">Cello</div>
+                                    <div class="instrument-tag">Saxophone</div>
+                                    <div class="instrument-tag">Clarinet</div>
+                                    <div class="instrument-tag">Trumpet</div>
+                                    <div class="instrument-tag">Ukulele</div>
+                                    <div class="instrument-tag">Bass</div>
+                                </div>
+                            </div>
+
+                            <div class="program-sidebar">
+                                <!-- Pricing Card -->
+                                <div class="sidebar-card">
+                                    <h4>Lesson Rates</h4>
+                                    <div class="price-range">
+                                        <span class="label">30-minute lesson</span>
+                                        <span class="value">$XX/lesson</span>
+                                    </div>
+                                    <div class="price-range">
+                                        <span class="label">45-minute lesson</span>
+                                        <span class="value">$XX/lesson</span>
+                                    </div>
+                                    <div class="price-range">
+                                        <span class="label">60-minute lesson</span>
+                                        <span class="value">$XX/lesson</span>
+                                    </div>
+                                    <div class="scholarship-note">
+                                        Need financial assistance? Scholarships available through The Community Fund.
+                                    </div>
+                                    <button class="mock-btn mock-btn-primary">Request a Lesson Time</button>
+                                </div>
+
+                                <!-- Teachers Card -->
+                                <div class="sidebar-card">
+                                    <h4>Meet Our Teachers</h4>
+                                    <div class="teacher-preview">
+                                        <div class="teacher-avatar">[Photo]</div>
+                                        <div class="teacher-info">
+                                            <h5>Sarah M.</h5>
+                                            <p>Piano, Voice | 12 years teaching</p>
+                                        </div>
+                                    </div>
+                                    <div class="teacher-preview">
+                                        <div class="teacher-avatar">[Photo]</div>
+                                        <div class="teacher-info">
+                                            <h5>David R.</h5>
+                                            <p>Guitar, Bass, Ukulele | 8 years</p>
+                                        </div>
+                                    </div>
+                                    <div class="teacher-preview">
+                                        <div class="teacher-avatar">[Photo]</div>
+                                        <div class="teacher-info">
+                                            <h5>Maria L.</h5>
+                                            <p>Violin, Cello | Juilliard grad</p>
+                                        </div>
+                                    </div>
+                                    <button class="mock-btn mock-btn-outline" style="margin-top: 16px;">View All Faculty</button>
+                                </div>
+                            </div>
+                        </section>
+
+                        <footer class="mock-footer-simple">
+                            Nashua Community Music School | 2 Lock Street, Nashua, NH 03060 | 603-881-7030
+                        </footer>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Annotations Panel -->
+            <div class="annotations-panel">
+                <h3>Design Rationale</h3>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">1</div>
+                    <div class="annotation-title">Hero with Quick Facts</div>
+                    <div class="annotation-description">Immediately answers key questions: what instruments, what ages, can I enroll now? No scrolling required for basics.</div>
+                    <span class="annotation-tag infrastructure">Build Infrastructure</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">2</div>
+                    <div class="annotation-title">Program Category Badge</div>
+                    <div class="annotation-description">Helps visitors understand where this program fits in NCMS's offerings. Creates consistency across program pages.</div>
+                    <span class="annotation-tag">Boost Storytelling</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">3</div>
+                    <div class="annotation-title">Visible Pricing</div>
+                    <div class="annotation-description">Current site lacks pricing info. Transparency builds trust and qualifies leads. Scholarship callout normalizes asking for help.</div>
+                    <span class="annotation-tag infrastructure">Build Infrastructure</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">4</div>
+                    <div class="annotation-title">Instrument Selection Grid</div>
+                    <div class="annotation-description">Interactive element helps families explore options. Could link to instrument-specific pages or teacher matches.</div>
+                    <span class="annotation-tag infrastructure">Build Infrastructure</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">5</div>
+                    <div class="annotation-title">Teacher Preview</div>
+                    <div class="annotation-description">Humanizes the program. Families want to know WHO will teach their child. Links to full faculty page for details.</div>
+                    <span class="annotation-tag">Boost Storytelling</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">6</div>
+                    <div class="annotation-title">Sticky Sidebar CTA</div>
+                    <div class="annotation-description">"Request a Lesson Time" stays visible as users scroll, reducing friction when they're ready to act.</div>
+                    <span class="annotation-tag infrastructure">Build Infrastructure</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ==================== -->
+    <!-- TEMPLATE 3: SCHOLARSHIP PAGE -->
+    <!-- ==================== -->
+
+    <section class="section-header" id="scholarship">
+        <span class="template-badge">Template 3</span>
+        <h2>Scholarship / Community Fund Page</h2>
+        <p>Elevating access programs to support both enrollment and fundraising goals</p>
+    </section>
+
+    <section class="mockup-section">
+        <div class="mockup-container">
+            <div class="device-frame desktop">
+                <div class="browser-chrome">
+                    <div class="browser-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="browser-url">nashuacms.org/scholarships</div>
+                </div>
+                <div class="device-screen">
+                    <div class="mockup-site">
+                        <!-- Navigation -->
+                        <nav class="mock-nav">
+                            <div class="mock-logo">
+                                <div class="mock-logo-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                                </div>
+                                <span class="mock-logo-text">Nashua Community<br>Music School</span>
+                            </div>
+                            <div class="mock-nav-links">
+                                <span>Our Story</span>
+                                <span>Programs</span>
+                                <span>Our Team</span>
+                                <span>Events</span>
+                                <span>Resources</span>
+                            </div>
+                            <div class="mock-nav-cta">
+                                <button class="mock-btn mock-btn-outline">Enroll Now</button>
+                                <button class="mock-btn mock-btn-primary">Donate</button>
+                            </div>
+                        </nav>
+
+                        <!-- Hero Section -->
+                        <section class="scholarship-hero">
+                            <div class="scholarship-hero-content">
+                                <h1>The Community Fund</h1>
+                                <p class="lead">We believe financial circumstances should never prevent anyone from experiencing the joy of music. The Community Fund makes music education accessible to all.</p>
+                                <div style="display: flex; gap: 16px; justify-content: center;">
+                                    <button class="mock-btn mock-btn-primary mock-btn-lg">Apply for a Scholarship</button>
+                                    <button class="mock-btn mock-btn-outline mock-btn-lg" style="border-color: white; color: white;">Support the Fund</button>
+                                </div>
+                            </div>
+                            <div class="scholarship-stats">
+                                <div class="scholarship-stat">
+                                    <div class="scholarship-stat-value">$85K+</div>
+                                    <div class="scholarship-stat-label">Awarded Annually</div>
+                                </div>
+                                <div class="scholarship-stat">
+                                    <div class="scholarship-stat-value">120+</div>
+                                    <div class="scholarship-stat-label">Students Supported</div>
+                                </div>
+                                <div class="scholarship-stat">
+                                    <div class="scholarship-stat-value">40%</div>
+                                    <div class="scholarship-stat-label">Receive Assistance</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Mission Banner -->
+                        <section class="mission-banner">
+                            <blockquote>"Music education should be a right, not a privilege. The Community Fund ensures every child in Greater Nashua can discover their musical potential."</blockquote>
+                        </section>
+
+                        <!-- Eligibility Section -->
+                        <section class="eligibility-section">
+                            <div class="eligibility-header">
+                                <h2>Who Can Apply?</h2>
+                                <p style="color: var(--warm-gray);">Our scholarships support families across Greater Nashua</p>
+                            </div>
+                            <div class="eligibility-grid">
+                                <div class="eligibility-card">
+                                    <div class="eligibility-icon">&#128106;</div>
+                                    <h3>Income-Based Need</h3>
+                                    <p>Families demonstrating financial need based on household size and income guidelines.</p>
+                                </div>
+                                <div class="eligibility-card">
+                                    <div class="eligibility-icon">&#127919;</div>
+                                    <h3>Any Program</h3>
+                                    <p>Scholarships apply to private lessons, group classes, summer camps, and more.</p>
+                                </div>
+                                <div class="eligibility-card">
+                                    <div class="eligibility-icon">&#127757;</div>
+                                    <h3>Greater Nashua</h3>
+                                    <p>Residents of Nashua and surrounding communities in southern New Hampshire.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Testimonial -->
+                        <section class="scholarship-testimonial">
+                            <div class="scholarship-testimonial-content">
+                                <blockquote>"Without the scholarship, my son wouldn't have been able to continue his drum lessons. Now he's performing in the spring recital and his confidence has soared. Thank you for making this possible."</blockquote>
+                                <cite>— <strong>Jennifer T.</strong>, Scholarship Recipient Parent</cite>
+                            </div>
+                        </section>
+
+                        <!-- Apply Section -->
+                        <section class="apply-section">
+                            <div class="apply-content">
+                                <h2>Apply for a Scholarship</h2>
+                                <p>Applications are reviewed on a rolling basis. Most families hear back within 2 weeks. Our process is confidential and designed to be as simple as possible.</p>
+                                <div class="apply-timeline">
+                                    <div class="timeline-item">
+                                        <div class="timeline-date">Year-Round</div>
+                                        <div class="timeline-label">Applications Open</div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-date">2 Weeks</div>
+                                        <div class="timeline-label">Typical Response</div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-date">Confidential</div>
+                                        <div class="timeline-label">Process</div>
+                                    </div>
+                                </div>
+                                <button class="mock-btn mock-btn-primary mock-btn-lg">Start Your Application</button>
+                            </div>
+                        </section>
+
+                        <!-- Donor CTA -->
+                        <section class="donor-cta">
+                            <div class="donor-cta-content">
+                                <h3>Support The Community Fund</h3>
+                                <p>Your gift directly funds scholarships for local families. Every dollar makes music education more accessible.</p>
+                                <button class="mock-btn mock-btn-primary mock-btn-lg">Donate Now</button>
+                            </div>
+                            <div class="impact-preview">
+                                <div class="impact-item">
+                                    <div class="impact-amount">$50</div>
+                                    <div class="impact-desc">One month of lessons</div>
+                                </div>
+                                <div class="impact-item">
+                                    <div class="impact-amount">$150</div>
+                                    <div class="impact-desc">Summer camp tuition</div>
+                                </div>
+                                <div class="impact-item">
+                                    <div class="impact-amount">$300</div>
+                                    <div class="impact-desc">Semester scholarship</div>
+                                </div>
+                                <div class="impact-item">
+                                    <div class="impact-amount">$600</div>
+                                    <div class="impact-desc">Full year of lessons</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <footer class="mock-footer-simple">
+                            Nashua Community Music School | 2 Lock Street, Nashua, NH 03060 | 603-881-7030
+                        </footer>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Annotations Panel -->
+            <div class="annotations-panel">
+                <h3>Design Rationale</h3>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">1</div>
+                    <div class="annotation-title">Dual-Purpose Page</div>
+                    <div class="annotation-description">This page serves two audiences: families seeking assistance AND donors wanting to give. Both CTAs prominent in hero.</div>
+                    <span class="annotation-tag communities">Bridge Communities</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">2</div>
+                    <div class="annotation-title">Impact Statistics</div>
+                    <div class="annotation-description">Concrete numbers ($85K, 120+ students, 40%) build credibility with donors AND normalize asking for help for families.</div>
+                    <span class="annotation-tag">Boost Storytelling</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">3</div>
+                    <div class="annotation-title">"The Community Fund" Branding</div>
+                    <div class="annotation-description">Named fund feels more established and less stigmatizing than "scholarship program." Elevates the initiative.</div>
+                    <span class="annotation-tag">Boost Storytelling</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">4</div>
+                    <div class="annotation-title">Clear Eligibility Criteria</div>
+                    <div class="annotation-description">Families can self-qualify before applying. Reduces abandoned applications and support questions.</div>
+                    <span class="annotation-tag infrastructure">Build Infrastructure</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">5</div>
+                    <div class="annotation-title">Recipient Testimonial</div>
+                    <div class="annotation-description">Real story creates emotional connection. Demonstrates impact to donors, reduces stigma for families considering applying.</div>
+                    <span class="annotation-tag communities">Bridge Communities</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">6</div>
+                    <div class="annotation-title">Impact-Based Giving</div>
+                    <div class="annotation-description">Mirrors Season of Giving approach: donors see exactly what their gift provides. Increases average gift size and completion rate.</div>
+                    <span class="annotation-tag infrastructure">Build Infrastructure</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ==================== -->
+    <!-- TEMPLATE 4: DONATION PAGE -->
+    <!-- ==================== -->
+
+    <section class="section-header" id="donation">
+        <span class="template-badge">Template 4</span>
+        <h2>Donation Page</h2>
+        <p>Comprehensive giving experience with one-time gifts, recurring membership, and event sponsorship tiers</p>
+    </section>
+
+    <section class="mockup-section">
+        <div class="mockup-container">
+            <div class="device-frame desktop">
+                <div class="browser-chrome">
+                    <div class="browser-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="browser-url">nashuacms.org/donate</div>
+                </div>
+                <div class="device-screen">
+                    <div class="mockup-site">
+                        <!-- Navigation -->
+                        <nav class="mock-nav">
+                            <div class="mock-logo">
+                                <div class="mock-logo-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                                </div>
+                                <span class="mock-logo-text">Nashua Community<br>Music School</span>
+                            </div>
+                            <div class="mock-nav-links">
+                                <span>Our Story</span>
+                                <span>Programs</span>
+                                <span>Our Team</span>
+                                <span>Events</span>
+                                <span>Resources</span>
+                            </div>
+                            <div class="mock-nav-cta">
+                                <button class="mock-btn mock-btn-outline">Enroll Now</button>
+                                <button class="mock-btn mock-btn-primary">Donate</button>
+                            </div>
+                        </nav>
+
+                        <!-- Hero Section -->
+                        <section class="donate-hero">
+                            <div class="donate-hero-content">
+                                <h1>Give the Gift of Music</h1>
+                                <p class="lead">Your generosity funds scholarships, instruments, and programming that transforms lives in Greater Nashua. Every gift matters.</p>
+                                <div class="giving-tabs">
+                                    <button class="giving-tab active">One-Time Gift</button>
+                                    <button class="giving-tab">Monthly Giving</button>
+                                    <button class="giving-tab">Sponsor an Event</button>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- One-Time Giving Section -->
+                        <section class="giving-section">
+                            <div class="giving-header">
+                                <h2>Make a One-Time Gift</h2>
+                                <p>Choose an amount to see the impact of your generosity</p>
+                            </div>
+                            <div class="giving-amounts">
+                                <div class="giving-amount">
+                                    <div class="amount">$25</div>
+                                    <div class="impact">One week of lessons for a scholarship student</div>
+                                </div>
+                                <div class="giving-amount selected">
+                                    <div class="amount">$50</div>
+                                    <div class="impact">One month of group class tuition</div>
+                                </div>
+                                <div class="giving-amount">
+                                    <div class="amount">$100</div>
+                                    <div class="impact">Sheet music for an entire ensemble</div>
+                                </div>
+                                <div class="giving-amount">
+                                    <div class="amount">$250</div>
+                                    <div class="impact">A semester of music therapy sessions</div>
+                                </div>
+                                <div class="giving-amount">
+                                    <div class="amount">$500</div>
+                                    <div class="impact">Full scholarship for summer camp</div>
+                                </div>
+                                <div class="giving-amount">
+                                    <div class="amount">$1,000</div>
+                                    <div class="impact">A year of private lessons for one student</div>
+                                </div>
+                                <div class="custom-amount" style="grid-column: span 2;">
+                                    <span>Enter Custom Amount</span>
+                                </div>
+                            </div>
+                            <div class="donate-form-cta">
+                                <button class="mock-btn mock-btn-primary mock-btn-lg">Continue to Payment</button>
+                            </div>
+                        </section>
+
+                        <!-- Band of Donors Section -->
+                        <section class="band-of-donors">
+                            <div class="band-content">
+                                <div class="band-text">
+                                    <h2>Join the Band of Donors</h2>
+                                    <p>Become a sustaining member with a monthly gift. Your recurring support provides reliable funding that helps us plan ahead and serve more students year-round.</p>
+                                    <ul class="band-benefits">
+                                        <li>
+                                            <span class="band-benefits-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+                                            <span>Exclusive quarterly newsletter with student stories</span>
+                                        </li>
+                                        <li>
+                                            <span class="band-benefits-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+                                            <span>Recognition on our Sustaining Supporters wall</span>
+                                        </li>
+                                        <li>
+                                            <span class="band-benefits-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+                                            <span>Invitation to annual donor appreciation recital</span>
+                                        </li>
+                                        <li>
+                                            <span class="band-benefits-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+                                            <span>Easy to modify or cancel anytime</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="band-card">
+                                    <div class="band-card-badge">Monthly Giving</div>
+                                    <h3>Band of Donors</h3>
+                                    <p class="price">Starting at <strong>$10</strong>/month</p>
+                                    <div class="band-levels">
+                                        <div class="band-level">
+                                            <div class="level-amount">$10</div>
+                                            <div class="level-freq">/month</div>
+                                        </div>
+                                        <div class="band-level selected">
+                                            <div class="level-amount">$25</div>
+                                            <div class="level-freq">/month</div>
+                                        </div>
+                                        <div class="band-level">
+                                            <div class="level-amount">$50</div>
+                                            <div class="level-freq">/month</div>
+                                        </div>
+                                    </div>
+                                    <button class="mock-btn mock-btn-primary mock-btn-lg" style="width: 100%;">Join the Band</button>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Sponsorship Section -->
+                        <section class="sponsorship-section">
+                            <div class="sponsorship-header">
+                                <h2>Sponsor an Event</h2>
+                                <p>Support our recitals, community concerts, and special events while gaining visibility for your business in the Greater Nashua community.</p>
+                            </div>
+                            <div class="sponsorship-tiers">
+                                <!-- Believer Tier -->
+                                <div class="sponsor-tier">
+                                    <div class="sponsor-tier-header">
+                                        <div class="sponsor-tier-name">Believer</div>
+                                        <div class="sponsor-tier-price">$250</div>
+                                    </div>
+                                    <div class="sponsor-tier-body">
+                                        <ul class="sponsor-benefits">
+                                            <li>
+                                                <span class="sponsor-benefits-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+                                                <span>Shoutout on our social media channels</span>
+                                            </li>
+                                            <li>
+                                                <span class="sponsor-benefits-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+                                                <span>Name listing on event slideshow</span>
+                                            </li>
+                                        </ul>
+                                        <button class="mock-btn mock-btn-outline">Become a Believer</button>
+                                    </div>
+                                </div>
+
+                                <!-- Supporter Tier -->
+                                <div class="sponsor-tier">
+                                    <div class="sponsor-tier-header">
+                                        <div class="sponsor-tier-name">Supporter</div>
+                                        <div class="sponsor-tier-price">$500</div>
+                                    </div>
+                                    <div class="sponsor-tier-body">
+                                        <ul class="sponsor-benefits">
+                                            <li>
+                                                <span class="sponsor-benefits-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+                                                <span>Shoutout on our social media channels</span>
+                                            </li>
+                                            <li>
+                                                <span class="sponsor-benefits-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+                                                <span>Name listing in event program</span>
+                                            </li>
+                                            <li>
+                                                <span class="sponsor-benefits-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+                                                <span>Name listing on event slideshow</span>
+                                            </li>
+                                        </ul>
+                                        <button class="mock-btn mock-btn-outline">Become a Supporter</button>
+                                    </div>
+                                </div>
+
+                                <!-- Champion Tier -->
+                                <div class="sponsor-tier featured">
+                                    <div class="sponsor-tier-header">
+                                        <div class="sponsor-tier-name">Champion</div>
+                                        <div class="sponsor-tier-price">$1,000</div>
+                                    </div>
+                                    <div class="sponsor-tier-body">
+                                        <ul class="sponsor-benefits">
+                                            <li>
+                                                <span class="sponsor-benefits-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+                                                <span><strong>Commercial video</strong> featured on social media</span>
+                                            </li>
+                                            <li>
+                                                <span class="sponsor-benefits-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+                                                <span><strong>Large</strong> name listing in event program</span>
+                                            </li>
+                                            <li>
+                                                <span class="sponsor-benefits-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+                                                <span><strong>Large</strong> name listing on event slideshow</span>
+                                            </li>
+                                            <li>
+                                                <span class="sponsor-benefits-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+                                                <span><strong>Reserved table</strong> at the event</span>
+                                            </li>
+                                        </ul>
+                                        <button class="mock-btn mock-btn-primary">Become a Champion</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Events Supported -->
+                        <section class="events-supported">
+                            <h3>Your Sponsorship Supports These Events</h3>
+                            <div class="events-grid">
+                                <div class="event-item">
+                                    <div class="event-icon">&#127926;</div>
+                                    <h4>Student Recitals</h4>
+                                    <p>Fall, Winter, Spring</p>
+                                </div>
+                                <div class="event-item">
+                                    <div class="event-icon">&#127929;</div>
+                                    <h4>Community Concerts</h4>
+                                    <p>Free public performances</p>
+                                </div>
+                                <div class="event-item">
+                                    <div class="event-icon">&#127775;</div>
+                                    <h4>Season of Giving Gala</h4>
+                                    <p>Annual fundraiser</p>
+                                </div>
+                                <div class="event-item">
+                                    <div class="event-icon">&#127911;</div>
+                                    <h4>Summer Showcases</h4>
+                                    <p>Camp performances</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Why Give Stats -->
+                        <section class="why-give">
+                            <div class="why-give-grid">
+                                <div class="why-give-item">
+                                    <div class="why-give-stat">92%</div>
+                                    <div class="why-give-label">of donations directly fund programs and scholarships</div>
+                                </div>
+                                <div class="why-give-item">
+                                    <div class="why-give-stat">501(c)3</div>
+                                    <div class="why-give-label">tax-exempt status—your gift is fully deductible</div>
+                                </div>
+                                <div class="why-give-item">
+                                    <div class="why-give-stat">40 Years</div>
+                                    <div class="why-give-label">of trusted stewardship in Greater Nashua</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <footer class="mock-footer-simple">
+                            Nashua Community Music School | 2 Lock Street, Nashua, NH 03060 | 603-881-7030
+                        </footer>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Annotations Panel -->
+            <div class="annotations-panel">
+                <h3>Design Rationale</h3>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">1</div>
+                    <div class="annotation-title">Unified Giving Hub</div>
+                    <div class="annotation-description">Single page with tabs for all giving types (one-time, recurring, sponsorship) rather than separate pages. Reduces friction and exposes visitors to options they may not have considered.</div>
+                    <span class="annotation-tag infrastructure">Build Infrastructure</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">2</div>
+                    <div class="annotation-title">Impact-Based Amounts</div>
+                    <div class="annotation-description">Each gift amount shows concrete impact ("One month of group class tuition"). Mirrors the effective Season of Giving approach and increases average gift size.</div>
+                    <span class="annotation-tag">Boost Storytelling</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">3</div>
+                    <div class="annotation-title">Band of Donors Branding</div>
+                    <div class="annotation-description">Named sustainer program creates community identity. "Join the Band" is memorable, on-brand for a music school, and makes recurring giving feel like membership, not obligation.</div>
+                    <span class="annotation-tag">Boost Storytelling</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">4</div>
+                    <div class="annotation-title">Clear Member Benefits</div>
+                    <div class="annotation-description">Monthly donors see tangible benefits (newsletter, recognition, special events). Creates value exchange that improves retention rates.</div>
+                    <span class="annotation-tag infrastructure">Build Infrastructure</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">5</div>
+                    <div class="annotation-title">Tiered Sponsorship Cards</div>
+                    <div class="annotation-description">Visual pricing cards make comparison easy. Champion tier highlighted to anchor expectations. Benefits clearly differentiated with check marks.</div>
+                    <span class="annotation-tag infrastructure">Build Infrastructure</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">6</div>
+                    <div class="annotation-title">Events Showcase</div>
+                    <div class="annotation-description">Shows sponsors exactly what their support funds. Tangible outcomes (recitals, concerts, galas) connect giving to visible community impact.</div>
+                    <span class="annotation-tag communities">Bridge Communities</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">7</div>
+                    <div class="annotation-title">Trust Indicators</div>
+                    <div class="annotation-description">"92% to programs," "501(c)3 status," and "40 years" address donor concerns about legitimacy and efficient use of funds. Reduces giving hesitation.</div>
+                    <span class="annotation-tag">Boost Storytelling</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Summary Section -->
+    <section class="section-header" style="padding-bottom: 60px;">
+        <h2>Template System Summary</h2>
+        <p style="max-width: 800px; margin: 20px auto 0;">These four templates create a consistent user experience across the site while serving distinct purposes: enrollment conversion (New Student), program exploration (Program Detail), community access (Scholarship), and fundraising (Donation). Each template can be adapted for similar page types throughout the site.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding: 40px; text-align: center; color: #666; border-top: 1px solid #333;">
+        <p>NCMS Sub-Page Templates — Board Strategic Planning Retreat — January 2026</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;"><a href="ncms-homepage-refresh-mockup.html" style="color: var(--ncms-green);">View Homepage Mockup</a></p>
+    </footer>
+
+</body>
+</html>

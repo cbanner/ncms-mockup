@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCMS Website Refresh - Board Presentation Mockups</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ncms-green: #1a7a4c;
+            --ncms-green-dark: #145f3b;
+            --ncms-green-light: #e8f5ee;
+            --warm-cream: #faf8f5;
+            --warm-gray: #6b6560;
+            --charcoal: #2d2a26;
+            --gold-accent: #c9a227;
+            --presentation-bg: #1a1a1a;
+            --card-bg: #ffffff;
+            --annotation-bg: #2a2a2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: var(--presentation-bg);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Presentation Header */
+        .presentation-header {
+            padding: 60px 40px 40px;
+            text-align: center;
+            background: linear-gradient(180deg, #222 0%, var(--presentation-bg) 100%);
+            border-bottom: 1px solid #333;
+        }
+
+        .presentation-header h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.8rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .presentation-header .subtitle {
+            font-size: 1.1rem;
+            color: #999;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .strategic-alignment {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .strategic-alignment .pillar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: rgba(26, 122, 76, 0.15);
+            border: 1px solid rgba(26, 122, 76, 0.3);
+            border-radius: 8px;
+        }
+
+        .strategic-alignment .pillar-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--ncms-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .strategic-alignment .pillar-text {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--ncms-green);
+        }
+
+        /* Section Headers */
+        .section-header {
+            padding: 60px 40px 30px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Mockup Container */
+        .mockup-section {
+            padding: 20px 40px 80px;
+        }
+
+        .mockup-container {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 40px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .mockup-container.mobile-layout {
+            grid-template-columns: 1fr 1fr 350px;
+        }
+
+        /* Device Frame */
+        .device-frame {
+            background: #333;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.5);
+        }
+
+        .device-frame.desktop {
+            max-width: 1000px;
+        }
+
+        .device-frame.mobile {
+            max-width: 375px;
+            margin: 0 auto;
+        }
+
+        .browser-chrome {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: #444;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .browser-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .browser-dots span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .browser-dots span:nth-child(1) { background: #ff5f57; }
+        .browser-dots span:nth-child(2) { background: #ffbd2e; }
+        .browser-dots span:nth-child(3) { background: #28ca41; }
+
+        .browser-url {
+            flex: 1;
+            background: #555;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-left: 20px;
+        }
+
+        .device-screen {
+            background: var(--card-bg);
+            border-radius: 0 0 12px 12px;
+            overflow: hidden;
+        }
+
+        .mobile .device-screen {
+            border-radius: 0 0 30px 30px;
+        }
+
+        /* Mobile device frame */
+        .mobile .browser-chrome {
+            padding: 8px 16px;
+            justify-content: center;
+        }
+
+        .mobile .browser-chrome::before {
+            content: '';
+            width: 60px;
+            height: 6px;
+            background: #555;
+            border-radius: 3px;
+        }
+
+        .mobile .browser-dots,
+        .mobile .browser-url {
+            display: none;
+        }
+
+        /* Annotations Panel */
+        .annotations-panel {
+            background: var(--annotation-bg);
+            border-radius: 16px;
+            padding: 30px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .annotations-panel h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--ncms-green);
+        }
+
+        .annotation-item {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #444;
+        }
+
+        .annotation-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .annotation-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--ncms-green);
+            color: white;
+            border-radius: 50%;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .annotation-title {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .annotation-description {
+            font-size: 0.9rem;
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        .annotation-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(26, 122, 76, 0.2);
+            color: var(--ncms-green);
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+        /* ==================== */
+        /* MOCKUP WEBSITE STYLES */
+        /* ==================== */
+
+        .mockup-site {
+            font-family: 'Source Sans 3', sans-serif;
+            background: var(--warm-cream);
+            color: var(--charcoal);
+        }
+
+        /* Navigation */
+        .mock-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 40px;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mock-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mock-logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--ncms-green);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mock-logo-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        .mock-logo-text {
+            font-family: 'Fraunces', serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--charcoal);
+            line-height: 1.2;
+        }
+
+        .mock-nav-links {
+            display: flex;
+            gap: 28px;
+            font-size: 0.9rem;
+            color: var(--warm-gray);
+        }
+
+        .mock-nav-links span:hover {
+            color: var(--ncms-green);
+        }
+
+        .mock-nav-cta {
+            display: flex;
+            gap: 12px;
+        }
+
+        .mock-btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .mock-btn-outline {
+            background: transparent;
+            border: 2px solid var(--ncms-green);
+            color: var(--ncms-green);
+        }
+
+        .mock-btn-primary {
+            background: var(--ncms-green);
+            border: 2px solid var(--ncms-green);
+            color: white;
+        }
+
+        /* Hero Section - NEW DESIGN */
+        .mock-hero {
+            position: relative;
+            min-height: 500px;
+            background: linear-gradient(135deg, #1a3a2a 0%, #0d1f16 100%);
+            overflow: hidden;
+        }
+
+        .mock-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.03)"/></svg>');
+            background-size: 20px 20px;
+        }
+
+        .mock-hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 80px 60px;
+            max-width: 650px;
+        }
+
+        .mock-hero-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(201, 162, 39, 0.2);
+            border: 1px solid var(--gold-accent);
+            color: var(--gold-accent);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .mock-hero h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: white;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .mock-hero-mission {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+            margin-bottom: 35px;
+            font-weight: 300;
+        }
+
+        .mock-hero-ctas {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .mock-hero-btn {
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .mock-hero-btn-primary {
+            background: var(--ncms-green);
+            border: none;
+            color: white;
+        }
+
+        .mock-hero-btn-secondary {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.4);
+            color: white;
+        }
+
+        /* Hero decorative elements */
+        .mock-hero-visual {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 45%;
+            overflow: hidden;
+        }
+
+        .mock-hero-img-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(26,122,76,0.3) 0%, rgba(26,122,76,0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Impact Stats Section - NEW */
+        .mock-impact-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mock-stat {
+            padding: 35px 25px;
+            text-align: center;
+            border-right: 1px solid #eee;
+        }
+
+        .mock-stat:last-child {
+            border-right: none;
+        }
+
+        .mock-stat-number {
+            font-family: 'Fraunces', serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: var(--ncms-green);
+            margin-bottom: 6px;
+        }
+
+        .mock-stat-label {
+            font-size: 0.85rem;
+            color: var(--warm-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Programs Section */
+        .mock-programs {
+            padding: 70px 60px;
+        }
+
+        .mock-section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .mock-section-header h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 12px;
+        }
+
+        .mock-section-header p {
+            color: var(--warm-gray);
+            font-size: 1.1rem;
+        }
+
+        .mock-programs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .mock-program-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .mock-program-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+        .mock-program-img {
+            height: 140px;
+            background: linear-gradient(135deg, var(--ncms-green-light) 0%, #d4e8dc 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: var(--ncms-green);
+        }
+
+        .mock-program-content {
+            padding: 20px;
+        }
+
+        .mock-program-content h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--charcoal);
+        }
+
+        .mock-program-content p {
+            font-size: 0.85rem;
+            color: var(--warm-gray);
+            line-height: 1.5;
+        }
+
+        /* Testimonial Section - NEW */
+        .mock-testimonial {
+            background: var(--ncms-green);
+            padding: 70px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mock-testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 40px;
+            font-family: 'Fraunces', serif;
+            font-size: 15rem;
+            color: rgba(255,255,255,0.08);
+            line-height: 1;
+        }
+
+        .mock-testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .mock-testimonial-quote {
+            font-family: 'Fraunces', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            font-style: italic;
+            color: white;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .mock-testimonial-author {
+            color: rgba(255,255,255,0.8);
+            font-size: 1rem;
+        }
+
+        .mock-testimonial-author strong {
+            color: white;
+            font-weight: 600;
+        }
+
+        /* CTA Section - NEW */
+        .mock-dual-cta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .mock-cta-panel {
+            padding: 60px;
+            text-align: center;
+        }
+
+        .mock-cta-panel.donate {
+            background: linear-gradient(135deg, #f8f5f0 0%, #fff 100%);
+        }
+
+        .mock-cta-panel.enroll {
+            background: linear-gradient(135deg, var(--ncms-green-light) 0%, #fff 100%);
+        }
+
+        .mock-cta-panel h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--charcoal);
+        }
+
+        .mock-cta-panel p {
+            color: var(--warm-gray);
+            margin-bottom: 24px;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        .mock-footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 50px 60px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        .mock-footer-brand h4 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .mock-footer-brand p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .mock-footer-col h5 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .mock-footer-col ul {
+            list-style: none;
+        }
+
+        .mock-footer-col li {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* ==================== */
+        /* MOBILE MOCKUP STYLES */
+        /* ==================== */
+
+        .mockup-site.mobile-view .mock-nav {
+            padding: 12px 20px;
+        }
+
+        .mockup-site.mobile-view .mock-nav-links,
+        .mockup-site.mobile-view .mock-nav-cta {
+            display: none;
+        }
+
+        .mockup-site.mobile-view .mock-hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .mockup-site.mobile-view .mock-hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--charcoal);
+        }
+
+        .mockup-site.mobile-view .mock-hero {
+            min-height: auto;
+        }
+
+        .mockup-site.mobile-view .mock-hero-content {
+            padding: 50px 24px;
+        }
+
+        .mockup-site.mobile-view .mock-hero h1 {
+            font-size: 1.8rem;
+        }
+
+        .mockup-site.mobile-view .mock-hero-mission {
+            font-size: 1rem;
+        }
+
+        .mockup-site.mobile-view .mock-hero-visual {
+            display: none;
+        }
+
+        .mockup-site.mobile-view .mock-hero-ctas {
+            flex-direction: column;
+        }
+
+        .mockup-site.mobile-view .mock-hero-btn {
+            text-align: center;
+        }
+
+        .mockup-site.mobile-view .mock-impact-stats {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .mockup-site.mobile-view .mock-stat {
+            padding: 24px 16px;
+        }
+
+        .mockup-site.mobile-view .mock-stat:nth-child(2) {
+            border-right: none;
+        }
+
+        .mockup-site.mobile-view .mock-stat-number {
+            font-size: 1.8rem;
+        }
+
+        .mockup-site.mobile-view .mock-programs {
+            padding: 40px 24px;
+        }
+
+        .mockup-site.mobile-view .mock-programs-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .mockup-site.mobile-view .mock-program-card {
+            display: flex;
+        }
+
+        .mockup-site.mobile-view .mock-program-img {
+            width: 100px;
+            height: auto;
+            min-height: 100px;
+        }
+
+        .mockup-site.mobile-view .mock-testimonial {
+            padding: 50px 24px;
+        }
+
+        .mockup-site.mobile-view .mock-testimonial-quote {
+            font-size: 1.15rem;
+        }
+
+        .mockup-site.mobile-view .mock-dual-cta {
+            grid-template-columns: 1fr;
+        }
+
+        .mockup-site.mobile-view .mock-cta-panel {
+            padding: 40px 24px;
+        }
+
+        .mockup-site.mobile-view .mock-footer {
+            grid-template-columns: 1fr;
+            gap: 30px;
+            padding: 40px 24px;
+        }
+
+        /* Annotation callout markers */
+        .callout-marker {
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            background: var(--ncms-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.85rem;
+            box-shadow: 0 2px 10px rgba(26,122,76,0.4);
+            z-index: 10;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            padding: 60px 40px;
+            background: #222;
+        }
+
+        .comparison-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .comparison-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .comparison-header h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .comparison-card {
+            background: var(--annotation-bg);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .comparison-card-header {
+            padding: 20px 24px;
+            background: #333;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .comparison-card-header.current {
+            border-left: 4px solid #888;
+        }
+
+        .comparison-card-header.proposed {
+            border-left: 4px solid var(--ncms-green);
+        }
+
+        .comparison-card-header h4 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .comparison-card-body {
+            padding: 24px;
+        }
+
+        .comparison-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #444;
+        }
+
+        .comparison-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .comparison-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .comparison-icon.negative {
+            background: rgba(255, 100, 100, 0.2);
+            color: #ff6464;
+        }
+
+        .comparison-icon.positive {
+            background: rgba(26, 122, 76, 0.2);
+            color: var(--ncms-green);
+        }
+
+        .comparison-text {
+            font-size: 0.9rem;
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        /* Mobile section */
+        .mobile-section {
+            padding: 60px 40px;
+        }
+
+        .mobile-mockups-container {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .mobile-mockup-wrapper {
+            text-align: center;
+        }
+
+        .mobile-mockup-wrapper h4 {
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #888;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .mockup-container {
+                grid-template-columns: 1fr;
+            }
+
+            .annotations-panel {
+                position: static;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Presentation Header -->
+    <header class="presentation-header">
+        <h1>NCMS Homepage Refresh</h1>
+        <p class="subtitle">Visual mockups demonstrating recommended changes to nashuacms.org, aligned with the 2026-2031 Strategic Plan</p>
+        <div class="strategic-alignment">
+            <div class="pillar">
+                <div class="pillar-icon">1</div>
+                <span class="pillar-text">Boost Storytelling</span>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon">2</div>
+                <span class="pillar-text">Build Infrastructure</span>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon">3</div>
+                <span class="pillar-text">Bridge Communities</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Before/After Comparison -->
+    <section class="comparison-section">
+        <div class="comparison-container">
+            <div class="comparison-header">
+                <h2>Current vs. Proposed Changes</h2>
+                <p style="color: #888;">Key differences between current homepage and recommended refresh</p>
+            </div>
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-card-header current">
+                        <h4>Current Homepage</h4>
+                    </div>
+                    <div class="comparison-card-body">
+                        <div class="comparison-item">
+                            <div class="comparison-icon negative">-</div>
+                            <div class="comparison-text">Hero shows only school name and single "Donate Today" CTA</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon negative">-</div>
+                            <div class="comparison-text">Mission statement buried in "Who We Are" sub-page</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon negative">-</div>
+                            <div class="comparison-text">No visible impact metrics or social proof</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon negative">-</div>
+                            <div class="comparison-text">No testimonials or success stories</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon negative">-</div>
+                            <div class="comparison-text">Only donation CTA; no enrollment pathway above fold</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <div class="comparison-card-header proposed">
+                        <h4>Proposed Refresh</h4>
+                    </div>
+                    <div class="comparison-card-body">
+                        <div class="comparison-item">
+                            <div class="comparison-icon positive">+</div>
+                            <div class="comparison-text">Hero leads with mission: "Creating innovative music programming accessible to all"</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon positive">+</div>
+                            <div class="comparison-text">40-year legacy badge builds instant credibility</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon positive">+</div>
+                            <div class="comparison-text">Impact stats bar: students, scholarships, programs, years</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon positive">+</div>
+                            <div class="comparison-text">Testimonial section provides social proof</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon positive">+</div>
+                            <div class="comparison-text">Dual CTAs: "Give the Gift of Music" + "Start Your Journey"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Desktop Mockup Section -->
+    <section class="section-header">
+        <h2>Desktop Homepage Mockup</h2>
+        <p>Recommended design with annotation markers explaining each strategic change</p>
+    </section>
+
+    <section class="mockup-section">
+        <div class="mockup-container">
+            <div class="device-frame desktop">
+                <div class="browser-chrome">
+                    <div class="browser-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="browser-url">nashuacms.org</div>
+                </div>
+                <div class="device-screen">
+                    <div class="mockup-site">
+                        <!-- Navigation -->
+                        <nav class="mock-nav">
+                            <div class="mock-logo">
+                                <div class="mock-logo-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                                </div>
+                                <span class="mock-logo-text">Nashua Community<br>Music School</span>
+                            </div>
+                            <div class="mock-nav-links">
+                                <span>Our Story</span>
+                                <span>Programs</span>
+                                <span>Our Team</span>
+                                <span>Events</span>
+                                <span>Resources</span>
+                            </div>
+                            <div class="mock-nav-cta">
+                                <button class="mock-btn mock-btn-outline">Enroll Now</button>
+                                <button class="mock-btn mock-btn-primary">Donate</button>
+                            </div>
+                        </nav>
+
+                        <!-- Hero Section -->
+                        <section class="mock-hero" style="position: relative;">
+                            <div class="mock-hero-content">
+                                <div class="mock-hero-badge">Serving Greater Nashua for 40 Years</div>
+                                <h1>Creating innovative music programming accessible to all.</h1>
+                                <p class="mock-hero-mission">From private lessons to music therapy, summer camps to community ensembles—we believe everyone deserves the transformative power of music.</p>
+                                <div class="mock-hero-ctas">
+                                    <button class="mock-hero-btn mock-hero-btn-primary">Give the Gift of Music</button>
+                                    <button class="mock-hero-btn mock-hero-btn-secondary">Start Your Journey</button>
+                                </div>
+                            </div>
+                            <div class="mock-hero-visual">
+                                <div class="mock-hero-img-placeholder">[Student Performance Photo]</div>
+                            </div>
+                        </section>
+
+                        <!-- Impact Stats -->
+                        <section class="mock-impact-stats">
+                            <div class="mock-stat">
+                                <div class="mock-stat-number">500+</div>
+                                <div class="mock-stat-label">Students Served</div>
+                            </div>
+                            <div class="mock-stat">
+                                <div class="mock-stat-number">$85K</div>
+                                <div class="mock-stat-label">Scholarships Awarded</div>
+                            </div>
+                            <div class="mock-stat">
+                                <div class="mock-stat-number">25+</div>
+                                <div class="mock-stat-label">Community Programs</div>
+                            </div>
+                            <div class="mock-stat">
+                                <div class="mock-stat-number">40</div>
+                                <div class="mock-stat-label">Years of Service</div>
+                            </div>
+                        </section>
+
+                        <!-- Programs Section -->
+                        <section class="mock-programs">
+                            <div class="mock-section-header">
+                                <h2>Discover Your Musical Path</h2>
+                                <p>Programs for every age, ability, and aspiration</p>
+                            </div>
+                            <div class="mock-programs-grid">
+                                <div class="mock-program-card">
+                                    <div class="mock-program-img">[Piano Lesson]</div>
+                                    <div class="mock-program-content">
+                                        <h3>Private Lessons</h3>
+                                        <p>One-on-one instruction in 15+ instruments with expert faculty.</p>
+                                    </div>
+                                </div>
+                                <div class="mock-program-card">
+                                    <div class="mock-program-img">[Therapy Session]</div>
+                                    <div class="mock-program-content">
+                                        <h3>Music Therapy</h3>
+                                        <p>Board-certified therapists using music to achieve non-musical goals.</p>
+                                    </div>
+                                </div>
+                                <div class="mock-program-card">
+                                    <div class="mock-program-img">[Kids Camp]</div>
+                                    <div class="mock-program-content">
+                                        <h3>Summer Camps</h3>
+                                        <p>Week-long musical adventures in partnership with Nashua Parks & Rec.</p>
+                                    </div>
+                                </div>
+                                <div class="mock-program-card">
+                                    <div class="mock-program-img">[Ensemble]</div>
+                                    <div class="mock-program-content">
+                                        <h3>Ensembles</h3>
+                                        <p>Collaborate with others in group classes and performance groups.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Testimonial -->
+                        <section class="mock-testimonial">
+                            <div class="mock-testimonial-content">
+                                <p class="mock-testimonial-quote">"NCMS didn't just teach my daughter to play piano—they gave her confidence, community, and a lifelong love of music. The scholarship made it possible for our family."</p>
+                                <p class="mock-testimonial-author"><strong>Maria S.</strong> — Parent of scholarship recipient</p>
+                            </div>
+                        </section>
+
+                        <!-- Dual CTA -->
+                        <section class="mock-dual-cta">
+                            <div class="mock-cta-panel donate">
+                                <h3>Support Music Education</h3>
+                                <p>Your gift provides scholarships, instruments, and programming for students in need.</p>
+                                <button class="mock-btn mock-btn-primary">Donate Today</button>
+                            </div>
+                            <div class="mock-cta-panel enroll">
+                                <h3>Ready to Begin?</h3>
+                                <p>Request information about lessons, camps, and programs for all ages.</p>
+                                <button class="mock-btn mock-btn-outline">Get Started</button>
+                            </div>
+                        </section>
+
+                        <!-- Footer -->
+                        <footer class="mock-footer">
+                            <div class="mock-footer-brand">
+                                <h4>Nashua Community Music School</h4>
+                                <p>A 501(c)3 nonprofit creating innovative music programming accessible to all since 1985.</p>
+                                <p style="margin-top: 12px;">2 Lock Street, Nashua, NH 03060<br>603-881-7030</p>
+                            </div>
+                            <div class="mock-footer-col">
+                                <h5>Programs</h5>
+                                <ul>
+                                    <li>Private Lessons</li>
+                                    <li>Music Therapy</li>
+                                    <li>Summer Camps</li>
+                                    <li>Ensembles</li>
+                                </ul>
+                            </div>
+                            <div class="mock-footer-col">
+                                <h5>About</h5>
+                                <ul>
+                                    <li>Our Story</li>
+                                    <li>Our Team</li>
+                                    <li>Impact Report</li>
+                                    <li>Careers</li>
+                                </ul>
+                            </div>
+                            <div class="mock-footer-col">
+                                <h5>Support</h5>
+                                <ul>
+                                    <li>Donate</li>
+                                    <li>Scholarships</li>
+                                    <li>Corporate Partners</li>
+                                    <li>Volunteer</li>
+                                </ul>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Annotations Panel -->
+            <div class="annotations-panel">
+                <h3>Design Rationale</h3>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">1</div>
+                    <div class="annotation-title">Mission-Led Hero</div>
+                    <div class="annotation-description">The mission statement moves from a buried sub-page to the hero headline. Visitors immediately understand NCMS's purpose and values.</div>
+                    <span class="annotation-tag">Boost Storytelling</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">2</div>
+                    <div class="annotation-title">40-Year Legacy Badge</div>
+                    <div class="annotation-description">A subtle but powerful credibility signal. Longevity builds trust for both donors and prospective families.</div>
+                    <span class="annotation-tag">Boost Storytelling</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">3</div>
+                    <div class="annotation-title">Dual Call-to-Action</div>
+                    <div class="annotation-description">Current site only shows "Donate Today." Adding "Start Your Journey" creates a pathway for enrollment—serving both fundraising AND growth goals.</div>
+                    <span class="annotation-tag">Build Infrastructure</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">4</div>
+                    <div class="annotation-title">Impact Statistics Bar</div>
+                    <div class="annotation-description">Concrete numbers (students, scholarships, programs, years) provide social proof and demonstrate community reach—key for donor confidence.</div>
+                    <span class="annotation-tag">Boost Storytelling</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">5</div>
+                    <div class="annotation-title">Testimonial Section</div>
+                    <div class="annotation-description">A real parent voice creates emotional connection. Mentioning scholarships reinforces impact and encourages donations.</div>
+                    <span class="annotation-tag">Bridge Communities</span>
+                </div>
+
+                <div class="annotation-item">
+                    <div class="annotation-number">6</div>
+                    <div class="annotation-title">Dual CTA Panels</div>
+                    <div class="annotation-description">Clear, equal-weight pathways for donors AND prospective students. Neither audience has to hunt for their next step.</div>
+                    <span class="annotation-tag">Build Infrastructure</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Mockup Section -->
+    <section class="section-header">
+        <h2>Mobile Homepage Mockup</h2>
+        <p>Responsive design maintains impact on smaller screens</p>
+    </section>
+
+    <section class="mobile-section">
+        <div class="mobile-mockups-container">
+            <div class="mobile-mockup-wrapper">
+                <div class="device-frame mobile">
+                    <div class="browser-chrome">
+                    </div>
+                    <div class="device-screen">
+                        <div class="mockup-site mobile-view">
+                            <!-- Mobile Navigation -->
+                            <nav class="mock-nav">
+                                <div class="mock-logo">
+                                    <div class="mock-logo-icon">
+                                        <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                                    </div>
+                                </div>
+                                <div class="mock-hamburger">
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </nav>
+
+                            <!-- Mobile Hero -->
+                            <section class="mock-hero">
+                                <div class="mock-hero-content">
+                                    <div class="mock-hero-badge">40 Years of Music</div>
+                                    <h1>Creating innovative music programming accessible to all.</h1>
+                                    <p class="mock-hero-mission">From private lessons to community ensembles—everyone deserves the transformative power of music.</p>
+                                    <div class="mock-hero-ctas">
+                                        <button class="mock-hero-btn mock-hero-btn-primary">Give the Gift of Music</button>
+                                        <button class="mock-hero-btn mock-hero-btn-secondary">Start Your Journey</button>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Mobile Impact Stats -->
+                            <section class="mock-impact-stats">
+                                <div class="mock-stat">
+                                    <div class="mock-stat-number">500+</div>
+                                    <div class="mock-stat-label">Students</div>
+                                </div>
+                                <div class="mock-stat">
+                                    <div class="mock-stat-number">$85K</div>
+                                    <div class="mock-stat-label">Scholarships</div>
+                                </div>
+                                <div class="mock-stat">
+                                    <div class="mock-stat-number">25+</div>
+                                    <div class="mock-stat-label">Programs</div>
+                                </div>
+                                <div class="mock-stat">
+                                    <div class="mock-stat-number">40</div>
+                                    <div class="mock-stat-label">Years</div>
+                                </div>
+                            </section>
+
+                            <!-- Mobile Programs -->
+                            <section class="mock-programs">
+                                <div class="mock-section-header">
+                                    <h2>Our Programs</h2>
+                                </div>
+                                <div class="mock-programs-grid">
+                                    <div class="mock-program-card">
+                                        <div class="mock-program-img">[Piano]</div>
+                                        <div class="mock-program-content">
+                                            <h3>Private Lessons</h3>
+                                            <p>One-on-one instruction in 15+ instruments.</p>
+                                        </div>
+                                    </div>
+                                    <div class="mock-program-card">
+                                        <div class="mock-program-img">[Therapy]</div>
+                                        <div class="mock-program-content">
+                                            <h3>Music Therapy</h3>
+                                            <p>Board-certified therapists for all ages.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Mobile Testimonial -->
+                            <section class="mock-testimonial">
+                                <div class="mock-testimonial-content">
+                                    <p class="mock-testimonial-quote">"NCMS gave my daughter confidence, community, and a lifelong love of music."</p>
+                                    <p class="mock-testimonial-author"><strong>Maria S.</strong> — Parent</p>
+                                </div>
+                            </section>
+
+                            <!-- Mobile CTAs -->
+                            <section class="mock-dual-cta">
+                                <div class="mock-cta-panel donate">
+                                    <h3>Support Music Education</h3>
+                                    <p>Your gift changes lives.</p>
+                                    <button class="mock-btn mock-btn-primary">Donate</button>
+                                </div>
+                                <div class="mock-cta-panel enroll">
+                                    <h3>Ready to Begin?</h3>
+                                    <p>Find your program.</p>
+                                    <button class="mock-btn mock-btn-outline">Get Started</button>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <h4>Mobile View (375px)</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Takeaways -->
+    <section class="comparison-section" style="background: #1a1a1a;">
+        <div class="comparison-container">
+            <div class="comparison-header">
+                <h2>Expected Outcomes</h2>
+                <p style="color: #888;">How these changes support strategic plan KPIs</p>
+            </div>
+            <div class="comparison-grid" style="grid-template-columns: repeat(3, 1fr); gap: 24px;">
+                <div class="comparison-card">
+                    <div class="comparison-card-header proposed">
+                        <h4>Boost Storytelling</h4>
+                    </div>
+                    <div class="comparison-card-body">
+                        <div class="comparison-item">
+                            <div class="comparison-icon positive">↑</div>
+                            <div class="comparison-text"><strong>Time on site</strong> — Mission-first messaging gives visitors reason to explore</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon positive">↑</div>
+                            <div class="comparison-text"><strong>Impact report downloads</strong> — Stats create curiosity for deeper engagement</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon positive">↑</div>
+                            <div class="comparison-text"><strong>Social shares</strong> — Testimonials provide shareable content</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <div class="comparison-card-header proposed">
+                        <h4>Build Infrastructure</h4>
+                    </div>
+                    <div class="comparison-card-body">
+                        <div class="comparison-item">
+                            <div class="comparison-icon positive">↑</div>
+                            <div class="comparison-text"><strong>Conversion rate</strong> — Dual CTAs capture both donor and enrollment intent</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon positive">↑</div>
+                            <div class="comparison-text"><strong>Enrollment inquiries</strong> — Clear "Start Your Journey" pathway</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon positive">↓</div>
+                            <div class="comparison-text"><strong>Bounce rate</strong> — Immediate value proposition reduces exits</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <div class="comparison-card-header proposed">
+                        <h4>Bridge Communities</h4>
+                    </div>
+                    <div class="comparison-card-body">
+                        <div class="comparison-item">
+                            <div class="comparison-icon positive">↑</div>
+                            <div class="comparison-text"><strong>Scholarship applications</strong> — Visible testimonial normalizes asking for help</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon positive">↑</div>
+                            <div class="comparison-text"><strong>Donor conversion</strong> — Impact stats build confidence in giving</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon positive">↑</div>
+                            <div class="comparison-text"><strong>New donor acquisition</strong> — "40 years" credibility lowers barriers</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding: 40px; text-align: center; color: #666; border-top: 1px solid #333;">
+        <p>NCMS Digital Presence Refresh — Board Strategic Planning Retreat — January 2026</p>
+    </footer>
+
+</body>
+</html>
