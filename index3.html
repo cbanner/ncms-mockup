@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCMS AEO/GEO Strategy - Board Presentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ncms-green: #1a7a4c;
+            --ncms-green-dark: #145f3b;
+            --ncms-green-light: #e8f5ee;
+            --warm-cream: #faf8f5;
+            --warm-gray: #6b6560;
+            --charcoal: #2d2a26;
+            --gold-accent: #c9a227;
+            --presentation-bg: #1a1a1a;
+            --card-bg: #ffffff;
+            --annotation-bg: #2a2a2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: var(--presentation-bg);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Presentation Header */
+        .presentation-header {
+            padding: 60px 40px 40px;
+            text-align: center;
+            background: linear-gradient(180deg, #222 0%, var(--presentation-bg) 100%);
+            border-bottom: 1px solid #333;
+        }
+
+        .presentation-header h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.8rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .presentation-header .subtitle {
+            font-size: 1.1rem;
+            color: #999;
+            max-width: 750px;
+            margin: 0 auto 30px;
+        }
+
+        .strategic-alignment {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .strategic-alignment .pillar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: rgba(26, 122, 76, 0.15);
+            border: 1px solid rgba(26, 122, 76, 0.3);
+            border-radius: 8px;
+        }
+
+        .strategic-alignment .pillar-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--ncms-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .strategic-alignment .pillar-text {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--ncms-green);
+        }
+
+        /* Section Headers */
+        .section-header {
+            padding: 60px 40px 30px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: #888;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .section-header .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--ncms-green);
+            color: white;
+            border-radius: 50%;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            padding: 60px 40px;
+            background: #222;
+        }
+
+        .comparison-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .comparison-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .comparison-header h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .comparison-card {
+            background: var(--annotation-bg);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .comparison-card-header {
+            padding: 20px 24px;
+            background: #333;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .comparison-card-header.old {
+            border-left: 4px solid #888;
+        }
+
+        .comparison-card-header.new {
+            border-left: 4px solid var(--ncms-green);
+        }
+
+        .comparison-card-header h4 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .comparison-card-body {
+            padding: 24px;
+        }
+
+        .comparison-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #444;
+        }
+
+        .comparison-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .comparison-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .comparison-icon.old-way {
+            background: rgba(150, 150, 150, 0.2);
+            color: #999;
+        }
+
+        .comparison-icon.new-way {
+            background: rgba(26, 122, 76, 0.2);
+            color: var(--ncms-green);
+        }
+
+        .comparison-text {
+            font-size: 0.95rem;
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        .comparison-text strong {
+            color: #fff;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 60px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Story Cards */
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .story-card {
+            background: var(--annotation-bg);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid #333;
+        }
+
+        .story-card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(26, 122, 76, 0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .story-card h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .story-card p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Quote Block */
+        .quote-block {
+            background: linear-gradient(135deg, rgba(26, 122, 76, 0.1) 0%, rgba(26, 122, 76, 0.05) 100%);
+            border-left: 4px solid var(--ncms-green);
+            border-radius: 0 16px 16px 0;
+            padding: 30px 40px;
+            margin: 40px 0;
+        }
+
+        .quote-block p {
+            font-family: 'Fraunces', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #ddd;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .quote-block cite {
+            color: #888;
+            font-size: 0.9rem;
+            font-style: normal;
+        }
+
+        /* Scenario Section */
+        .scenario-section {
+            padding: 60px 40px;
+            background: #1e1e1e;
+        }
+
+        .scenario-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .scenario-box {
+            background: var(--annotation-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .scenario-header {
+            background: #333;
+            padding: 20px 28px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .scenario-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .scenario-meta h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .scenario-meta span {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .scenario-body {
+            padding: 28px;
+        }
+
+        .scenario-query {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            border: 1px solid #444;
+        }
+
+        .scenario-query-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .scenario-query p {
+            font-size: 1.1rem;
+            color: #fff;
+            font-style: italic;
+        }
+
+        .scenario-response {
+            color: #ccc;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .scenario-response strong {
+            color: var(--ncms-green);
+        }
+
+        .scenario-outcome {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+
+        .scenario-outcome-label {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .scenario-outcome-label.good {
+            background: rgba(26, 122, 76, 0.2);
+            color: var(--ncms-green);
+        }
+
+        .scenario-outcome-label.bad {
+            background: rgba(255, 100, 100, 0.2);
+            color: #ff6464;
+        }
+
+        .scenario-outcome p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Definition Section */
+        .definition-section {
+            padding: 60px 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .definition-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .definition-card {
+            background: var(--annotation-bg);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid #333;
+        }
+
+        .definition-card .term {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(26, 122, 76, 0.15);
+            border: 1px solid rgba(26, 122, 76, 0.3);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--ncms-green);
+            margin-bottom: 16px;
+        }
+
+        .definition-card h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .definition-card p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .definition-card .analogy {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 0.9rem;
+            color: #888;
+            border-left: 3px solid var(--gold-accent);
+        }
+
+        .definition-card .analogy strong {
+            color: var(--gold-accent);
+        }
+
+        /* Action Items Section */
+        .action-section {
+            padding: 60px 40px;
+            background: #222;
+        }
+
+        .action-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .action-card {
+            background: var(--annotation-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .action-card-header {
+            padding: 24px 24px 0;
+        }
+
+        .action-card-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: var(--ncms-green);
+            color: white;
+            border-radius: 50%;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+
+        .action-card-header h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .action-card-header p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .action-card-body {
+            padding: 24px;
+        }
+
+        .action-card-body ul {
+            list-style: none;
+        }
+
+        .action-card-body li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .action-card-body li:last-child {
+            margin-bottom: 0;
+        }
+
+        .action-card-body li::before {
+            content: '→';
+            color: var(--ncms-green);
+            flex-shrink: 0;
+        }
+
+        .action-card-footer {
+            padding: 16px 24px;
+            background: #333;
+            font-size: 0.85rem;
+        }
+
+        .action-card-footer .effort-label {
+            color: #888;
+            margin-right: 8px;
+        }
+
+        .action-card-footer .effort-value {
+            color: var(--ncms-green);
+            font-weight: 600;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 60px 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .benefits-list {
+            margin-top: 40px;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 24px;
+            padding: 28px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .benefit-item:last-child {
+            border-bottom: none;
+        }
+
+        .benefit-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(26, 122, 76, 0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-content h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .benefit-content p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 40px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--presentation-bg) 0%, #222 100%);
+        }
+
+        .cta-section h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            color: #888;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-box {
+            display: inline-block;
+            background: var(--annotation-bg);
+            border-radius: 16px;
+            padding: 32px 48px;
+            border: 1px solid #333;
+        }
+
+        .cta-box p {
+            color: #ccc;
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        .cta-box strong {
+            color: var(--ncms-green);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #333;
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            background: var(--annotation-bg);
+            border-radius: 12px;
+            padding: 28px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+
+        .stat-card .stat-number {
+            font-family: 'Fraunces', serif;
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: var(--ncms-green);
+            margin-bottom: 8px;
+        }
+
+        .stat-card .stat-label {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .stat-card .stat-source {
+            color: #555;
+            font-size: 0.75rem;
+            margin-top: 8px;
+        }
+
+        /* Skeptic Section */
+        .skeptic-section {
+            padding: 60px 40px;
+            background: #1e1e1e;
+        }
+
+        .skeptic-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skeptic-intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .skeptic-intro h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+
+        .skeptic-intro p {
+            color: #888;
+            font-size: 1rem;
+        }
+
+        .concern-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .concern-item {
+            background: var(--annotation-bg);
+            border-radius: 12px;
+            padding: 24px 28px;
+            border: 1px solid #333;
+        }
+
+        .concern-item .concern-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .concern-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(201, 162, 39, 0.15);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .concern-item h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--gold-accent);
+            margin-bottom: 4px;
+        }
+
+        .concern-item .concern-q {
+            font-size: 0.9rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        .concern-item .response {
+            color: #ccc;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            padding-left: 52px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1000px) {
+            .story-grid,
+            .definition-grid,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .action-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Presentation Header -->
+    <header class="presentation-header">
+        <h1>The Future of Being Found Online</h1>
+        <p class="subtitle">How people discover organizations is changing. Here's what it means for NCMS and what we can do about it.</p>
+        <div class="strategic-alignment">
+            <div class="pillar">
+                <div class="pillar-icon">1</div>
+                <span class="pillar-text">Boost Storytelling</span>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon">2</div>
+                <span class="pillar-text">Build Infrastructure</span>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon">3</div>
+                <span class="pillar-text">Bridge Communities</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section 1: The Shift -->
+    <section class="section-header">
+        <div class="section-number">1</div>
+        <h2>Why This Matters</h2>
+        <p>The way people find information is fundamentally changing. Understanding this shift is essential for NCMS to remain visible to future students and donors.</p>
+    </section>
+
+    <section class="comparison-section">
+        <div class="comparison-container">
+            <div class="comparison-header">
+                <h2>How People Search: Then and Now</h2>
+                <p style="color: #888;">The rise of AI assistants is transforming how families find local services</p>
+            </div>
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <div class="comparison-card-header old">
+                        <h4>Traditional Search (Google)</h4>
+                    </div>
+                    <div class="comparison-card-body">
+                        <div class="comparison-item">
+                            <div class="comparison-icon old-way">1</div>
+                            <div class="comparison-text"><strong>Type keywords:</strong> "music lessons nashua nh"</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon old-way">2</div>
+                            <div class="comparison-text"><strong>Scan 10 blue links:</strong> Compare multiple websites</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon old-way">3</div>
+                            <div class="comparison-text"><strong>Visit each site:</strong> Hunt for information yourself</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon old-way">4</div>
+                            <div class="comparison-text"><strong>Piece together answers:</strong> Lots of clicking around</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <div class="comparison-card-header new">
+                        <h4>AI-Powered Search (ChatGPT, Perplexity, Siri, etc.)</h4>
+                    </div>
+                    <div class="comparison-card-body">
+                        <div class="comparison-item">
+                            <div class="comparison-icon new-way">1</div>
+                            <div class="comparison-text"><strong>Ask a question:</strong> "Where can my 8-year-old take piano lessons in Nashua? We might need financial help."</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon new-way">2</div>
+                            <div class="comparison-text"><strong>Get one answer:</strong> AI synthesizes information from the web</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon new-way">3</div>
+                            <div class="comparison-text"><strong>Trust the recommendation:</strong> Most people act on the AI's suggestion</div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-icon new-way">4</div>
+                            <div class="comparison-text"><strong>Winner takes most:</strong> Being mentioned = getting the call</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-number">40%</div>
+                <div class="stat-label">of Gen Z prefers AI to traditional search</div>
+                <div class="stat-source">— Google Internal Data, 2024</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1B+</div>
+                <div class="stat-label">ChatGPT web visits per month</div>
+                <div class="stat-source">— SimilarWeb, 2024</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2026</div>
+                <div class="stat-label">Year AI search expected to hit mainstream</div>
+                <div class="stat-source">— Gartner Research</div>
+            </div>
+        </div>
+
+        <div class="quote-block">
+            <p>"We're not replacing traditional search yet—we're adding a new layer. But for the next generation of parents, asking an AI will be as natural as Googling is today."</p>
+            <cite>— Insight from search behavior research</cite>
+        </div>
+    </section>
+
+    <!-- Real Scenario Section -->
+    <section class="scenario-section">
+        <div class="scenario-container">
+            <div class="section-header" style="padding: 0 0 40px;">
+                <h2>What This Looks Like in Practice</h2>
+                <p>Two scenarios showing how AI search affects local organizations like NCMS</p>
+            </div>
+
+            <div class="scenario-box">
+                <div class="scenario-header">
+                    <div class="scenario-avatar">👩</div>
+                    <div class="scenario-meta">
+                        <h4>Sarah, working parent in Merrimack</h4>
+                        <span>Has an 8-year-old who wants to learn piano</span>
+                    </div>
+                </div>
+                <div class="scenario-body">
+                    <div class="scenario-query">
+                        <div class="scenario-query-label">What Sarah asks ChatGPT</div>
+                        <p>"Where can my daughter take piano lessons near Nashua? She's a beginner. Are there any programs that offer scholarships?"</p>
+                    </div>
+                    <div class="scenario-response">
+                        <p><strong>If NCMS is optimized for AI search:</strong></p>
+                        <p>"The <strong>Nashua Community Music School</strong> is a nonprofit that's been serving the area for over 40 years. They offer private piano lessons for all ages and skill levels, including beginners. They have a scholarship program through their Community Fund—about 40% of their students receive some financial assistance. They're located at 2 Lock Street in Nashua. You can contact them at 603-881-7030."</p>
+                    </div>
+                    <div class="scenario-outcome">
+                        <span class="scenario-outcome-label good">Outcome: NCMS gets the call</span>
+                        <p>Sarah has everything she needs to take action. She doesn't need to compare 5 websites.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scenario-box">
+                <div class="scenario-header">
+                    <div class="scenario-avatar">👨</div>
+                    <div class="scenario-meta">
+                        <h4>Same Sarah, different response</h4>
+                        <span>If NCMS hasn't optimized for AI discovery</span>
+                    </div>
+                </div>
+                <div class="scenario-body">
+                    <div class="scenario-query">
+                        <div class="scenario-query-label">Same question to ChatGPT</div>
+                        <p>"Where can my daughter take piano lessons near Nashua? She's a beginner. Are there any programs that offer scholarships?"</p>
+                    </div>
+                    <div class="scenario-response">
+                        <p><strong>If NCMS is invisible to AI:</strong></p>
+                        <p>"There are several music lesson options in the Nashua area. <strong>[Competitor A]</strong> offers private piano instruction for beginners... <strong>[Competitor B]</strong> has group classes... For scholarship information, you may want to check with local community organizations or school music programs."</p>
+                    </div>
+                    <div class="scenario-outcome">
+                        <span class="scenario-outcome-label bad">Outcome: NCMS isn't mentioned</span>
+                        <p>Sarah never learns about NCMS's 40-year history or $85K scholarship fund. She calls a competitor instead.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: What This Is -->
+    <section class="section-header">
+        <div class="section-number">2</div>
+        <h2>What It's Called</h2>
+        <p>Two related concepts that describe how to be visible in AI-powered search</p>
+    </section>
+
+    <section class="definition-section">
+        <div class="definition-grid">
+            <div class="definition-card">
+                <span class="term">AEO</span>
+                <h3>Answer Engine Optimization</h3>
+                <p>Making your website's information easy for AI systems to understand and quote in their answers.</p>
+                <p>When someone asks ChatGPT a question about music lessons, AEO helps ensure your information gets included in the response.</p>
+                <div class="analogy">
+                    <strong>Think of it like:</strong> Writing a clear, well-organized brochure that anyone can quickly reference and quote accurately.
+                </div>
+            </div>
+            <div class="definition-card">
+                <span class="term">GEO</span>
+                <h3>Generative Engine Optimization</h3>
+                <p>Structuring your content so AI systems recognize your organization as authoritative and trustworthy on specific topics.</p>
+                <p>When AI decides which sources to recommend for "nonprofit music schools in NH," GEO helps NCMS rise to the top.</p>
+                <div class="analogy">
+                    <strong>Think of it like:</strong> Being the expert the reporter always calls for quotes—because you've consistently provided clear, reliable information.
+                </div>
+            </div>
+        </div>
+
+        <div class="quote-block" style="margin-top: 40px;">
+            <p>"Traditional SEO asked: 'How do we rank higher in Google's list?' AEO/GEO asks: 'How do we become the answer?'"</p>
+            <cite>— The fundamental shift in digital visibility</cite>
+        </div>
+    </section>
+
+    <!-- Addressing Skepticism -->
+    <section class="skeptic-section">
+        <div class="skeptic-container">
+            <div class="skeptic-intro">
+                <h2>Reasonable Questions</h2>
+                <p>Addressing common concerns about AI and this approach</p>
+            </div>
+
+            <div class="concern-list">
+                <div class="concern-item">
+                    <div class="concern-header">
+                        <div class="concern-icon">?</div>
+                        <div>
+                            <h4>"Isn't AI just a fad?"</h4>
+                            <span class="concern-q">Why invest in something that might not last?</span>
+                        </div>
+                    </div>
+                    <p class="response">AI-powered search is already built into products people use daily: Siri, Google (AI Overviews), Bing (Copilot), and standalone tools like ChatGPT and Perplexity. Apple, Google, Microsoft, and Amazon are all investing billions in this technology. The question isn't whether this will continue—it's how quickly it will become the default way people find information. The good news: the work we do for AEO/GEO also improves our traditional search presence, so nothing is wasted.</p>
+                </div>
+
+                <div class="concern-item">
+                    <div class="concern-header">
+                        <div class="concern-icon">?</div>
+                        <div>
+                            <h4>"We're a small nonprofit. Does this really apply to us?"</h4>
+                            <span class="concern-q">Isn't this more for big companies?</span>
+                        </div>
+                    </div>
+                    <p class="response">Actually, local nonprofits may benefit <em>more</em> from this shift. In traditional search, you compete against every music school website in the country for keywords. In AI search, when someone asks about "music lessons in Nashua," the AI looks specifically for local, authoritative sources. A 40-year-old nonprofit with deep community ties and a scholarship program is exactly the kind of organization AI wants to recommend—if it can find your information. The catch: right now, most small organizations haven't done this work. Early movers get noticed first.</p>
+                </div>
+
+                <div class="concern-item">
+                    <div class="concern-header">
+                        <div class="concern-icon">?</div>
+                        <div>
+                            <h4>"What about AI getting things wrong?"</h4>
+                            <span class="concern-q">What if AI misrepresents us?</span>
+                        </div>
+                    </div>
+                    <p class="response">This is a real concern—and exactly why structured data (schema markup) matters. When you provide clear, machine-readable information about your organization, AI systems are far more likely to get the facts right. It's like the difference between having AI summarize a conversation it overheard versus reading directly from your official fact sheet. AEO/GEO is essentially giving AI a reliable source to quote.</p>
+                </div>
+
+                <div class="concern-item">
+                    <div class="concern-header">
+                        <div class="concern-icon">?</div>
+                        <div>
+                            <h4>"Is this expensive or technically complicated?"</h4>
+                            <span class="concern-q">Do we need to hire AI experts?</span>
+                        </div>
+                    </div>
+                    <p class="response">The foundational work is surprisingly accessible. Schema markup (the code that makes your site AI-readable) can be added to Squarespace through their existing Code Injection feature—we've prepared ready-to-use code that just needs to be pasted in. The content work is mostly about organization and clarity, not AI expertise. The companion document (Schema Markup Implementation Guide) provides step-by-step instructions designed for non-technical implementation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: What We Can Do -->
+    <section class="section-header">
+        <div class="section-number">3</div>
+        <h2>What NCMS Can Do</h2>
+        <p>Practical steps to ensure NCMS is visible when families and donors use AI to find music education resources</p>
+    </section>
+
+    <section class="action-section">
+        <div class="action-container">
+            <div class="action-grid">
+                <div class="action-card">
+                    <div class="action-card-header">
+                        <div class="action-card-number">1</div>
+                        <h3>Add Schema Markup</h3>
+                        <p>Give AI systems a reliable "fact sheet" about NCMS</p>
+                    </div>
+                    <div class="action-card-body">
+                        <ul>
+                            <li>Organization info (name, address, mission, history)</li>
+                            <li>Programs offered (lessons, therapy, camps)</li>
+                            <li>FAQ content (common questions, scholarships)</li>
+                            <li>Events (recitals, concerts, open houses)</li>
+                        </ul>
+                    </div>
+                    <div class="action-card-footer">
+                        <span class="effort-label">Implementation:</span>
+                        <span class="effort-value">Copy/paste into Squarespace</span>
+                    </div>
+                </div>
+
+                <div class="action-card">
+                    <div class="action-card-header">
+                        <div class="action-card-number">2</div>
+                        <h3>Structure Content Clearly</h3>
+                        <p>Organize information so AI can easily find and quote it</p>
+                    </div>
+                    <div class="action-card-body">
+                        <ul>
+                            <li>Add FAQ sections to key pages</li>
+                            <li>Make scholarship info prominent and specific</li>
+                            <li>Include concrete impact numbers (students, scholarships, years)</li>
+                            <li>Use clear headings and direct language</li>
+                        </ul>
+                    </div>
+                    <div class="action-card-footer">
+                        <span class="effort-label">Implementation:</span>
+                        <span class="effort-value">Content updates on existing pages</span>
+                    </div>
+                </div>
+
+                <div class="action-card">
+                    <div class="action-card-header">
+                        <div class="action-card-number">3</div>
+                        <h3>Build Citations</h3>
+                        <p>Get mentioned on other trusted websites</p>
+                    </div>
+                    <div class="action-card-body">
+                        <ul>
+                            <li>Claim/update Google Business Profile</li>
+                            <li>Ensure consistency across directories</li>
+                            <li>Pursue local press and community mentions</li>
+                            <li>Partner organization cross-links</li>
+                        </ul>
+                    </div>
+                    <div class="action-card-footer">
+                        <span class="effort-label">Implementation:</span>
+                        <span class="effort-value">Ongoing relationship building</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="section-header" style="padding: 0 0 20px;">
+            <h2>What We Gain</h2>
+            <p>Benefits of this work extend beyond AI search</p>
+        </div>
+
+        <div class="benefits-list">
+            <div class="benefit-item">
+                <div class="benefit-icon">🎯</div>
+                <div class="benefit-content">
+                    <h3>Reach families who need us most</h3>
+                    <p>When a parent asks "music lessons for kids with financial need in NH," NCMS can be the answer—not buried on page 2 of Google results. Our scholarship program becomes visible at the moment someone is looking for it.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">📈</div>
+                <div class="benefit-content">
+                    <h3>Better traditional search, too</h3>
+                    <p>Schema markup and structured content improve regular Google rankings as well. This isn't "instead of" SEO—it's additive. Google increasingly uses structured data for rich results (FAQ dropdowns, event cards, etc.).</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🏆</div>
+                <div class="benefit-content">
+                    <h3>First-mover advantage locally</h3>
+                    <p>Most small nonprofits and local music schools haven't done this work yet. Being early means being the default recommendation while competitors remain invisible to AI systems.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">💬</div>
+                <div class="benefit-content">
+                    <h3>Clearer communication overall</h3>
+                    <p>The process of structuring content for AI also makes it clearer for humans. FAQs help prospective families. Impact numbers help donors. Clear program descriptions help everyone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>The Opportunity</h2>
+        <p>NCMS has a 40-year story, real impact numbers, and programs that serve families who might not otherwise access music education. The question is whether that story gets told when someone asks for recommendations.</p>
+        <div class="cta-box">
+            <p>A <strong>Schema Markup Implementation Guide</strong> has been prepared with ready-to-use code for Squarespace. Implementation can begin immediately with existing staff and no additional budget.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>NCMS Digital Presence Refresh — Board Strategic Planning Retreat — January 2026</p>
+    </footer>
+
+</body>
+</html>
