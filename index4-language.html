@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCMS Language Accessibility Concept - Bridge Communities</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ncms-green: #1a7a4c;
+            --ncms-green-dark: #145f3b;
+            --ncms-green-light: #e8f5ee;
+            --warm-cream: #faf8f5;
+            --warm-gray: #6b6560;
+            --charcoal: #2d2a26;
+            --gold-accent: #c9a227;
+            --presentation-bg: #1a1a1a;
+            --card-bg: #ffffff;
+            --annotation-bg: #2a2a2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: var(--presentation-bg);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Presentation Header */
+        .presentation-header {
+            padding: 60px 40px 40px;
+            text-align: center;
+            background: linear-gradient(180deg, #222 0%, var(--presentation-bg) 100%);
+            border-bottom: 1px solid #333;
+        }
+
+        .presentation-header h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.8rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .presentation-header .subtitle {
+            font-size: 1.1rem;
+            color: #999;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .strategic-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: rgba(26, 122, 76, 0.15);
+            border: 1px solid rgba(26, 122, 76, 0.3);
+            border-radius: 8px;
+        }
+
+        .strategic-badge .pillar-icon {
+            width: 28px;
+            height: 28px;
+            background: var(--ncms-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .strategic-badge .pillar-text {
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--ncms-green);
+        }
+
+        /* Section Headers */
+        .section-header {
+            padding: 60px 40px 30px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Concept Cards Grid */
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px 80px;
+        }
+
+        .concept-card {
+            background: var(--annotation-bg);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .concept-card-header {
+            padding: 24px 30px;
+            background: #333;
+            border-bottom: 1px solid #444;
+        }
+
+        .concept-card-header h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .concept-card-header p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .concept-demo {
+            padding: 30px;
+            min-height: 400px;
+        }
+
+        /* ==================== */
+        /* CONCEPT 1: GLOBE DROPDOWN */
+        /* ==================== */
+
+        .demo-nav-1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .demo-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .demo-logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--ncms-green);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .demo-logo-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        .demo-logo-text {
+            font-family: 'Fraunces', serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--charcoal);
+            line-height: 1.2;
+        }
+
+        .demo-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Language Selector Style 1: Globe Dropdown */
+        .lang-globe-dropdown {
+            position: relative;
+        }
+
+        .lang-globe-trigger {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            background: var(--warm-cream);
+            border: 1px solid #e0ddd8;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.9rem;
+            color: var(--charcoal);
+        }
+
+        .lang-globe-trigger:hover {
+            background: var(--ncms-green-light);
+            border-color: var(--ncms-green);
+        }
+
+        .lang-globe-trigger svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--ncms-green);
+        }
+
+        .lang-globe-trigger .chevron {
+            width: 12px;
+            height: 12px;
+            fill: var(--warm-gray);
+            transition: transform 0.2s;
+        }
+
+        .lang-globe-dropdown:hover .chevron {
+            transform: rotate(180deg);
+        }
+
+        .lang-globe-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.2s;
+            z-index: 100;
+            overflow: hidden;
+        }
+
+        .lang-globe-dropdown:hover .lang-globe-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .lang-globe-menu-header {
+            padding: 12px 16px;
+            background: var(--ncms-green-light);
+            border-bottom: 1px solid #e0ddd8;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--ncms-green-dark);
+            font-weight: 600;
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            cursor: pointer;
+            transition: background 0.15s;
+            color: var(--charcoal);
+        }
+
+        .lang-option:hover {
+            background: var(--ncms-green-light);
+        }
+
+        .lang-option.active {
+            background: var(--ncms-green);
+            color: white;
+        }
+
+        .lang-option .flag {
+            width: 24px;
+            height: 18px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .lang-option .lang-name {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .lang-option .lang-native {
+            font-size: 0.8rem;
+            color: var(--warm-gray);
+            margin-left: auto;
+        }
+
+        .lang-option.active .lang-native {
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* ==================== */
+        /* CONCEPT 2: INLINE PILLS */
+        /* ==================== */
+
+        .demo-nav-2 {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .demo-nav-2-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+        }
+
+        .lang-pill-bar {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px;
+            background: var(--warm-cream);
+            border-radius: 8px;
+        }
+
+        .lang-pill {
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--warm-gray);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-pill:hover {
+            color: var(--charcoal);
+            background: rgba(255,255,255,0.5);
+        }
+
+        .lang-pill.active {
+            background: var(--ncms-green);
+            color: white;
+        }
+
+        .lang-pill .flag-sm {
+            font-size: 12px;
+        }
+
+        /* ==================== */
+        /* CONCEPT 3: WELCOME BANNER */
+        /* ==================== */
+
+        .welcome-banner-demo {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .welcome-banner {
+            background: linear-gradient(135deg, var(--ncms-green) 0%, var(--ncms-green-dark) 100%);
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .welcome-text {
+            color: white;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .welcome-text svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+            opacity: 0.9;
+        }
+
+        .welcome-langs {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .welcome-lang-btn {
+            padding: 6px 14px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+            color: white;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .welcome-lang-btn:hover {
+            background: rgba(255,255,255,0.25);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .welcome-lang-btn.active {
+            background: white;
+            color: var(--ncms-green);
+            border-color: white;
+        }
+
+        .welcome-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+        }
+
+        /* ==================== */
+        /* CONCEPT 4: FLOATING ACCESSIBILITY */
+        /* ==================== */
+
+        .floating-demo {
+            position: relative;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            min-height: 350px;
+            overflow: hidden;
+        }
+
+        .floating-demo-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .floating-demo-hero {
+            background: linear-gradient(135deg, #1a3a2a 0%, #0d1f16 100%);
+            padding: 40px 24px;
+            color: white;
+        }
+
+        .floating-demo-hero h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+
+        .floating-demo-hero p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .floating-lang-widget {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10;
+        }
+
+        .floating-lang-trigger {
+            width: 56px;
+            height: 56px;
+            background: var(--ncms-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(26, 122, 76, 0.4);
+            transition: all 0.3s;
+            border: 3px solid white;
+        }
+
+        .floating-lang-trigger:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(26, 122, 76, 0.5);
+        }
+
+        .floating-lang-trigger svg {
+            width: 26px;
+            height: 26px;
+            fill: white;
+        }
+
+        .floating-lang-panel {
+            position: absolute;
+            bottom: calc(100% + 12px);
+            right: 0;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+            width: 280px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px) scale(0.95);
+            transform-origin: bottom right;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .floating-lang-widget:hover .floating-lang-panel {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .floating-lang-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .floating-lang-header h4 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            margin-bottom: 4px;
+        }
+
+        .floating-lang-header p {
+            font-size: 0.8rem;
+            color: var(--warm-gray);
+        }
+
+        .floating-lang-list {
+            padding: 8px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .floating-lang-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.15s;
+            color: var(--charcoal);
+        }
+
+        .floating-lang-option:hover {
+            background: var(--ncms-green-light);
+        }
+
+        .floating-lang-option.active {
+            background: var(--ncms-green);
+            color: white;
+        }
+
+        .floating-lang-option .flag-lg {
+            font-size: 20px;
+        }
+
+        .floating-lang-option .lang-info {
+            flex: 1;
+        }
+
+        .floating-lang-option .lang-primary {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .floating-lang-option .lang-secondary {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        .floating-lang-option .check {
+            width: 20px;
+            height: 20px;
+            opacity: 0;
+        }
+
+        .floating-lang-option.active .check {
+            opacity: 1;
+            fill: white;
+        }
+
+        /* Annotations */
+        .annotation-panel {
+            background: #333;
+            padding: 24px;
+            border-top: 1px solid #444;
+        }
+
+        .annotation-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .annotation-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            background: rgba(26, 122, 76, 0.15);
+            border: 1px solid rgba(26, 122, 76, 0.3);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #ccc;
+        }
+
+        .annotation-tag svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--ncms-green);
+        }
+
+        /* Implementation Notes Section */
+        .impl-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        .impl-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .impl-card {
+            background: var(--annotation-bg);
+            border-radius: 16px;
+            padding: 28px;
+        }
+
+        .impl-card h4 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            color: var(--ncms-green);
+        }
+
+        .impl-card ul {
+            list-style: none;
+        }
+
+        .impl-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid #444;
+            font-size: 0.9rem;
+            color: #bbb;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .impl-card li:last-child {
+            border-bottom: none;
+        }
+
+        .impl-card li::before {
+            content: '>';
+            color: var(--ncms-green);
+            font-weight: bold;
+        }
+
+        /* Demo Buttons */
+        .demo-btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .demo-btn-outline {
+            background: transparent;
+            border: 2px solid var(--ncms-green);
+            color: var(--ncms-green);
+        }
+
+        .demo-btn-primary {
+            background: var(--ncms-green);
+            border: 2px solid var(--ncms-green);
+            color: white;
+        }
+
+        /* Presentation Navigation */
+        .pres-nav {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            display: flex;
+            gap: 4px;
+            background: rgba(30, 30, 30, 0.95);
+            padding: 6px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .pres-nav a {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            color: #888;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .pres-nav a:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .pres-nav a.active {
+            color: white;
+            background: var(--ncms-green);
+        }
+
+        .pres-nav a .nav-num {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        /* Community Stats */
+        .community-stats {
+            background: linear-gradient(135deg, var(--ncms-green-dark) 0%, #0d2818 100%);
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .stats-header {
+            margin-bottom: 40px;
+        }
+
+        .stats-header h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .stats-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Fraunces', serif;
+            font-size: 3rem;
+            font-weight: 500;
+            color: var(--gold-accent);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Footer */
+        .page-footer {
+            padding: 40px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #333;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .concepts-grid {
+                grid-template-columns: 1fr;
+            }
+            .impl-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Presentation Navigation -->
+    <nav class="pres-nav">
+        <a href="index.html"><span class="nav-num">1</span> Homepage</a>
+        <a href="index2.html"><span class="nav-num">2</span> Sub-Pages</a>
+        <a href="index3.html"><span class="nav-num">3</span> AEO/GEO</a>
+        <a href="index4-language.html" class="active"><span class="nav-num">4</span> Language</a>
+    </nav>
+
+    <!-- Presentation Header -->
+    <header class="presentation-header">
+        <h1>Language Accessibility Concept</h1>
+        <p class="subtitle">Serving all communities in Nashua through multilingual access to music education</p>
+        <div class="strategic-badge">
+            <div class="pillar-icon">3</div>
+            <span class="pillar-text">Bridge Communities</span>
+        </div>
+    </header>
+
+    <!-- Community Context -->
+    <section class="community-stats">
+        <div class="stats-header">
+            <h2>Nashua's Diverse Community</h2>
+            <p>Making music education accessible to all families in Greater Nashua</p>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">22%</div>
+                <div class="stat-label">Foreign-Born Residents</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">31%</div>
+                <div class="stat-label">Non-English at Home</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">90+</div>
+                <div class="stat-label">Languages Spoken</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Header -->
+    <section class="section-header">
+        <h2>Language Selector Concepts</h2>
+        <p>Four approaches to make NCMS welcoming to non-English speaking families</p>
+    </section>
+
+    <!-- Concepts Grid -->
+    <div class="concepts-grid">
+
+        <!-- Concept 1: Globe Dropdown -->
+        <div class="concept-card">
+            <div class="concept-card-header">
+                <h3>Option A: Globe Dropdown</h3>
+                <p>Familiar pattern, compact footprint, integrates with existing nav</p>
+            </div>
+            <div class="concept-demo">
+                <div class="demo-nav-1">
+                    <div class="demo-logo">
+                        <div class="demo-logo-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                        </div>
+                        <span class="demo-logo-text">Nashua Community<br>Music School</span>
+                    </div>
+                    <div class="demo-nav-right">
+                        <div class="lang-globe-dropdown">
+                            <div class="lang-globe-trigger">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                                <span>English</span>
+                                <svg class="chevron" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                            </div>
+                            <div class="lang-globe-menu">
+                                <div class="lang-globe-menu-header">Choose Language</div>
+                                <div class="lang-option active">
+                                    <span class="flag">🇺🇸</span>
+                                    <span class="lang-name">English</span>
+                                </div>
+                                <div class="lang-option">
+                                    <span class="flag">🇪🇸</span>
+                                    <span class="lang-name">Espanol</span>
+                                    <span class="lang-native">Spanish</span>
+                                </div>
+                                <div class="lang-option">
+                                    <span class="flag">🇧🇷</span>
+                                    <span class="lang-name">Portugues</span>
+                                    <span class="lang-native">Portuguese</span>
+                                </div>
+                                <div class="lang-option">
+                                    <span class="flag">🇻🇳</span>
+                                    <span class="lang-name">Tieng Viet</span>
+                                    <span class="lang-native">Vietnamese</span>
+                                </div>
+                                <div class="lang-option">
+                                    <span class="flag">🇨🇳</span>
+                                    <span class="lang-name">Chinese</span>
+                                    <span class="lang-native">Simplified</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="demo-btn demo-btn-primary">Donate</button>
+                    </div>
+                </div>
+            </div>
+            <div class="annotation-panel">
+                <div class="annotation-list">
+                    <span class="annotation-tag">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        Squarespace compatible
+                    </span>
+                    <span class="annotation-tag">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        Mobile-friendly
+                    </span>
+                    <span class="annotation-tag">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        Low cognitive load
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Concept 2: Inline Pills -->
+        <div class="concept-card">
+            <div class="concept-card-header">
+                <h3>Option B: Inline Language Pills</h3>
+                <p>All options visible at once, quick one-click switching</p>
+            </div>
+            <div class="concept-demo">
+                <div class="demo-nav-2">
+                    <div class="demo-nav-2-top">
+                        <div class="demo-logo">
+                            <div class="demo-logo-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                            </div>
+                            <span class="demo-logo-text">Nashua Community<br>Music School</span>
+                        </div>
+                        <div class="lang-pill-bar">
+                            <span class="lang-pill active"><span class="flag-sm">🇺🇸</span> EN</span>
+                            <span class="lang-pill"><span class="flag-sm">🇪🇸</span> ES</span>
+                            <span class="lang-pill"><span class="flag-sm">🇧🇷</span> PT</span>
+                            <span class="lang-pill"><span class="flag-sm">🇻🇳</span> VI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="annotation-panel">
+                <div class="annotation-list">
+                    <span class="annotation-tag">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        Highly discoverable
+                    </span>
+                    <span class="annotation-tag">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        One-click switch
+                    </span>
+                    <span class="annotation-tag">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        Shows commitment
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Concept 3: Welcome Banner -->
+        <div class="concept-card">
+            <div class="concept-card-header">
+                <h3>Option C: Welcome Banner</h3>
+                <p>Prominent placement signals inclusivity, dismissable after selection</p>
+            </div>
+            <div class="concept-demo">
+                <div class="welcome-banner-demo">
+                    <div class="welcome-banner">
+                        <span class="welcome-text">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                            Welcome! Choose your language:
+                        </span>
+                        <div class="welcome-langs">
+                            <span class="welcome-lang-btn active">🇺🇸 English</span>
+                            <span class="welcome-lang-btn">🇪🇸 Espanol</span>
+                            <span class="welcome-lang-btn">🇧🇷 Portugues</span>
+                            <span class="welcome-lang-btn">🇻🇳 Tieng Viet</span>
+                        </div>
+                    </div>
+                    <div class="welcome-nav">
+                        <div class="demo-logo">
+                            <div class="demo-logo-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                            </div>
+                            <span class="demo-logo-text">Nashua Community<br>Music School</span>
+                        </div>
+                        <button class="demo-btn demo-btn-primary">Donate</button>
+                    </div>
+                </div>
+            </div>
+            <div class="annotation-panel">
+                <div class="annotation-list">
+                    <span class="annotation-tag">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        Maximum visibility
+                    </span>
+                    <span class="annotation-tag">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        Strong welcome signal
+                    </span>
+                    <span class="annotation-tag">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        Can be dismissable
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Concept 4: Floating Widget -->
+        <div class="concept-card">
+            <div class="concept-card-header">
+                <h3>Option D: Floating Accessibility Widget</h3>
+                <p>Always accessible, doesn't interfere with nav, could include other accessibility options</p>
+            </div>
+            <div class="concept-demo">
+                <div class="floating-demo">
+                    <div class="floating-demo-nav">
+                        <div class="demo-logo">
+                            <div class="demo-logo-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                            </div>
+                            <span class="demo-logo-text">Nashua Community<br>Music School</span>
+                        </div>
+                        <button class="demo-btn demo-btn-primary">Donate</button>
+                    </div>
+                    <div class="floating-demo-hero">
+                        <h2>Creating innovative music programming accessible to all.</h2>
+                        <p>From private lessons to community ensembles.</p>
+                    </div>
+
+                    <div class="floating-lang-widget">
+                        <div class="floating-lang-panel">
+                            <div class="floating-lang-header">
+                                <h4>Choose Your Language</h4>
+                                <p>Music speaks all languages</p>
+                            </div>
+                            <div class="floating-lang-list">
+                                <div class="floating-lang-option active">
+                                    <span class="flag-lg">🇺🇸</span>
+                                    <div class="lang-info">
+                                        <div class="lang-primary">English</div>
+                                    </div>
+                                    <svg class="check" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                </div>
+                                <div class="floating-lang-option">
+                                    <span class="flag-lg">🇪🇸</span>
+                                    <div class="lang-info">
+                                        <div class="lang-primary">Espanol</div>
+                                        <div class="lang-secondary">Spanish</div>
+                                    </div>
+                                    <svg class="check" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                </div>
+                                <div class="floating-lang-option">
+                                    <span class="flag-lg">🇧🇷</span>
+                                    <div class="lang-info">
+                                        <div class="lang-primary">Portugues</div>
+                                        <div class="lang-secondary">Portuguese</div>
+                                    </div>
+                                    <svg class="check" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                </div>
+                                <div class="floating-lang-option">
+                                    <span class="flag-lg">🇻🇳</span>
+                                    <div class="lang-info">
+                                        <div class="lang-primary">Tieng Viet</div>
+                                        <div class="lang-secondary">Vietnamese</div>
+                                    </div>
+                                    <svg class="check" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="floating-lang-trigger">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="annotation-panel">
+                <div class="annotation-list">
+                    <span class="annotation-tag">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        Always accessible
+                    </span>
+                    <span class="annotation-tag">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        Expandable for a11y
+                    </span>
+                    <span class="annotation-tag">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        Non-intrusive
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Implementation Section -->
+    <section class="section-header">
+        <h2>Implementation Considerations</h2>
+        <p>Key factors for adding multilingual support to nashuacms.org</p>
+    </section>
+
+    <section class="impl-section">
+        <div class="impl-grid">
+            <div class="impl-card">
+                <h4>Recommended Languages</h4>
+                <ul>
+                    <li>Spanish - Largest non-English community in Nashua</li>
+                    <li>Portuguese - Significant Brazilian population</li>
+                    <li>Vietnamese - Growing community presence</li>
+                    <li>Chinese (Simplified) - Family demand</li>
+                    <li>French - Quebec proximity, Haitian community</li>
+                </ul>
+            </div>
+            <div class="impl-card">
+                <h4>Squarespace Options</h4>
+                <ul>
+                    <li>Weglot plugin - Auto-translation + manual editing</li>
+                    <li>WPML alternative - Professional translation workflow</li>
+                    <li>Google Translate widget - Free but lower quality</li>
+                    <li>Manual duplicate pages - Full control, high effort</li>
+                </ul>
+            </div>
+            <div class="impl-card">
+                <h4>Priority Content</h4>
+                <ul>
+                    <li>Scholarship application page</li>
+                    <li>Program descriptions and enrollment</li>
+                    <li>Contact and location information</li>
+                    <li>Summer camp registration</li>
+                    <li>Mission and "About Us" pages</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendation -->
+    <section class="comparison-section" style="background: #222;">
+        <div class="comparison-container">
+            <div class="comparison-header">
+                <h2>Recommendation</h2>
+                <p style="color: #888;">Based on NCMS's goals and Squarespace constraints</p>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <div style="background: var(--annotation-bg); border-radius: 16px; padding: 40px; border: 2px solid var(--ncms-green);">
+                    <h3 style="font-family: 'Fraunces', serif; font-size: 1.5rem; margin-bottom: 16px; color: var(--ncms-green);">Option A: Globe Dropdown + Weglot</h3>
+                    <p style="color: #bbb; font-size: 1.1rem; line-height: 1.7; margin-bottom: 24px;">
+                        The globe dropdown pattern is universally understood, works on mobile, and integrates seamlessly with Squarespace via Weglot. Start with Spanish and Portuguese translations for highest-impact communities, then expand based on demand.
+                    </p>
+                    <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                        <span style="padding: 8px 16px; background: rgba(201, 162, 39, 0.2); border: 1px solid var(--gold-accent); border-radius: 20px; color: var(--gold-accent); font-size: 0.9rem;">Low implementation effort</span>
+                        <span style="padding: 8px 16px; background: rgba(201, 162, 39, 0.2); border: 1px solid var(--gold-accent); border-radius: 20px; color: var(--gold-accent); font-size: 0.9rem;">~$15/month</span>
+                        <span style="padding: 8px 16px; background: rgba(201, 162, 39, 0.2); border: 1px solid var(--gold-accent); border-radius: 20px; color: var(--gold-accent); font-size: 0.9rem;">Auto + manual translation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <p>NCMS Digital Presence Refresh — Language Accessibility Concept — January 2026</p>
+    </footer>
+
+</body>
+</html>
