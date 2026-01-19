@@ -361,7 +361,19 @@
             color: white;
         }
 
-        /* Language Selector */
+        /* Utility Bar */
+        .mock-utility-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 6px 40px;
+            background: #f5f3f0;
+            border-bottom: 1px solid #e8e6e3;
+            font-size: 0.75rem;
+            color: var(--warm-gray);
+        }
+
+        /* Language Selector - Minimal */
         .lang-dropdown {
             position: relative;
         }
@@ -369,27 +381,32 @@
         .lang-trigger {
             display: flex;
             align-items: center;
-            gap: 6px;
-            padding: 8px 12px;
-            background: var(--warm-cream);
-            border: 1px solid #e0ddd8;
-            border-radius: 6px;
+            gap: 5px;
+            padding: 4px 8px;
+            background: transparent;
+            border: none;
+            border-radius: 4px;
             cursor: pointer;
             font-family: 'Source Sans 3', sans-serif;
-            font-size: 0.8rem;
-            color: var(--charcoal);
+            font-size: 0.75rem;
+            color: var(--warm-gray);
             transition: all 0.2s;
         }
 
         .lang-trigger:hover {
-            background: var(--ncms-green-light);
-            border-color: var(--ncms-green);
+            color: var(--ncms-green);
+            background: rgba(26, 122, 76, 0.08);
         }
 
         .lang-trigger svg {
-            width: 16px;
-            height: 16px;
-            fill: var(--ncms-green);
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+            opacity: 0.7;
+        }
+
+        .lang-trigger:hover svg {
+            opacity: 1;
         }
 
         .lang-menu {
@@ -1193,6 +1210,21 @@
                 </div>
                 <div class="device-screen">
                     <div class="mockup-site">
+                        <!-- Utility Bar -->
+                        <div class="mock-utility-bar">
+                            <div class="lang-dropdown">
+                                <div class="lang-trigger">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                                    <span>English</span>
+                                </div>
+                                <div class="lang-menu">
+                                    <div class="lang-option active"><span class="flag">🇺🇸</span> English</div>
+                                    <div class="lang-option"><span class="flag">🇪🇸</span> Español</div>
+                                    <div class="lang-option"><span class="flag">🇧🇷</span> Português</div>
+                                    <div class="lang-option"><span class="flag">🇻🇳</span> Tiếng Việt</div>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Navigation -->
                         <nav class="mock-nav">
                             <div class="mock-logo">
@@ -1209,18 +1241,6 @@
                                 <span>Resources</span>
                             </div>
                             <div class="mock-nav-cta">
-                                <div class="lang-dropdown">
-                                    <div class="lang-trigger">
-                                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-                                        <span>EN</span>
-                                    </div>
-                                    <div class="lang-menu">
-                                        <div class="lang-option active"><span class="flag">🇺🇸</span> English</div>
-                                        <div class="lang-option"><span class="flag">🇪🇸</span> Espanol</div>
-                                        <div class="lang-option"><span class="flag">🇧🇷</span> Portugues</div>
-                                        <div class="lang-option"><span class="flag">🇻🇳</span> Tieng Viet</div>
-                                    </div>
-                                </div>
                                 <button class="mock-btn mock-btn-outline">Enroll Now</button>
                                 <button class="mock-btn mock-btn-primary">Donate</button>
                             </div>
