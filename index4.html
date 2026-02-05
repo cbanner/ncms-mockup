@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCMS Visitor Targeting Strategy - Board Presentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ncms-green: #1a7a4c;
+            --ncms-green-dark: #145f3b;
+            --ncms-green-light: #e8f5ee;
+            --warm-cream: #faf8f5;
+            --warm-gray: #6b6560;
+            --charcoal: #2d2a26;
+            --gold-accent: #c9a227;
+            --presentation-bg: #1a1a1a;
+            --card-bg: #ffffff;
+            --annotation-bg: #2a2a2a;
+
+            /* Hierarchy level colors */
+            --level-observer: #6b7280;
+            --level-follower: #3b82f6;
+            --level-endorser: #8b5cf6;
+            --level-contributor: #f59e0b;
+            --level-owner: #ef4444;
+            --level-leader: #ec4899;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: var(--presentation-bg);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Presentation Header */
+        .presentation-header {
+            padding: 60px 40px 40px;
+            text-align: center;
+            background: linear-gradient(180deg, #222 0%, var(--presentation-bg) 100%);
+            border-bottom: 1px solid #333;
+        }
+
+        .presentation-header h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.8rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .presentation-header .subtitle {
+            font-size: 1.1rem;
+            color: #999;
+            max-width: 750px;
+            margin: 0 auto 30px;
+        }
+
+        .strategic-alignment {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .strategic-alignment .pillar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: rgba(26, 122, 76, 0.15);
+            border: 1px solid rgba(26, 122, 76, 0.3);
+            border-radius: 8px;
+        }
+
+        .strategic-alignment .pillar-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--ncms-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .strategic-alignment .pillar-text {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--ncms-green);
+        }
+
+        /* Section Headers */
+        .section-header {
+            padding: 60px 40px 30px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: #888;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .section-header .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--ncms-green);
+            color: white;
+            border-radius: 50%;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 40px 40px 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Intro Section */
+        .intro-section {
+            padding: 60px 40px;
+            background: #222;
+        }
+
+        .intro-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .intro-container p {
+            font-size: 1.15rem;
+            color: #ccc;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .intro-container p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Pyramid Section */
+        .pyramid-section {
+            padding: 60px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pyramid-container {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* Visual Pyramid */
+        .pyramid-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .pyramid-level {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 16px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: default;
+        }
+
+        .pyramid-level:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .pyramid-level.leader {
+            width: 120px;
+            background: linear-gradient(135deg, var(--level-leader) 0%, #be185d 100%);
+        }
+
+        .pyramid-level.owner {
+            width: 160px;
+            background: linear-gradient(135deg, var(--level-owner) 0%, #dc2626 100%);
+        }
+
+        .pyramid-level.contributor {
+            width: 200px;
+            background: linear-gradient(135deg, var(--level-contributor) 0%, #d97706 100%);
+        }
+
+        .pyramid-level.endorser {
+            width: 260px;
+            background: linear-gradient(135deg, var(--level-endorser) 0%, #7c3aed 100%);
+        }
+
+        .pyramid-level.follower {
+            width: 320px;
+            background: linear-gradient(135deg, var(--level-follower) 0%, #2563eb 100%);
+        }
+
+        .pyramid-level.observer {
+            width: 380px;
+            background: linear-gradient(135deg, var(--level-observer) 0%, #4b5563 100%);
+        }
+
+        .pyramid-legend {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--annotation-bg);
+            border-radius: 12px;
+            border: 1px solid #333;
+        }
+
+        .pyramid-legend h4 {
+            font-size: 0.85rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 12px;
+        }
+
+        .pyramid-legend p {
+            font-size: 0.9rem;
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        /* Level Details */
+        .level-details {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .level-card {
+            background: var(--annotation-bg);
+            border-radius: 12px;
+            padding: 20px 24px;
+            border: 1px solid #333;
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 20px;
+            align-items: start;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .level-card:hover {
+            border-color: #444;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .level-card .level-name {
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .level-card .level-name.leader { background: rgba(236, 72, 153, 0.2); color: var(--level-leader); }
+        .level-card .level-name.owner { background: rgba(239, 68, 68, 0.2); color: var(--level-owner); }
+        .level-card .level-name.contributor { background: rgba(245, 158, 11, 0.2); color: var(--level-contributor); }
+        .level-card .level-name.endorser { background: rgba(139, 92, 246, 0.2); color: var(--level-endorser); }
+        .level-card .level-name.follower { background: rgba(59, 130, 246, 0.2); color: var(--level-follower); }
+        .level-card .level-name.observer { background: rgba(107, 114, 128, 0.2); color: var(--level-observer); }
+
+        .level-card .level-info h4 {
+            font-size: 0.95rem;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .level-card .level-info p {
+            font-size: 0.85rem;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        .level-card .level-info .examples {
+            margin-top: 8px;
+            font-size: 0.8rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Targeting Section */
+        .targeting-section {
+            padding: 60px 40px;
+            background: #1e1e1e;
+        }
+
+        .targeting-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .targeting-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .targeting-card {
+            background: var(--annotation-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .targeting-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .targeting-card-header {
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .targeting-card-header.observer { background: linear-gradient(135deg, rgba(107, 114, 128, 0.3) 0%, rgba(107, 114, 128, 0.1) 100%); border-left: 4px solid var(--level-observer); }
+        .targeting-card-header.follower { background: linear-gradient(135deg, rgba(59, 130, 246, 0.3) 0%, rgba(59, 130, 246, 0.1) 100%); border-left: 4px solid var(--level-follower); }
+        .targeting-card-header.endorser { background: linear-gradient(135deg, rgba(139, 92, 246, 0.3) 0%, rgba(139, 92, 246, 0.1) 100%); border-left: 4px solid var(--level-endorser); }
+        .targeting-card-header.contributor { background: linear-gradient(135deg, rgba(245, 158, 11, 0.3) 0%, rgba(245, 158, 11, 0.1) 100%); border-left: 4px solid var(--level-contributor); }
+
+        .targeting-card-header .level-badge {
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .targeting-card-header .level-badge.observer { background: var(--level-observer); }
+        .targeting-card-header .level-badge.follower { background: var(--level-follower); }
+        .targeting-card-header .level-badge.endorser { background: var(--level-endorser); }
+        .targeting-card-header .level-badge.contributor { background: var(--level-contributor); }
+
+        .targeting-card-header h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        .targeting-card-body {
+            padding: 24px;
+        }
+
+        .targeting-card-body .visitor-profile {
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+        }
+
+        .targeting-card-body .visitor-profile h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .targeting-card-body .visitor-profile p {
+            font-size: 0.9rem;
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        .targeting-card-body .strategies h4 {
+            font-size: 0.85rem;
+            color: #fff;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .targeting-card-body .strategies h4::before {
+            content: '';
+            width: 4px;
+            height: 16px;
+            background: var(--ncms-green);
+            border-radius: 2px;
+        }
+
+        .targeting-card-body .strategies ul {
+            list-style: none;
+        }
+
+        .targeting-card-body .strategies li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        .targeting-card-body .strategies li::before {
+            content: '>';
+            color: var(--ncms-green);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .targeting-card-body .goal {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #444;
+        }
+
+        .targeting-card-body .goal-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .targeting-card-body .goal-text {
+            font-size: 0.9rem;
+            color: var(--ncms-green);
+            font-weight: 500;
+        }
+
+        /* Implementation Section */
+        .implementation-section {
+            padding: 60px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .implementation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .implementation-card {
+            background: var(--annotation-bg);
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .implementation-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .implementation-card .card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(26, 122, 76, 0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+        }
+
+        .implementation-card h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .implementation-card p {
+            font-size: 0.9rem;
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .implementation-card .example {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 14px;
+            font-size: 0.85rem;
+            color: #888;
+            border-left: 3px solid var(--gold-accent);
+        }
+
+        .implementation-card .example strong {
+            color: var(--gold-accent);
+        }
+
+        /* Quote Block */
+        .quote-block {
+            background: linear-gradient(135deg, rgba(26, 122, 76, 0.1) 0%, rgba(26, 122, 76, 0.05) 100%);
+            border-left: 4px solid var(--ncms-green);
+            border-radius: 0 16px 16px 0;
+            padding: 30px 40px 30px 60px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-block::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 12px;
+            font-family: 'Fraunces', serif;
+            font-size: 8rem;
+            color: rgba(26, 122, 76, 0.15);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .quote-block p {
+            font-family: 'Fraunces', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #ddd;
+            line-height: 1.5;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-block cite {
+            color: #888;
+            font-size: 0.9rem;
+            font-style: normal;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Personalization Approaches */
+        .approaches-section {
+            padding: 60px 40px;
+            background: #222;
+        }
+
+        .approaches-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .approach-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .approach-item {
+            background: var(--annotation-bg);
+            border-radius: 12px;
+            padding: 24px 28px;
+            border: 1px solid #333;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 24px;
+            align-items: center;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .approach-item:hover {
+            border-color: rgba(26, 122, 76, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .approach-item .approach-level {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #666;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            text-align: center;
+        }
+
+        .approach-item .approach-content h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .approach-item .approach-content p {
+            font-size: 0.9rem;
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        .approach-item .complexity {
+            text-align: center;
+        }
+
+        .approach-item .complexity-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #666;
+            margin-bottom: 6px;
+        }
+
+        .approach-item .complexity-value {
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .approach-item .complexity-value.low {
+            background: rgba(26, 122, 76, 0.2);
+            color: var(--ncms-green);
+        }
+
+        .approach-item .complexity-value.medium {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--level-contributor);
+        }
+
+        .approach-item .complexity-value.high {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--level-owner);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 40px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--presentation-bg) 0%, #222 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(26, 122, 76, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-section h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section > p {
+            color: #888;
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-box {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(26, 122, 76, 0.15) 0%, var(--annotation-bg) 100%);
+            border-radius: 16px;
+            padding: 32px 48px;
+            border: 1px solid rgba(26, 122, 76, 0.3);
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(26, 122, 76, 0.15);
+        }
+
+        .cta-box p {
+            color: #ccc;
+            font-size: 1.05rem;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        .cta-box strong {
+            color: var(--ncms-green);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #333;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .level-card,
+        .targeting-card,
+        .implementation-card,
+        .approach-item {
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .level-card:nth-child(2),
+        .targeting-card:nth-child(2),
+        .implementation-card:nth-child(2),
+        .approach-item:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .level-card:nth-child(3),
+        .targeting-card:nth-child(3),
+        .implementation-card:nth-child(3),
+        .approach-item:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .level-card:nth-child(4),
+        .targeting-card:nth-child(4),
+        .approach-item:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .level-card:nth-child(5),
+        .approach-item:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+
+        .level-card:nth-child(6) {
+            animation-delay: 0.5s;
+        }
+
+        .section-header .section-number {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 1000px) {
+            .pyramid-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .targeting-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .implementation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .approach-item {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .approach-item .approach-level {
+                writing-mode: horizontal-tb;
+                transform: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .level-card {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+
+        /* Presentation Navigation */
+        .pres-nav {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            display: flex;
+            gap: 4px;
+            background: rgba(30, 30, 30, 0.95);
+            padding: 6px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .pres-nav a {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            color: #888;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .pres-nav a:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .pres-nav a.active {
+            color: white;
+            background: var(--ncms-green);
+        }
+
+        .pres-nav a .nav-num {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Presentation Navigation -->
+    <nav class="pres-nav">
+        <a href="index.html"><span class="nav-num">1</span> Homepage</a>
+        <a href="index2.html"><span class="nav-num">2</span> Sub-Pages</a>
+        <a href="index3.html"><span class="nav-num">3</span> AEO/GEO</a>
+        <a href="index4.html" class="active"><span class="nav-num">4</span> Targeting</a>
+    </nav>
+
+    <!-- Presentation Header -->
+    <header class="presentation-header">
+        <h1>Visitor Engagement &amp; Targeting</h1>
+        <p class="subtitle">Understanding the supporter engagement hierarchy and how to use it to personalize the website experience for different visitor types.</p>
+        <div class="strategic-alignment">
+            <div class="pillar">
+                <div class="pillar-icon">1</div>
+                <span class="pillar-text">Boost Storytelling</span>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon">2</div>
+                <span class="pillar-text">Build Infrastructure</span>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon">3</div>
+                <span class="pillar-text">Bridge Communities</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Introduction -->
+    <section class="intro-section">
+        <div class="intro-container">
+            <p>As a nonprofit, NCMS interacts with supporters across a spectrum of engagement levels. Understanding this hierarchy helps us recognize where each person is in their relationship with us and create experiences that meet them where they are.</p>
+            <p>Each level represents not just a depth of commitment, but also a different mindset and set of needs. By understanding these levels, we can tailor our website content and calls-to-action to resonate with each visitor type.</p>
+        </div>
+    </section>
+
+    <!-- Section 1: The Hierarchy -->
+    <section class="section-header">
+        <div class="section-number">1</div>
+        <h2>The Engagement Hierarchy</h2>
+        <p>Supporters engage with NCMS in different ways depending on their relationship depth with the organization</p>
+    </section>
+
+    <section class="pyramid-section">
+        <div class="pyramid-container">
+            <!-- Visual Pyramid -->
+            <div>
+                <div class="pyramid-visual">
+                    <div class="pyramid-level leader">Leader</div>
+                    <div class="pyramid-level owner">Owner</div>
+                    <div class="pyramid-level contributor">Contributor</div>
+                    <div class="pyramid-level endorser">Endorser</div>
+                    <div class="pyramid-level follower">Follower</div>
+                    <div class="pyramid-level observer">Observer</div>
+                </div>
+                <div class="pyramid-legend">
+                    <h4>Understanding the Shape</h4>
+                    <p>The pyramid narrows at the top because fewer people reach the highest engagement levels. Most website visitors are Observers or Followers. Our goal is to serve each level well while creating clear pathways for those who want to engage more deeply.</p>
+                </div>
+            </div>
+
+            <!-- Level Descriptions -->
+            <div class="level-details">
+                <div class="level-card">
+                    <div class="level-name leader">Leader</div>
+                    <div class="level-info">
+                        <h4>Active organizational leadership</h4>
+                        <p>Board members, staff, committee chairs. They guide strategy, make decisions, and represent NCMS in the community.</p>
+                        <div class="examples">Examples: Board member, Executive Director, committee chair</div>
+                    </div>
+                </div>
+                <div class="level-card">
+                    <div class="level-name owner">Owner</div>
+                    <div class="level-info">
+                        <h4>Contributing specialized skills and knowledge</h4>
+                        <p>They invest not just time and money, but their professional expertise. They feel genuine ownership over NCMS's success.</p>
+                        <div class="examples">Examples: Pro-bono consultant, advisory role, major donor with strategic involvement</div>
+                    </div>
+                </div>
+                <div class="level-card">
+                    <div class="level-name contributor">Contributor</div>
+                    <div class="level-info">
+                        <h4>Giving significant time or money</h4>
+                        <p>Regular donors, recurring volunteers, event hosts. They've made NCMS part of their ongoing commitments.</p>
+                        <div class="examples">Examples: Monthly donor, regular volunteer, event committee member</div>
+                    </div>
+                </div>
+                <div class="level-card">
+                    <div class="level-name endorser">Endorser</div>
+                    <div class="level-info">
+                        <h4>Sharing trust and occasional time</h4>
+                        <p>They believe in NCMS enough to recommend us to others, write reviews, share on social media, or attend occasional events.</p>
+                        <div class="examples">Examples: Social media sharer, Google reviewer, event attendee, referral source</div>
+                    </div>
+                </div>
+                <div class="level-card">
+                    <div class="level-name follower">Follower</div>
+                    <div class="level-info">
+                        <h4>Actively paying attention</h4>
+                        <p>They've taken a small action to stay connected: following on social media, subscribing to the newsletter, or visiting the site multiple times.</p>
+                        <div class="examples">Examples: Email subscriber, social media follower, repeat website visitor</div>
+                    </div>
+                </div>
+                <div class="level-card">
+                    <div class="level-name observer">Observer</div>
+                    <div class="level-info">
+                        <h4>Aware of NCMS but anonymous</h4>
+                        <p>First-time website visitors, people who've heard of us but haven't engaged. They may be evaluating whether NCMS is relevant to them.</p>
+                        <div class="examples">Examples: First-time site visitor, someone who heard about NCMS from a friend</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Targeting Strategies -->
+    <section class="section-header">
+        <div class="section-number">2</div>
+        <h2>Website Targeting Strategies</h2>
+        <p>Practical approaches for serving each visitor type through the website experience</p>
+    </section>
+
+    <section class="targeting-section">
+        <div class="targeting-container">
+            <div class="targeting-grid">
+                <!-- Observer -->
+                <div class="targeting-card">
+                    <div class="targeting-card-header observer">
+                        <span class="level-badge observer">Observer</span>
+                        <h3>Convert Awareness to Interest</h3>
+                    </div>
+                    <div class="targeting-card-body">
+                        <div class="visitor-profile">
+                            <h4>Who They Are</h4>
+                            <p>First-time visitors, often arriving from search or referral. They're evaluating: "Is this relevant to me?" and "Can I trust this organization?"</p>
+                        </div>
+                        <div class="strategies">
+                            <h4>Website Strategies</h4>
+                            <ul>
+                                <li>Lead with mission and impact (not just "what" but "why")</li>
+                                <li>Display credibility signals: years of service, student count, testimonials</li>
+                                <li>Make programs and pricing easy to find</li>
+                                <li>Offer low-commitment first step: "Learn More" or "Get Info"</li>
+                                <li>Include clear pathways for different visitor types (families, donors, volunteers)</li>
+                            </ul>
+                        </div>
+                        <div class="goal">
+                            <div class="goal-label">Primary Goal</div>
+                            <div class="goal-text">Build trust and invite them to take one small action</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Follower -->
+                <div class="targeting-card">
+                    <div class="targeting-card-header follower">
+                        <span class="level-badge follower">Follower</span>
+                        <h3>Deepen Connection</h3>
+                    </div>
+                    <div class="targeting-card-body">
+                        <div class="visitor-profile">
+                            <h4>Who They Are</h4>
+                            <p>Repeat visitors, newsletter subscribers, social followers. They're interested but haven't committed. They're asking: "What else can I learn?" and "Is now the right time?"</p>
+                        </div>
+                        <div class="strategies">
+                            <h4>Website Strategies</h4>
+                            <ul>
+                                <li>Feature stories and updates that reward return visits</li>
+                                <li>Highlight upcoming events and deadlines (urgency)</li>
+                                <li>Provide deeper content: program details, faculty bios, student stories</li>
+                                <li>Offer event invitations as a next step (recitals, open houses)</li>
+                                <li>Make newsletter signup prominent and valuable</li>
+                            </ul>
+                        </div>
+                        <div class="goal">
+                            <div class="goal-label">Primary Goal</div>
+                            <div class="goal-text">Move them from passive interest to active participation</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Endorser -->
+                <div class="targeting-card">
+                    <div class="targeting-card-header endorser">
+                        <span class="level-badge endorser">Endorser</span>
+                        <h3>Empower Advocacy</h3>
+                    </div>
+                    <div class="targeting-card-body">
+                        <div class="visitor-profile">
+                            <h4>Who They Are</h4>
+                            <p>Current or past students/families, occasional event attendees, people who've shared about NCMS. They trust us and want to help, but may not know how.</p>
+                        </div>
+                        <div class="strategies">
+                            <h4>Website Strategies</h4>
+                            <ul>
+                                <li>Make sharing easy: social buttons, referral links, downloadable assets</li>
+                                <li>Invite reviews and testimonials (with clear instructions)</li>
+                                <li>Celebrate community: showcase student performances, family stories</li>
+                                <li>Offer volunteer opportunities for one-time commitments</li>
+                                <li>Provide "invite a friend" or "gift a lesson" options</li>
+                            </ul>
+                        </div>
+                        <div class="goal">
+                            <div class="goal-label">Primary Goal</div>
+                            <div class="goal-text">Make it easy and rewarding to spread the word</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contributor -->
+                <div class="targeting-card">
+                    <div class="targeting-card-header contributor">
+                        <span class="level-badge contributor">Contributor</span>
+                        <h3>Recognize and Retain</h3>
+                    </div>
+                    <div class="targeting-card-body">
+                        <div class="visitor-profile">
+                            <h4>Who They Are</h4>
+                            <p>Donors, regular volunteers, enrolled families. They've made a commitment. They want to see impact and feel appreciated.</p>
+                        </div>
+                        <div class="strategies">
+                            <h4>Website Strategies</h4>
+                            <ul>
+                                <li>Show impact: "Your support helps fund X scholarships"</li>
+                                <li>Provide easy access to donor/family portals if applicable</li>
+                                <li>Highlight volunteer stories and donor recognition</li>
+                                <li>Offer upgrade paths: "Become a monthly donor" or "Join a committee"</li>
+                                <li>Share exclusive updates or behind-the-scenes content</li>
+                            </ul>
+                        </div>
+                        <div class="goal">
+                            <div class="goal-label">Primary Goal</div>
+                            <div class="goal-text">Reinforce their decision and invite deeper involvement</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote -->
+    <section class="content-section">
+        <div class="quote-block">
+            <p>"The organizations that thrive understand that every visitor is on a journey. Our job isn't to push everyone toward the same action, but to meet each person where they are and offer a meaningful next step."</p>
+            <cite>— Nonprofit engagement best practice</cite>
+        </div>
+    </section>
+
+    <!-- Section 3: Personalization Approaches -->
+    <section class="section-header">
+        <div class="section-number">3</div>
+        <h2>Personalization Approaches</h2>
+        <p>From simple to sophisticated: options for tailoring the website experience</p>
+    </section>
+
+    <section class="approaches-section">
+        <div class="approaches-container">
+            <div class="approach-list">
+                <div class="approach-item">
+                    <div class="approach-level">Level 1</div>
+                    <div class="approach-content">
+                        <h4>Content Segmentation by Audience</h4>
+                        <p>Create clear navigation paths for different visitor types: "For Families," "For Donors," "For Volunteers." Each section speaks directly to that audience's needs and motivations. No technology required beyond thoughtful information architecture.</p>
+                    </div>
+                    <div class="complexity">
+                        <div class="complexity-label">Complexity</div>
+                        <div class="complexity-value low">Low</div>
+                    </div>
+                </div>
+
+                <div class="approach-item">
+                    <div class="approach-level">Level 2</div>
+                    <div class="approach-content">
+                        <h4>Smart CTAs Based on Page Context</h4>
+                        <p>Show different calls-to-action depending on the page. Visitors on program pages see "Enroll Now." Visitors on impact/story pages see "Support Our Mission." Match the ask to the content they're already engaging with.</p>
+                    </div>
+                    <div class="complexity">
+                        <div class="complexity-label">Complexity</div>
+                        <div class="complexity-value low">Low</div>
+                    </div>
+                </div>
+
+                <div class="approach-item">
+                    <div class="approach-level">Level 3</div>
+                    <div class="approach-content">
+                        <h4>New vs. Returning Visitor Detection</h4>
+                        <p>Use cookies to detect returning visitors. First-time visitors see welcome messaging and overview content. Returning visitors see "Welcome back" and are directed to updates, events, or deeper engagement options.</p>
+                    </div>
+                    <div class="complexity">
+                        <div class="complexity-label">Complexity</div>
+                        <div class="complexity-value medium">Medium</div>
+                    </div>
+                </div>
+
+                <div class="approach-item">
+                    <div class="approach-level">Level 4</div>
+                    <div class="approach-content">
+                        <h4>Behavioral Triggers</h4>
+                        <p>Show targeted messaging based on visitor behavior. After viewing 3+ program pages, show "Ready to enroll?" prompt. After viewing donation page without giving, show gentle follow-up. Exit-intent popups for newsletter signup.</p>
+                    </div>
+                    <div class="complexity">
+                        <div class="complexity-label">Complexity</div>
+                        <div class="complexity-value medium">Medium</div>
+                    </div>
+                </div>
+
+                <div class="approach-item">
+                    <div class="approach-level">Level 5</div>
+                    <div class="approach-content">
+                        <h4>CRM-Integrated Personalization</h4>
+                        <p>Connect the website to donor/student management systems. Recognize logged-in users and show personalized content: "Thanks for your recent donation, [Name]" or "Your next lesson is Tuesday." Requires technical integration.</p>
+                    </div>
+                    <div class="complexity">
+                        <div class="complexity-label">Complexity</div>
+                        <div class="complexity-value high">High</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Implementation -->
+    <section class="section-header">
+        <div class="section-number">4</div>
+        <h2>Starting Points for NCMS</h2>
+        <p>Practical first steps that work within Squarespace and existing resources</p>
+    </section>
+
+    <section class="implementation-section">
+        <div class="implementation-grid">
+            <div class="implementation-card">
+                <div class="card-icon">1</div>
+                <h3>Audience-Based Navigation</h3>
+                <p>Add clear entry points for key visitor types. A simple "I'm a..." section on the homepage lets visitors self-select into the most relevant experience.</p>
+                <div class="example">
+                    <strong>Example:</strong> "I'm looking for lessons for my child" | "I want to support music education" | "I'm a current student/family"
+                </div>
+            </div>
+
+            <div class="implementation-card">
+                <div class="card-icon">2</div>
+                <h3>Contextual Calls-to-Action</h3>
+                <p>Match CTAs to page content. Program pages should lead to enrollment. Story pages should lead to giving. Event pages should lead to registration. Audit current pages for mismatched asks.</p>
+                <div class="example">
+                    <strong>Example:</strong> Scholarship story page > "Help More Students Like Maria" CTA > Donation form
+                </div>
+            </div>
+
+            <div class="implementation-card">
+                <div class="card-icon">3</div>
+                <h3>Progression Pathways</h3>
+                <p>Design explicit "next steps" for each engagement level. Every page should answer: "What's the natural next action for someone at this stage?"</p>
+                <div class="example">
+                    <strong>Example:</strong> Newsletter subscriber (Follower) > Invite to recital (Endorser) > Ask for donation after attending (Contributor)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>The Opportunity</h2>
+        <p>Most nonprofit websites treat all visitors the same. By recognizing where supporters are in their journey and meeting them with relevant content and asks, NCMS can improve both the visitor experience and engagement outcomes.</p>
+        <div class="cta-box">
+            <p>Start simple with audience-based navigation and contextual CTAs. <strong>These foundational changes require no new technology</strong>—just thoughtful organization of content you already have.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>NCMS Digital Presence Refresh — Board Strategic Planning Retreat — January 2026</p>
+    </footer>
+
+</body>
+</html>
