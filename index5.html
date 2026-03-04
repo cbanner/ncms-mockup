@@ -1,0 +1,1915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCMS Website Refresh - Project Plan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ncms-green: #1a7a4c;
+            --ncms-green-dark: #145f3b;
+            --ncms-green-light: #e8f5ee;
+            --warm-cream: #faf8f5;
+            --warm-gray: #6b6560;
+            --charcoal: #2d2a26;
+            --gold-accent: #c9a227;
+            --presentation-bg: #1a1a1a;
+            --card-bg: #ffffff;
+            --annotation-bg: #2a2a2a;
+
+            /* Phase colors */
+            --phase-0: #6b7280;
+            --phase-1: #3b82f6;
+            --phase-2: #8b5cf6;
+            --phase-3: #ec4899;
+            --phase-4: #f59e0b;
+            --phase-5: #ef4444;
+            --phase-6: #10b981;
+            --phase-7: #06b6d4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: var(--presentation-bg);
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Presentation Header */
+        .presentation-header {
+            padding: 60px 40px 40px;
+            text-align: center;
+            background: linear-gradient(180deg, #222 0%, var(--presentation-bg) 100%);
+            border-bottom: 1px solid #333;
+        }
+
+        .presentation-header h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.8rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .presentation-header .subtitle {
+            font-size: 1.1rem;
+            color: #999;
+            max-width: 750px;
+            margin: 0 auto 20px;
+        }
+
+        .presentation-header .meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .presentation-header .meta-item {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .presentation-header .meta-item strong {
+            color: #999;
+        }
+
+        /* Section Headers */
+        .section-header {
+            padding: 60px 40px 30px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: #888;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .section-header .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--ncms-green);
+            color: white;
+            border-radius: 50%;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+        }
+
+        /* Intro Section */
+        .intro-section {
+            padding: 60px 40px;
+            background: #222;
+        }
+
+        .intro-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .intro-container p {
+            font-size: 1.15rem;
+            color: #ccc;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .intro-container p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Stakeholders Section */
+        .stakeholders-section {
+            padding: 60px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stakeholder-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .stakeholder-card {
+            background: var(--annotation-bg);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid #333;
+            display: flex;
+            gap: 16px;
+            align-items: start;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stakeholder-card:hover {
+            border-color: #444;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .stakeholder-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(26, 122, 76, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            color: var(--ncms-green);
+            font-weight: 600;
+        }
+
+        .stakeholder-info h4 {
+            font-size: 1rem;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+
+        .stakeholder-info .role {
+            font-size: 0.8rem;
+            color: var(--ncms-green);
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .stakeholder-info p {
+            font-size: 0.85rem;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        /* Phase Overview */
+        .phase-overview-section {
+            padding: 60px 40px;
+            background: #1e1e1e;
+        }
+
+        .phase-overview-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .phase-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .phase-timeline::before {
+            content: '';
+            position: absolute;
+            left: 28px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #333;
+        }
+
+        .phase-overview-item {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            padding: 16px 0;
+            position: relative;
+        }
+
+        .phase-dot {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            z-index: 1;
+            border: 3px solid var(--presentation-bg);
+        }
+
+        .phase-overview-content {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--annotation-bg);
+            border-radius: 12px;
+            padding: 16px 24px;
+            border: 1px solid #333;
+            transition: border-color 0.3s ease;
+        }
+
+        .phase-overview-content:hover {
+            border-color: #444;
+        }
+
+        .phase-overview-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .phase-overview-content .output {
+            font-size: 0.85rem;
+            color: #888;
+            text-align: right;
+        }
+
+        /* Phase Detail Sections */
+        .phase-detail {
+            padding: 60px 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .phase-detail.alt-bg {
+            background: #1e1e1e;
+            max-width: none;
+        }
+
+        .phase-detail.alt-bg .phase-detail-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 12px;
+        }
+
+        .phase-badge {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            flex-shrink: 0;
+        }
+
+        .phase-header h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+        }
+
+        .phase-goal {
+            font-size: 1.05rem;
+            color: #aaa;
+            margin-bottom: 36px;
+            line-height: 1.6;
+            padding-left: 0;
+        }
+
+        .activities-group {
+            margin-bottom: 32px;
+        }
+
+        .activities-group h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #666;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .activities-group h4::before {
+            content: '';
+            width: 4px;
+            height: 16px;
+            background: var(--ncms-green);
+            border-radius: 2px;
+        }
+
+        .activity-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .activity-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: #ccc;
+            line-height: 1.5;
+            padding: 10px 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .activity-list li:hover {
+            border-color: #333;
+        }
+
+        .activity-list li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border: 2px solid var(--ncms-green);
+            border-radius: 2px;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+
+        .activity-list li .sub-items {
+            margin-top: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .activity-list li .sub-item {
+            font-size: 0.85rem;
+            color: #888;
+            padding-left: 12px;
+            border-left: 2px solid #333;
+        }
+
+        /* Checkpoint callout */
+        .checkpoint {
+            margin-top: 32px;
+            background: linear-gradient(135deg, rgba(26, 122, 76, 0.1) 0%, rgba(26, 122, 76, 0.05) 100%);
+            border-left: 4px solid var(--ncms-green);
+            border-radius: 0 12px 12px 0;
+            padding: 24px 28px;
+        }
+
+        .checkpoint h4 {
+            font-size: 0.95rem;
+            color: var(--ncms-green);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .checkpoint .present {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-bottom: 4px;
+        }
+
+        .checkpoint .decision {
+            font-size: 0.9rem;
+            color: #ccc;
+            font-weight: 500;
+        }
+
+        /* Questions box */
+        .questions-box {
+            background: var(--annotation-bg);
+            border-radius: 12px;
+            padding: 24px 28px;
+            border: 1px solid #333;
+            margin-top: 24px;
+        }
+
+        .questions-box h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold-accent);
+            margin-bottom: 16px;
+        }
+
+        .questions-box ul {
+            list-style: none;
+        }
+
+        .questions-box li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .questions-box li::before {
+            content: '?';
+            width: 22px;
+            height: 22px;
+            background: rgba(201, 162, 39, 0.15);
+            color: var(--gold-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* Evaluation table */
+        .eval-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .eval-table th {
+            background: #333;
+            padding: 14px 20px;
+            text-align: left;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #999;
+            font-weight: 600;
+        }
+
+        .eval-table td {
+            padding: 14px 20px;
+            font-size: 0.9rem;
+            color: #ccc;
+            border-bottom: 1px solid #333;
+        }
+
+        .eval-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .eval-table tr:hover td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .weight-high { color: #ef4444; font-weight: 600; }
+        .weight-medium { color: var(--gold-accent); font-weight: 500; }
+        .weight-lower { color: #888; }
+
+        /* Checkpoint Summary */
+        .checkpoint-summary {
+            padding: 60px 40px;
+            background: #222;
+        }
+
+        .checkpoint-summary-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .checkpoint-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .checkpoint-row {
+            display: grid;
+            grid-template-columns: 200px 80px 180px 1fr;
+            gap: 20px;
+            align-items: center;
+            background: var(--annotation-bg);
+            border-radius: 10px;
+            padding: 18px 24px;
+            border: 1px solid #333;
+            transition: border-color 0.3s ease;
+        }
+
+        .checkpoint-row:hover {
+            border-color: #444;
+        }
+
+        .checkpoint-row .cp-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #fff;
+        }
+
+        .checkpoint-row .cp-phase {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        .checkpoint-row .cp-audience {
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+
+        .checkpoint-row .cp-decision {
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        /* Budget Section */
+        .budget-section {
+            padding: 60px 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .budget-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .budget-card {
+            background: var(--annotation-bg);
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .budget-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .budget-card h4 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .budget-card .range {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--ncms-green);
+            margin-bottom: 12px;
+        }
+
+        .budget-card .pros {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-bottom: 4px;
+        }
+
+        .budget-card .cons {
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        .budget-note {
+            margin-top: 24px;
+            padding: 16px 20px;
+            background: rgba(26, 122, 76, 0.08);
+            border-radius: 10px;
+            border: 1px solid rgba(26, 122, 76, 0.2);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .budget-note strong {
+            color: var(--ncms-green);
+        }
+
+        /* Risk Section */
+        .risk-section {
+            padding: 60px 40px;
+            background: #1e1e1e;
+        }
+
+        .risk-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .risk-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .risk-item {
+            display: grid;
+            grid-template-columns: 1fr auto auto 1fr;
+            gap: 20px;
+            align-items: center;
+            background: var(--annotation-bg);
+            border-radius: 10px;
+            padding: 18px 24px;
+            border: 1px solid #333;
+            transition: border-color 0.3s ease;
+        }
+
+        .risk-item:hover {
+            border-color: #444;
+        }
+
+        .risk-item .risk-name {
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+
+        .risk-item .risk-tag {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-align: center;
+            min-width: 70px;
+        }
+
+        .risk-tag.high { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+        .risk-tag.medium { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+        .risk-tag.low { background: rgba(26, 122, 76, 0.2); color: var(--ncms-green); }
+
+        .risk-item .risk-mitigation {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        /* Next Steps Section */
+        .next-steps-section {
+            padding: 60px 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .next-steps-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .next-step-item {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            background: var(--annotation-bg);
+            border-radius: 12px;
+            padding: 20px 24px;
+            border: 1px solid #333;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .next-step-item:hover {
+            border-color: rgba(26, 122, 76, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--ncms-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .step-content .step-owner {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold-accent);
+            margin-bottom: 4px;
+        }
+
+        .step-content p {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 40px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--presentation-bg) 0%, #222 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(26, 122, 76, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-section h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section > p {
+            color: #888;
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-box {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(26, 122, 76, 0.15) 0%, var(--annotation-bg) 100%);
+            border-radius: 16px;
+            padding: 32px 48px;
+            border: 1px solid rgba(26, 122, 76, 0.3);
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(26, 122, 76, 0.15);
+        }
+
+        .cta-box p {
+            color: #ccc;
+            font-size: 1.05rem;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        .cta-box strong {
+            color: var(--ncms-green);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #333;
+        }
+
+        /* Phase divider */
+        .phase-divider {
+            height: 1px;
+            background: #333;
+            margin: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .stakeholder-card,
+        .phase-overview-item,
+        .budget-card,
+        .risk-item,
+        .next-step-item,
+        .checkpoint-row {
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .stakeholder-card:nth-child(2),
+        .phase-overview-item:nth-child(2),
+        .budget-card:nth-child(2),
+        .risk-item:nth-child(2),
+        .next-step-item:nth-child(2),
+        .checkpoint-row:nth-child(2) { animation-delay: 0.1s; }
+
+        .stakeholder-card:nth-child(3),
+        .phase-overview-item:nth-child(3),
+        .budget-card:nth-child(3),
+        .risk-item:nth-child(3),
+        .next-step-item:nth-child(3),
+        .checkpoint-row:nth-child(3) { animation-delay: 0.2s; }
+
+        .stakeholder-card:nth-child(4),
+        .phase-overview-item:nth-child(4),
+        .budget-card:nth-child(4),
+        .risk-item:nth-child(4),
+        .next-step-item:nth-child(4),
+        .checkpoint-row:nth-child(4) { animation-delay: 0.3s; }
+
+        .stakeholder-card:nth-child(5),
+        .phase-overview-item:nth-child(5),
+        .risk-item:nth-child(5),
+        .next-step-item:nth-child(5),
+        .checkpoint-row:nth-child(5) { animation-delay: 0.4s; }
+
+        .stakeholder-card:nth-child(6),
+        .phase-overview-item:nth-child(6),
+        .risk-item:nth-child(6),
+        .checkpoint-row:nth-child(6) { animation-delay: 0.5s; }
+
+        .stakeholder-card:nth-child(7),
+        .phase-overview-item:nth-child(7),
+        .checkpoint-row:nth-child(7) { animation-delay: 0.6s; }
+
+        .phase-overview-item:nth-child(8),
+        .checkpoint-row:nth-child(8) { animation-delay: 0.7s; }
+
+        .section-header .section-number {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 1000px) {
+            .stakeholder-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .checkpoint-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .risk-item {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .budget-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .presentation-header h1 {
+                font-size: 2rem;
+            }
+
+            .phase-header h3 {
+                font-size: 1.3rem;
+            }
+
+            .phase-overview-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+
+            .phase-overview-content .output {
+                text-align: left;
+            }
+        }
+
+        /* Presentation Navigation */
+        .pres-nav {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            display: flex;
+            gap: 4px;
+            background: rgba(30, 30, 30, 0.95);
+            padding: 6px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .pres-nav a {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            color: #888;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .pres-nav a:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .pres-nav a.active {
+            color: white;
+            background: var(--ncms-green);
+        }
+
+        .pres-nav a .nav-num {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Presentation Navigation -->
+    <nav class="pres-nav">
+        <a href="index.html"><span class="nav-num">1</span> Homepage</a>
+        <a href="index2.html"><span class="nav-num">2</span> Sub-Pages</a>
+        <a href="index3.html"><span class="nav-num">3</span> AEO/GEO</a>
+        <a href="index4.html"><span class="nav-num">4</span> Targeting</a>
+        <a href="index5.html" class="active"><span class="nav-num">5</span> Project Plan</a>
+    </nav>
+
+    <!-- Presentation Header -->
+    <header class="presentation-header">
+        <h1>Website Refresh &mdash; Project Plan</h1>
+        <p class="subtitle">A phased approach to move from strategic vision to a launched, optimized website for Nashua Community Music School.</p>
+        <div class="meta">
+            <span class="meta-item"><strong>Board Sponsor:</strong> Chris Banner</span>
+            <span class="meta-item"><strong>Status:</strong> Draft for Review</span>
+            <span class="meta-item"><strong>Version:</strong> 1.0</span>
+        </div>
+    </header>
+
+    <!-- Purpose -->
+    <section class="intro-section">
+        <div class="intro-container">
+            <p>This plan provides a structured path from the strategic mockups and recommendations already developed to a launched, optimized website. It assumes the mockups represent the <em>opportunity and direction</em> &mdash; not necessarily the final design or technology &mdash; and that key decisions remain open on platform, design approach, and implementation partner.</p>
+            <p>Phases are sequential gates, not time-boxed. The project will move at the pace the committee and staff can support.</p>
+        </div>
+    </section>
+
+    <!-- Section 1: Stakeholders -->
+    <section class="section-header">
+        <div class="section-number">1</div>
+        <h2>Stakeholders &amp; Roles</h2>
+        <p>Who's involved and what they're responsible for</p>
+    </section>
+
+    <section class="stakeholders-section">
+        <div class="stakeholder-grid">
+            <div class="stakeholder-card">
+                <div class="stakeholder-icon">L</div>
+                <div class="stakeholder-info">
+                    <h4>Lindsay</h4>
+                    <div class="role">Executive Director</div>
+                    <p>Final approval on scope and budget, organizational alignment</p>
+                </div>
+            </div>
+            <div class="stakeholder-card">
+                <div class="stakeholder-icon">C</div>
+                <div class="stakeholder-info">
+                    <h4>Cody</h4>
+                    <div class="role">Assistant Director</div>
+                    <p>Operational requirements, program content, registration workflows</p>
+                </div>
+            </div>
+            <div class="stakeholder-card">
+                <div class="stakeholder-icon">B</div>
+                <div class="stakeholder-info">
+                    <h4>Brittany</h4>
+                    <div class="role">Marketing</div>
+                    <p>Content strategy, brand voice, social/email integration, analytics</p>
+                </div>
+            </div>
+            <div class="stakeholder-card">
+                <div class="stakeholder-icon">CB</div>
+                <div class="stakeholder-info">
+                    <h4>Chris Banner</h4>
+                    <div class="role">Board Sponsor</div>
+                    <p>Plan ownership, board liaison, technical guidance</p>
+                </div>
+            </div>
+            <div class="stakeholder-card">
+                <div class="stakeholder-icon">WC</div>
+                <div class="stakeholder-info">
+                    <h4>Website Committee</h4>
+                    <div class="role">Board Representatives</div>
+                    <p>Review at checkpoints, represent board perspective</p>
+                </div>
+            </div>
+            <div class="stakeholder-card">
+                <div class="stakeholder-icon">BD</div>
+                <div class="stakeholder-info">
+                    <h4>Full Board</h4>
+                    <div class="role">Governance</div>
+                    <p>Approve at major gates (budget, launch)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Phase Overview -->
+    <section class="section-header">
+        <div class="section-number">2</div>
+        <h2>Phase Overview</h2>
+        <p>Eight phases from formation through ongoing optimization</p>
+    </section>
+
+    <section class="phase-overview-section">
+        <div class="phase-overview-container">
+            <div class="phase-timeline">
+                <div class="phase-overview-item">
+                    <div class="phase-dot" style="background: var(--phase-0);">0</div>
+                    <div class="phase-overview-content">
+                        <h4>Formation &amp; Alignment</h4>
+                        <span class="output">Charter, committee, approved scope</span>
+                    </div>
+                </div>
+                <div class="phase-overview-item">
+                    <div class="phase-dot" style="background: var(--phase-1);">1</div>
+                    <div class="phase-overview-content">
+                        <h4>Discovery &amp; Requirements</h4>
+                        <span class="output">Requirements document, content audit</span>
+                    </div>
+                </div>
+                <div class="phase-overview-item">
+                    <div class="phase-dot" style="background: var(--phase-2);">2</div>
+                    <div class="phase-overview-content">
+                        <h4>Technology Evaluation</h4>
+                        <span class="output">Platform decision</span>
+                    </div>
+                </div>
+                <div class="phase-overview-item">
+                    <div class="phase-dot" style="background: var(--phase-3);">3</div>
+                    <div class="phase-overview-content">
+                        <h4>Design &amp; Information Architecture</h4>
+                        <span class="output">Approved sitemap, wireframes, visual design</span>
+                    </div>
+                </div>
+                <div class="phase-overview-item">
+                    <div class="phase-dot" style="background: var(--phase-4);">4</div>
+                    <div class="phase-overview-content">
+                        <h4>Content Development</h4>
+                        <span class="output">Final copy, photography, multimedia</span>
+                    </div>
+                </div>
+                <div class="phase-overview-item">
+                    <div class="phase-dot" style="background: var(--phase-5);">5</div>
+                    <div class="phase-overview-content">
+                        <h4>Build &amp; Integration</h4>
+                        <span class="output">Working site in staging</span>
+                    </div>
+                </div>
+                <div class="phase-overview-item">
+                    <div class="phase-dot" style="background: var(--phase-6);">6</div>
+                    <div class="phase-overview-content">
+                        <h4>Testing &amp; Launch</h4>
+                        <span class="output">Live site</span>
+                    </div>
+                </div>
+                <div class="phase-overview-item">
+                    <div class="phase-dot" style="background: var(--phase-7);">7</div>
+                    <div class="phase-overview-content">
+                        <h4>Post-Launch Optimization</h4>
+                        <span class="output">Analytics, iteration, marketing activation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Phase Details -->
+    <section class="section-header">
+        <div class="section-number">3</div>
+        <h2>Phase Details</h2>
+        <p>Activities, deliverables, and decision points for each phase</p>
+    </section>
+
+    <!-- Phase 0 -->
+    <section class="phase-detail">
+        <div class="phase-header">
+            <span class="phase-badge" style="background: rgba(107, 114, 128, 0.2); color: var(--phase-0);">Phase 0</span>
+            <h3>Formation &amp; Alignment</h3>
+        </div>
+        <p class="phase-goal">Get the right people in the room, agree on what we're doing and why, and secure authorization to proceed.</p>
+
+        <div class="activities-group">
+            <h4>Activities</h4>
+            <ul class="activity-list">
+                <li>Form website committee (2-4 board members + Chris as lead)</li>
+                <li>Present existing mockups and strategic recommendations to committee and staff</li>
+                <li>Align on project goals tied to strategic plan (2026-2031)</li>
+                <li>Define rough budget range and discuss funding (operating budget, grant, board allocation)</li>
+                <li>Draft project charter (1-page: goals, scope, stakeholders, budget envelope)</li>
+            </ul>
+        </div>
+
+        <div class="questions-box">
+            <h4>Key Questions to Resolve</h4>
+            <ul>
+                <li>What is the realistic budget for this project?</li>
+                <li>What is the target launch window?</li>
+                <li>Are there any organizational changes (staffing, programs) that the site needs to account for?</li>
+            </ul>
+        </div>
+
+        <div class="checkpoint">
+            <h4>Checkpoint: Committee Kickoff &amp; Board Authorization</h4>
+            <div class="present"><strong>Present to board:</strong> Project charter with scope, estimated budget, and timeline</div>
+            <div class="decision"><strong>Decision needed:</strong> Authorization to proceed and commit resources</div>
+        </div>
+    </section>
+
+    <hr class="phase-divider">
+
+    <!-- Phase 1 -->
+    <section class="phase-detail alt-bg">
+        <div class="phase-detail-inner">
+            <div class="phase-header">
+                <span class="phase-badge" style="background: rgba(59, 130, 246, 0.2); color: var(--phase-1);">Phase 1</span>
+                <h3>Discovery &amp; Requirements</h3>
+            </div>
+            <p class="phase-goal">Understand what the new site needs to do, what content exists, and what gaps need filling.</p>
+
+            <div class="activities-group">
+                <h4>Activities</h4>
+                <ul class="activity-list">
+                    <li>
+                        <div>
+                            <strong>Content audit</strong> &mdash; Inventory every page on the current Squarespace site
+                            <div class="sub-items">
+                                <span class="sub-item">For each page: keep as-is, revise, merge, or remove</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Stakeholder interviews</strong> (1-on-1, 30 min each)
+                            <div class="sub-items">
+                                <span class="sub-item">Lindsay: Organizational priorities, enrollment goals, fundraising targets</span>
+                                <span class="sub-item">Cody: Registration workflow pain points, program details, event management needs</span>
+                                <span class="sub-item">Brittany: Brand standards, content calendar, email/social integration, analytics</span>
+                                <span class="sub-item">1-2 board members: Donor perspective, community perception</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Audience definition</strong> &mdash; Refine the engagement hierarchy into actionable personas
+                            <div class="sub-items">
+                                <span class="sub-item">Prospective student/parent (enrollment path)</span>
+                                <span class="sub-item">Current student/family (retention)</span>
+                                <span class="sub-item">Donor/supporter (giving path)</span>
+                                <span class="sub-item">Community partner (collaboration)</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Functional requirements</strong> &mdash; Document must-have vs. nice-to-have
+                            <div class="sub-items">
+                                <span class="sub-item">Online registration and payment, event calendar, donation processing</span>
+                                <span class="sub-item">Newsletter signup, multilingual support, analytics, faculty directory</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li><strong>Competitive/peer review</strong> &mdash; Look at 3-5 comparable community music school sites</li>
+                </ul>
+            </div>
+
+            <div class="checkpoint">
+                <h4>Checkpoint: Requirements Review</h4>
+                <div class="present"><strong>Present to committee:</strong> Requirements document, content audit summary, audience personas</div>
+                <div class="decision"><strong>Decision needed:</strong> Sign-off on scope and requirements before technology evaluation</div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="phase-divider">
+
+    <!-- Phase 2 -->
+    <section class="phase-detail">
+        <div class="phase-header">
+            <span class="phase-badge" style="background: rgba(139, 92, 246, 0.2); color: var(--phase-2);">Phase 2</span>
+            <h3>Technology Evaluation</h3>
+        </div>
+        <p class="phase-goal">Decide whether to stay on Squarespace or move to another platform, based on requirements.</p>
+
+        <div class="activities-group">
+            <h4>Evaluation Criteria</h4>
+            <table class="eval-table">
+                <thead>
+                    <tr>
+                        <th>Criteria</th>
+                        <th>Weight</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Staff maintainability</td>
+                        <td><span class="weight-high">High</span></td>
+                        <td>Brittany and Cody need to update content without developer help</td>
+                    </tr>
+                    <tr>
+                        <td>Registration/payment integration</td>
+                        <td><span class="weight-high">High</span></td>
+                        <td>Online registration is a strategic priority</td>
+                    </tr>
+                    <tr>
+                        <td>Cost (platform + ongoing)</td>
+                        <td><span class="weight-high">High</span></td>
+                        <td>Nonprofit budget considerations</td>
+                    </tr>
+                    <tr>
+                        <td>Design flexibility</td>
+                        <td><span class="weight-medium">Medium</span></td>
+                        <td>Ability to implement the design vision from mockups</td>
+                    </tr>
+                    <tr>
+                        <td>SEO / schema markup support</td>
+                        <td><span class="weight-medium">Medium</span></td>
+                        <td>AEO/GEO strategy requires structured data</td>
+                    </tr>
+                    <tr>
+                        <td>Email/CRM integration</td>
+                        <td><span class="weight-medium">Medium</span></td>
+                        <td>Mailchimp, Constant Contact, or similar</td>
+                    </tr>
+                    <tr>
+                        <td>Multilingual support</td>
+                        <td><span class="weight-medium">Medium</span></td>
+                        <td>Spanish content is a Bridge Communities priority</td>
+                    </tr>
+                    <tr>
+                        <td>Migration complexity</td>
+                        <td><span class="weight-lower">Lower</span></td>
+                        <td>One-time cost but worth considering</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="activities-group" style="margin-top: 32px;">
+            <h4>Platforms to Evaluate</h4>
+            <ul class="activity-list">
+                <li><strong>Squarespace</strong> (current) &mdash; Familiar, low cost, limited integration depth</li>
+                <li><strong>WordPress + managed hosting</strong> &mdash; Maximum flexibility, larger ecosystem, higher maintenance</li>
+                <li><strong>Specialized nonprofit platforms</strong> (e.g., Morweb, Firespring) &mdash; Built-in donation/CRM features</li>
+                <li><strong>Hybrid approach</strong> &mdash; Squarespace for site + external tools for registration/donations</li>
+            </ul>
+        </div>
+
+        <div class="activities-group" style="margin-top: 32px;">
+            <h4>Activities</h4>
+            <ul class="activity-list">
+                <li>Score each platform against criteria (spreadsheet)</li>
+                <li>Get cost estimates (platform fees, implementation, annual maintenance)</li>
+                <li>If considering an agency: issue brief RFP or request proposals from 2-3 firms</li>
+                <li>Assess migration effort from current Squarespace site</li>
+            </ul>
+        </div>
+
+        <div class="checkpoint">
+            <h4>Checkpoint: Platform Decision</h4>
+            <div class="present"><strong>Present to committee:</strong> Platform comparison matrix, cost analysis, recommendation</div>
+            <div class="decision"><strong>Decision needed:</strong> Platform selection and (if applicable) agency/partner selection</div>
+        </div>
+    </section>
+
+    <hr class="phase-divider">
+
+    <!-- Phase 3 -->
+    <section class="phase-detail alt-bg">
+        <div class="phase-detail-inner">
+            <div class="phase-header">
+                <span class="phase-badge" style="background: rgba(236, 72, 153, 0.2); color: var(--phase-3);">Phase 3</span>
+                <h3>Design &amp; Information Architecture</h3>
+            </div>
+            <p class="phase-goal">Define site structure, page layouts, and visual design &mdash; building on the mockup direction but through a proper design process.</p>
+
+            <div class="activities-group">
+                <h4>Information Architecture</h4>
+                <ul class="activity-list">
+                    <li>
+                        <div>
+                            <strong>Sitemap</strong> &mdash; Define full page hierarchy based on requirements and content audit
+                            <div class="sub-items">
+                                <span class="sub-item">Primary navigation, footer navigation, utility navigation (language, login, search)</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>User flows</strong> &mdash; Diagram the paths key personas take to accomplish their goals
+                            <div class="sub-items">
+                                <span class="sub-item">Parent enrolling a child, donor making a gift, visitor exploring scholarships</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="activities-group">
+                <h4>Design Progression</h4>
+                <ul class="activity-list">
+                    <li>
+                        <div>
+                            <strong>Mood boards</strong> &mdash; 2-3 visual directions capturing the desired tone and feel
+                            <div class="sub-items">
+                                <span class="sub-item">Colors, textures, typography samples, image treatments, reference sites</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Style tiles</strong> &mdash; Refined visual vocabulary without page layout
+                            <div class="sub-items">
+                                <span class="sub-item">Font pairings, color palette, button styles, image treatment, iconography direction</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Wireframes</strong> &mdash; Low-fidelity page layouts showing content placement and navigation
+                            <div class="sub-items">
+                                <span class="sub-item">Homepage, program detail, new student, donation, scholarship, events, about/faculty, contact</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Design comps</strong> &mdash; Full-color, high-fidelity mockups for key page templates
+                            <div class="sub-items">
+                                <span class="sub-item">2-3 rounds of revision, mobile and tablet responsive variations</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="activities-group">
+                <h4>Design System &amp; Accessibility</h4>
+                <ul class="activity-list">
+                    <li>
+                        <div>
+                            <strong>Design system / style guide</strong> &mdash; Documented reference for all design components
+                            <div class="sub-items">
+                                <span class="sub-item">Typography scale, color usage rules, button variants, spacing, card patterns, form styles</span>
+                                <span class="sub-item">Ensures consistency during build and future staff-led maintenance</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li><strong>Accessibility review</strong> &mdash; WCAG 2.2 AA compliance: color contrast (4.5:1 minimum), font sizes, keyboard navigation, heading hierarchy</li>
+                </ul>
+            </div>
+
+            <div class="checkpoint">
+                <h4>Checkpoint: Design Approval</h4>
+                <div class="present"><strong>Present to committee + staff:</strong> Sitemap, user flows, wireframes, high-fidelity page designs, style guide</div>
+                <div class="decision"><strong>Decision needed:</strong> Approve design direction before build begins</div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="phase-divider">
+
+    <!-- Phase 4 -->
+    <section class="phase-detail">
+        <div class="phase-header">
+            <span class="phase-badge" style="background: rgba(245, 158, 11, 0.2); color: var(--phase-4);">Phase 4</span>
+            <h3>Content Development</h3>
+        </div>
+        <p class="phase-goal">Create and collect all content for the new site. This is typically the longest pole &mdash; start early and run in parallel with design and build.</p>
+
+        <div class="activities-group">
+            <h4>Content Strategy</h4>
+            <ul class="activity-list">
+                <li>
+                    <div>
+                        <strong>Voice, tone, and messaging framework</strong>
+                        <div class="sub-items">
+                            <span class="sub-item">Align with engagement hierarchy (who are we speaking to on each page?)</span>
+                            <span class="sub-item">Define CTAs by audience segment</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Content matrix</strong> &mdash; Spreadsheet blueprint for the new site, mapping each page to:
+                        <div class="sub-items">
+                            <span class="sub-item">Primary audience and goal, SEO target keyword, meta title and description</span>
+                            <span class="sub-item">Content outline and required sections, calls to action, media needs</span>
+                            <span class="sub-item">Content owner, status (draft / in review / approved), source (existing / needs writing)</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>Storytelling framework</strong> &mdash; Templates for recurring content types
+                        <div class="sub-items">
+                            <span class="sub-item">Student/family impact stories, instructor profiles, community impact narratives</span>
+                            <span class="sub-item">Program descriptions focused on outcomes and experience, not just logistics</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="activities-group">
+            <h4>Copywriting</h4>
+            <ul class="activity-list">
+                <li>Homepage hero messaging and impact metrics</li>
+                <li>Program descriptions, donation page copy and giving levels</li>
+                <li>Student/family testimonials and scholarship narratives</li>
+                <li>FAQ content (aligned with schema markup strategy)</li>
+            </ul>
+        </div>
+
+        <div class="activities-group">
+            <h4>Photography &amp; Media</h4>
+            <ul class="activity-list">
+                <li><strong>Photo audit</strong> &mdash; Inventory existing library for quality, coverage, and usage rights</li>
+                <li>
+                    <div>
+                        <strong>Shot list and photo sessions</strong> &mdash; 2-3 dedicated sessions capturing authentic moments
+                        <div class="sub-items">
+                            <span class="sub-item">Individual lessons, group classes, recitals/performances, the facility, instructor portraits</span>
+                        </div>
+                    </div>
+                </li>
+                <li><strong>Video planning</strong> &mdash; Identify 2-3 key opportunities (student testimonials, class previews, virtual tour)</li>
+                <li><strong>Photo consent forms</strong> &mdash; Collect signed releases, especially for images of minors</li>
+            </ul>
+        </div>
+
+        <div class="activities-group">
+            <h4>Multilingual &amp; SEO</h4>
+            <ul class="activity-list">
+                <li>
+                    <div>
+                        <strong>Multilingual content</strong> &mdash; Translate priority pages into Spanish
+                        <div class="sub-items">
+                            <span class="sub-item">Determine scope: full site vs. key pages (enrollment, scholarships, contact)</span>
+                        </div>
+                    </div>
+                </li>
+                <li><strong>Schema markup preparation</strong> &mdash; Finalize JSON-LD content using the existing implementation guide</li>
+                <li><strong>Content migration plan</strong> &mdash; Map existing content to new IA structure; identify what transfers, what needs rewriting, and gaps requiring new content</li>
+            </ul>
+        </div>
+
+        <div class="checkpoint">
+            <h4>Checkpoint: Content Review</h4>
+            <div class="present"><strong>Present to committee + staff:</strong> Content matrix, draft copy for key pages, media plan</div>
+            <div class="decision"><strong>Decision needed:</strong> Content approval (may require multiple rounds for key pages)</div>
+        </div>
+    </section>
+
+    <hr class="phase-divider">
+
+    <!-- Phase 5 -->
+    <section class="phase-detail alt-bg">
+        <div class="phase-detail-inner">
+            <div class="phase-header">
+                <span class="phase-badge" style="background: rgba(239, 68, 68, 0.2); color: var(--phase-5);">Phase 5</span>
+                <h3>Build &amp; Integration</h3>
+            </div>
+            <p class="phase-goal">Build the site on the chosen platform, integrate third-party tools, and set up analytics and marketing foundations.</p>
+
+            <div class="activities-group">
+                <h4>Platform &amp; Development</h4>
+                <ul class="activity-list">
+                    <li>Platform setup &mdash; Configure hosting, domain, SSL</li>
+                    <li>Template/page development &mdash; Build all page templates per approved designs and style guide</li>
+                    <li>Content population &mdash; Load all approved content, images, and media per migration plan</li>
+                    <li>Staff CMS training &mdash; Ensure Brittany and Cody can edit pages, add events, and publish posts</li>
+                </ul>
+            </div>
+
+            <div class="activities-group">
+                <h4>Integrations</h4>
+                <ul class="activity-list">
+                    <li>Registration/enrollment system and payment processing</li>
+                    <li>Donation platform integration (one-time, recurring, campaigns)</li>
+                    <li>Email marketing (newsletter signup forms, list segmentation, welcome series automation)</li>
+                    <li>Event management (calendar, RSVP)</li>
+                    <li>Social media feeds and links</li>
+                </ul>
+            </div>
+
+            <div class="activities-group">
+                <h4>Analytics &amp; Tracking</h4>
+                <ul class="activity-list">
+                    <li>
+                        <div>
+                            <strong>Google Tag Manager</strong> &mdash; Central container for all tracking tags
+                            <div class="sub-items">
+                                <span class="sub-item">GA4 property tag, conversion event tags, remarketing tags, Meta Pixel</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Google Analytics 4 (GA4)</strong> &mdash; Pageviews, sessions, user demographics, audience segments
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Conversion tracking</strong> &mdash; Both macro and micro conversions
+                            <div class="sub-items">
+                                <span class="sub-item">Macro: completed donation, completed registration, contact form submission</span>
+                                <span class="sub-item">Micro: visited donate page, clicked "learn more" on a program, watched a video</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>Google Search Console &mdash; Search performance, indexing, crawl errors</li>
+                    <li>Schema markup deployment (per implementation guide)</li>
+                    <li>Google Business Profile &mdash; Verify and optimize</li>
+                </ul>
+            </div>
+
+            <div class="activities-group">
+                <h4>Digital Marketing Foundation</h4>
+                <ul class="activity-list">
+                    <li>UTM parameter strategy for campaign tracking</li>
+                    <li>Social sharing metadata (Open Graph tags) &mdash; Ensure shared links display correctly</li>
+                    <li>Meta Pixel &mdash; Install from day one to build audience data for future campaigns</li>
+                    <li>Google Ads remarketing tag &mdash; Build visitor audiences for Ad Grants campaigns</li>
+                    <li>SEO migration plan &mdash; Crawl old site, map all URLs, implement 301 redirects, submit new sitemap</li>
+                    <li>Google Ad Grants application &mdash; Apply during build so account is ready at launch</li>
+                </ul>
+            </div>
+
+            <div class="checkpoint">
+                <h4>Checkpoint: Staging Review</h4>
+                <div class="present"><strong>Present to committee + staff:</strong> Full site in staging environment, all integrations functional</div>
+                <div class="decision"><strong>Decision needed:</strong> Approval to proceed to testing and launch</div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="phase-divider">
+
+    <!-- Phase 6 -->
+    <section class="phase-detail">
+        <div class="phase-header">
+            <span class="phase-badge" style="background: rgba(16, 185, 129, 0.2); color: var(--phase-6);">Phase 6</span>
+            <h3>Testing &amp; Launch</h3>
+        </div>
+        <p class="phase-goal">Ensure everything works, then go live.</p>
+
+        <div class="activities-group">
+            <h4>Functional Testing</h4>
+            <ul class="activity-list">
+                <li>All forms submit correctly and send notifications to the right recipients</li>
+                <li>Donation forms process test transactions successfully</li>
+                <li>Registration/enrollment links connect properly</li>
+                <li>Email signup forms add subscribers to the correct list</li>
+                <li>All internal and external links work (no 404 errors)</li>
+                <li>Media embeds (video, audio, maps, calendar) load properly</li>
+            </ul>
+        </div>
+
+        <div class="activities-group">
+            <h4>Cross-Browser, Performance &amp; Accessibility</h4>
+            <ul class="activity-list">
+                <li>Cross-browser testing &mdash; Chrome, Safari, Firefox, Edge</li>
+                <li>Mobile device testing &mdash; iOS and Android at multiple screen sizes</li>
+                <li>Page speed testing &mdash; Target under 3 seconds (Google PageSpeed Insights)</li>
+                <li>Image optimization &mdash; Compressed and properly sized</li>
+                <li>
+                    <div>
+                        <strong>Accessibility testing</strong>
+                        <div class="sub-items">
+                            <span class="sub-item">Automated scans (WAVE, Lighthouse), keyboard navigation, screen reader testing</span>
+                            <span class="sub-item">Color contrast verification, form label verification, heading hierarchy check</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="activities-group">
+            <h4>Content QA</h4>
+            <ul class="activity-list">
+                <li>Proofread every page for spelling, grammar, and factual accuracy</li>
+                <li>Verify all images have alt text</li>
+                <li>Check phone numbers, addresses, and email addresses</li>
+                <li>Verify PDFs and downloadable files open correctly</li>
+            </ul>
+        </div>
+
+        <div class="activities-group">
+            <h4>User Acceptance Testing</h4>
+            <ul class="activity-list">
+                <li>New student finds and starts registration</li>
+                <li>Donor makes a gift</li>
+                <li>Parent finds lesson schedule and teacher info</li>
+                <li>Visitor reads about scholarships and applies</li>
+                <li>Brittany updates a page, adds an event, publishes a blog post</li>
+            </ul>
+        </div>
+
+        <div class="activities-group">
+            <h4>Launch Checklist</h4>
+            <ul class="activity-list">
+                <li>All 301 redirects in place and tested</li>
+                <li>robots.txt allows crawling, XML sitemap submitted to Search Console</li>
+                <li>GA4 and Google Tag Manager verified and collecting data</li>
+                <li>SSL certificate active (HTTPS on all pages)</li>
+                <li>Favicon, Open Graph images, and social sharing metadata configured</li>
+                <li>Custom 404 page created</li>
+                <li>Privacy policy page in place</li>
+                <li>Update external profiles &mdash; Social media, directory listings, Google Business Profile, GuideStar</li>
+            </ul>
+        </div>
+
+        <div class="activities-group">
+            <h4>Launch Sequence</h4>
+            <ul class="activity-list">
+                <li><strong>Soft launch</strong> &mdash; Site live but not yet promoted; monitor for errors and analytics issues</li>
+                <li>
+                    <div>
+                        <strong>Full launch</strong> &mdash; Announce via all channels
+                        <div class="sub-items">
+                            <span class="sub-item">Email to current families and donors, social media, board communication</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="checkpoint">
+            <h4>Checkpoint: Launch Approval</h4>
+            <div class="present"><strong>Present to committee:</strong> QA results, launch checklist status, any outstanding issues</div>
+            <div class="decision"><strong>Decision needed:</strong> Go/no-go for full launch</div>
+        </div>
+    </section>
+
+    <hr class="phase-divider">
+
+    <!-- Phase 7 -->
+    <section class="phase-detail alt-bg">
+        <div class="phase-detail-inner">
+            <div class="phase-header">
+                <span class="phase-badge" style="background: rgba(6, 182, 212, 0.2); color: var(--phase-7);">Phase 7</span>
+                <h3>Post-Launch Optimization</h3>
+            </div>
+            <p class="phase-goal">The site is live &mdash; now make it work harder over time.</p>
+
+            <div class="activities-group">
+                <h4>First Month: Stabilization</h4>
+                <ul class="activity-list">
+                    <li>Weekly monitoring &mdash; Broken links, 404 errors, redirect issues, crawl errors in Search Console</li>
+                    <li>Verify analytics data is collecting accurately</li>
+                    <li>Fix any issues surfaced by real-world traffic patterns</li>
+                </ul>
+            </div>
+
+            <div class="activities-group">
+                <h4>Ongoing Reporting Cadence</h4>
+                <ul class="activity-list">
+                    <li>
+                        <div>
+                            <strong>Monthly analytics review</strong> (Brittany + Chris)
+                            <div class="sub-items">
+                                <span class="sub-item">Traffic trends, top pages, referral sources, new vs. returning visitors</span>
+                                <span class="sub-item">Conversion rates: registration, donation, newsletter signup, contact form</span>
+                                <span class="sub-item">Search performance: keyword rankings, organic impressions, click-through rates</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li><strong>Quarterly board report</strong> &mdash; Key website metrics tied to strategic plan KPIs</li>
+                    <li><strong>Annual site review</strong> &mdash; Comprehensive assessment, technology check, strategic alignment</li>
+                </ul>
+            </div>
+
+            <div class="activities-group">
+                <h4>Content &amp; SEO Maintenance</h4>
+                <ul class="activity-list">
+                    <li>Content freshness &mdash; Event calendar (ongoing), student stories (quarterly), faculty updates, blog posts (monthly target)</li>
+                    <li>SEO refinement &mdash; Optimize underperforming pages, build internal linking, pursue local SEO opportunities</li>
+                    <li>Broken link checks &mdash; Monthly scan for broken internal and external links</li>
+                    <li>Accessibility maintenance &mdash; Quarterly re-scan, fix issues as they arise</li>
+                </ul>
+            </div>
+
+            <div class="activities-group">
+                <h4>Website Governance</h4>
+                <ul class="activity-list">
+                    <li><strong>Roles</strong> &mdash; Define who can edit what, approval flow for publishing content</li>
+                    <li><strong>Editorial calendar</strong> &mdash; Planned content for the next 3-6 months</li>
+                    <li><strong>Update schedule</strong> &mdash; Defined cadence for when different sections get refreshed</li>
+                </ul>
+            </div>
+
+            <div class="activities-group">
+                <h4>Digital Marketing Activation</h4>
+                <ul class="activity-list">
+                    <li>
+                        <div>
+                            <strong>Google Ad Grants</strong> ($10K/month free for nonprofits)
+                            <div class="sub-items">
+                                <span class="sub-item">Search ads for enrollment, events, scholarships</span>
+                                <span class="sub-item">Must maintain 5% CTR, minimum 2 ad groups per campaign, active conversion tracking</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li><strong>Email marketing</strong> &mdash; Segmented campaigns by audience and engagement level, welcome series for new subscribers</li>
+                    <li><strong>Retargeting</strong> &mdash; Re-engage site visitors who didn't convert via Google Ads and Meta audiences</li>
+                    <li><strong>Social media advertising</strong> &mdash; Targeted campaigns for enrollment periods, fundraising drives</li>
+                    <li><strong>A/B testing</strong> &mdash; Homepage messaging, CTA placement, donation page giving levels, email subject lines</li>
+                </ul>
+            </div>
+
+            <div class="checkpoint">
+                <h4>Checkpoint: Quarterly Reviews</h4>
+                <div class="present"><strong>Present to board:</strong> Website performance dashboard with traffic, conversions, and search metrics</div>
+                <div class="decision"><strong>Decision needed:</strong> Ongoing investment and optimization priorities</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Checkpoint Summary -->
+    <section class="section-header">
+        <div class="section-number">4</div>
+        <h2>Checkpoint Summary</h2>
+        <p>Decision gates throughout the project</p>
+    </section>
+
+    <section class="checkpoint-summary">
+        <div class="checkpoint-summary-container">
+            <div class="checkpoint-grid">
+                <div class="checkpoint-row">
+                    <span class="cp-name">Board Authorization</span>
+                    <span class="cp-phase">Phase 0</span>
+                    <span class="cp-audience">Full Board</span>
+                    <span class="cp-decision">Approve scope, budget, timeline</span>
+                </div>
+                <div class="checkpoint-row">
+                    <span class="cp-name">Requirements Sign-off</span>
+                    <span class="cp-phase">Phase 1</span>
+                    <span class="cp-audience">Committee + Staff</span>
+                    <span class="cp-decision">Confirm what we're building</span>
+                </div>
+                <div class="checkpoint-row">
+                    <span class="cp-name">Platform Decision</span>
+                    <span class="cp-phase">Phase 2</span>
+                    <span class="cp-audience">Committee</span>
+                    <span class="cp-decision">Choose technology and partner</span>
+                </div>
+                <div class="checkpoint-row">
+                    <span class="cp-name">Design Approval</span>
+                    <span class="cp-phase">Phase 3</span>
+                    <span class="cp-audience">Committee + Staff</span>
+                    <span class="cp-decision">Approve look, feel, and structure</span>
+                </div>
+                <div class="checkpoint-row">
+                    <span class="cp-name">Content Review</span>
+                    <span class="cp-phase">Phase 4</span>
+                    <span class="cp-audience">Committee + Staff</span>
+                    <span class="cp-decision">Approve page content</span>
+                </div>
+                <div class="checkpoint-row">
+                    <span class="cp-name">Staging Review</span>
+                    <span class="cp-phase">Phase 5</span>
+                    <span class="cp-audience">Committee + Staff</span>
+                    <span class="cp-decision">Approve built site</span>
+                </div>
+                <div class="checkpoint-row">
+                    <span class="cp-name">Launch Approval</span>
+                    <span class="cp-phase">Phase 6</span>
+                    <span class="cp-audience">Committee</span>
+                    <span class="cp-decision">Go/no-go for launch</span>
+                </div>
+                <div class="checkpoint-row">
+                    <span class="cp-name">Quarterly Reviews</span>
+                    <span class="cp-phase">Phase 7</span>
+                    <span class="cp-audience">Board</span>
+                    <span class="cp-decision">Ongoing performance vs. goals</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Next Steps -->
+    <section class="section-header">
+        <div class="section-number">5</div>
+        <h2>Immediate Next Steps</h2>
+        <p>Actions to kick off Phase 0</p>
+    </section>
+
+    <section class="next-steps-section">
+        <div class="next-steps-list">
+            <div class="next-step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <div class="step-owner">Chris</div>
+                    <p>Share this plan with Lindsay for initial feedback</p>
+                </div>
+            </div>
+            <div class="next-step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <div class="step-owner">Chris + Lindsay</div>
+                    <p>Identify 2-3 board members for the website committee</p>
+                </div>
+            </div>
+            <div class="next-step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <div class="step-owner">Chris</div>
+                    <p>Schedule committee kickoff meeting</p>
+                </div>
+            </div>
+            <div class="next-step-item">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <div class="step-owner">Committee</div>
+                    <p>Review existing mockups and strategic recommendations together</p>
+                </div>
+            </div>
+            <div class="next-step-item">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <div class="step-owner">Committee</div>
+                    <p>Draft project charter (scope, budget range) for board approval</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>NCMS Digital Presence Refresh &mdash; Project Plan &mdash; March 2026</p>
+    </footer>
+
+</body>
+</html>
